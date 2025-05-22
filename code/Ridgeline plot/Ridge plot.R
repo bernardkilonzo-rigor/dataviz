@@ -26,7 +26,7 @@ x%>%filter(Entity=="Russia")%>%
 
 
 #Apply color gradient
-x%>%filter(Entity=="Russia")%>%
+y<-x%>%filter(Entity=="Russia")%>%
   ggplot(aes(x = tempr, y = mon, fill = stat(x)))+
   geom_density_ridges_gradient(color = "gray50",
                                linewidth = 0.4)+
@@ -43,3 +43,6 @@ x%>%filter(Entity=="Russia")%>%
         plot.subtitle = element_text(family = "sans",face = "italic"),
         plot.caption = element_text(family = "mono",face = "italic")
   )
+
+#creating the plot
+plot(y)
