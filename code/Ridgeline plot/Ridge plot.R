@@ -44,5 +44,5 @@ y<-x%>%filter(Entity=="Russia")%>%
         plot.caption = element_text(family = "mono",face = "italic")
   )
 
-#creating the plot
+#creating the ridgeline plot
 plot(y)
