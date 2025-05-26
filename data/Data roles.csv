@@ -1,0 +1,5 @@
+Role,Data Pipelines,Databases,Data Tools,Storytelling,Data Visualization,Business Insights,Metrics & Reporting,Experimentation,Inference,Stats & ML Modelling,Model Deployment,ML Ops
+Data Engineers,1,1,1,0.3,0.3,0.3,0.3,0.2,0.2,0.2,0.3,0.4
+Data Analysts,0.1,0.1,0.1,1,1,1,1,0.5,0.4,0.3,0.1,0.1
+Data Scientists,0.4,0.3,0.2,0.4,0.4,0.4,0.4,0.7,0.9,1,0.4,0.3
+ML Engineers,0.6,0.4,0.2,0.3,0.3,0.3,0.3,0.4,0.5,0.6,1,1
