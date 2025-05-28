@@ -31,4 +31,4 @@ pp<-ggplot(parliament_plot, aes(x=x, y=y, color = Party))+
 
 #save parliament plot
 ggsave(plot = pp, filename = "Parliament_plot.png",
-       width = 10, height = 8, units = "in", dpi = 600) 
+       width = 8, height = 6, units = "in", dpi = 600) 
