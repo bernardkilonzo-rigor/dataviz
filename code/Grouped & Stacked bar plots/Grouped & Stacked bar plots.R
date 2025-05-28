@@ -27,7 +27,7 @@ bp<-superstore%>%ggplot(aes(x =Region, y = Sales, fill =Category))+
  
 #save grouped bar plot
 ggsave(plot = bp, filename = "grouped_bar_plot.png",
-       width = 10, height = 8, units = "in", dpi = 600)
+       width = 8, height = 6, units = "in", dpi = 600)
 
 
 #Creating stacked bar plot
@@ -51,4 +51,4 @@ sp<-superstore%>%ggplot(aes(x =Region, y = Sales, fill =Category))+
 
 #save stacked bar plot
 ggsave(plot = sp, filename = "stacked_bar_plot.png",
-       width = 10, height = 8, units = "in", dpi = 600)
+       width = 8, height = 6, units = "in", dpi = 600)
