@@ -3,10 +3,10 @@ library(tidyverse)
 library(paletteer)
 library(scales)
 
-#load dataset
+#load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Sample%20-%20Superstore.csv")
 
-#modify the dataset
+#modify the data
 #add a column that computes month as a string
 superstore<-superstore%>%mutate(month=month(Order.Date, label =TRUE))
 
@@ -37,4 +37,4 @@ stck<-Prtions%>%ggplot(aes(x =month, y = percent, fill =Region))+
 
 #save 100% stacked bar plot
 ggsave(plot = stck, filename = "Rplot.png",
-       width = 10, height = 8, units = "in", dpi = 600) 
+       width = 8, height = 6, units = "in", dpi = 300) 
