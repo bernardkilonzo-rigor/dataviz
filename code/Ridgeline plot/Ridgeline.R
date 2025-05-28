@@ -4,7 +4,6 @@ library(tidyverse)
 
 #load dataset
 surface_temperature<-read_csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/global%20surface%20temperature.csv")
-View(surface_temperature)
 
 #pivoting dataset
 surface_temperature<-surface_temperature%>%
@@ -39,6 +38,6 @@ rg<-surface_temperature%>%filter(Entity=="Russia")%>%
         plot.caption = element_text(family = "mono",face = "italic")
   )
 
-#save
+#save the plot
 ggsave(plot = rg, filename = "Rplot.png",
-       width = 10, height = 8, units = "in", dpi = 600)
+       width = 8, height = 6, units = "in", dpi = 300)
