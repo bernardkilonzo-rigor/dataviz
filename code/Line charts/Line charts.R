@@ -26,7 +26,7 @@ lp<-superstore%>%ggplot(aes(x = my, y = Sales))+
 
 #save line plot
 ggsave(plot = lp, filename = "basic_line_plot.png",
-       width = 10, height = 8, units = "in", dpi = 600)
+       width = 8, height = 6, units = "in", dpi = 300)
 
 #creating multiple line plot
 mlp<-superstore%>%ggplot(aes(x = my, y = Sales, color =Region))+
@@ -47,4 +47,4 @@ mlp<-superstore%>%ggplot(aes(x = my, y = Sales, color =Region))+
 
 #save multiple line plot
 ggsave(plot = mlp, filename = "multiple_line_plot.png",
-       width = 10, height = 8, units = "in", dpi = 600)
+       width = 8, height = 6, units = "in", dpi = 300)
