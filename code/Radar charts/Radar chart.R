@@ -73,7 +73,7 @@ legend("bottomright",
        title = "Job Roles", title.font = 2)
 
 #add caption
-mtext("Viz by: Bernard Kilonzo", side = 1, line = 3, cex = 1.2, col = "black")
+mtext("Viz by: Bernard Kilonzo", side = 1, line = 3, cex = 1, col = "black")
 
 #close PNG device
 dev.off()
