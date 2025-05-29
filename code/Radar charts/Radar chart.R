@@ -35,7 +35,7 @@ ggsave(plot = rd_1, filename = "radar_chart_1.png",
 library(fmsb)
 
 #load data
-#note, the first and second row represents the maximum and minimum values respectively.
+#note, the first and second row in this data represents the maximum and minimum values respectively.
 data_roles1<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Data_roles_v2.csv")
 
 #define colors
