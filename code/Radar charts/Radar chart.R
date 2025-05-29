@@ -49,7 +49,7 @@ line <- c(rgb(1, 0, 0, 0.25),
            rgb(0,1,1,0.25))
 
 #save plot
-png("radar_chart_v2.png", width = 800, height = 600)
+png("radar_chart_v2.png", width = 800, height = 800)
 
 ##Create radar chart_v2
 radarchart(data_roles1,
@@ -60,7 +60,7 @@ radarchart(data_roles1,
                  pfcol = areas,
                  plwd = 1.5,
                  plty = 1,
-                 vlcex = 0.6,
+                 vlcex = 1,
            title = "Data Science Skills by Job Role")+
   theme(title = element_text(family = "serif", size = 12))
 
@@ -69,8 +69,11 @@ legend("bottomright",
        legend = c("ML Engineers","Data Engineers",
                   "Data Scientists","Data Analysts"),
        bty = "n", pch = 20, col = areas,
-       text.col = "gray35", pt.cex = 2, cex = 0.7,
+       text.col = "gray35", pt.cex = 2, cex = 1,
        title = "Job Roles", title.font = 2)
+
+#add caption
+mtext("Viz by: Bernard Kilonzo", side = 1, line = 3, cex = 1.5, col = "black")
 
 #close PNG device
 dev.off()
