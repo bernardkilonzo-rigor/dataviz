@@ -21,7 +21,7 @@ stck<-Prtions%>%ggplot(aes(x =month, y = percent, fill =Region))+
   geom_bar(stat = "identity", position = "stack")+
   scale_y_continuous(labels = percent_format())+
     scale_fill_paletteer_d("nationalparkcolors::Acadia")+
-  labs(title = "Monthly Sales Distribution Across Regions",
+  labs(title = "Sales Breakdown by Region",
        caption = "Visualization by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         axis.line = element_line(color = "gray50"),
