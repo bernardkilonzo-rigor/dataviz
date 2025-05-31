@@ -11,15 +11,19 @@ superstore<-superstore%>%mutate(Order.Date =dmy(Order.Date))%>%
 
 #Creating bar-in-bar chart comparing Sales and Profit
 bbp<-superstore%>%ggplot(aes(x = mon))+
-  geom_bar(aes(y = Sales), stat = "summary", fun =sum, fill = "#a4bed5", width = 0.6)+
-  geom_bar(aes(y = Profit), stat = "summary", fun = sum, fill = "#476f84", width = 0.3)+
+  geom_bar(aes(y = Sales, fill = "Sales"), stat = "summary", fun =sum, width = 0.6)+
+  geom_bar(aes(y = Profit, fill = "Profit"), stat = "summary", fun = sum, width = 0.3)+
+  scale_fill_manual(values = c("Sales"="#a4bed5", "Profit"="#476f84"))+
   scale_y_continuous(labels = comma)+
   labs(title = "Bar-in-Bar Chart Comparing Sales and Profit",
        caption = "Viz by: Bernard Kilonzo",
-       x = "Month", y = "Value")+
+       x = "Month", y = "Value", fill = "Metric")+
   theme(panel.background = element_blank(),
         axis.line = element_line(color = "gray50"),
         axis.text = element_text(family = "serif",size = 10,color = "gray40"),
+        legend.title = element_text(family = "serif",size = 10 ,color = "gray30"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray35"),
+        legend.position = "top",
         axis.title = element_text(family = "serif", size = 10, color = "gray35"),
         plot.title = element_text(family = "serif", face = "bold", size = 14, color = "gray30"),
         plot.caption = element_text(family = "serif", size = 9, color = "gray35"))
