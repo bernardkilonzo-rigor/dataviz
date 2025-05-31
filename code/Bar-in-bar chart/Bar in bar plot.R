@@ -13,7 +13,6 @@ superstore<-superstore%>%mutate(Order.Date =dmy(Order.Date))%>%
 bbp<-superstore%>%ggplot(aes(x = mon))+
   geom_bar(aes(y = Sales), stat = "summary", fun =sum, fill = "#a4bed5", width = 0.6)+
   geom_bar(aes(y = Profit), stat = "summary", fun = sum, fill = "#476f84", width = 0.3)+
-  guides(fill = guide_legend(title = "cate"))+
   scale_y_continuous(labels = comma)+
   labs(title = "Bar-in-Bar Chart Comparing Sales and Profit",
        caption = "Viz by: Bernard Kilonzo",
