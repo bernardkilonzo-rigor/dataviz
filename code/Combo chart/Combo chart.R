@@ -11,7 +11,7 @@ superstore<-superstore%>%mutate(Order.Date=dmy(Order.Date))%>%
   mutate(mon = month(Order.Date, label = TRUE))
 
 #creating a combo chart (line + column chart)
-superstore%>%ggplot(aes(x = mon))+
+lcc<-superstore%>%ggplot(aes(x = mon))+
   geom_bar(aes(y = Sales, fill = "Sales"), stat = "summary", fun = sum, width = 0.5)+
   geom_line(aes(y = Profit, color = "Profit",group = 1), stat = "summary", fun = sum, linewidth = 1)+
   scale_color_manual(values = c("Profit"="brown"))+
@@ -28,8 +28,12 @@ superstore%>%ggplot(aes(x = mon))+
         plot.title = element_text(family = "serif", face = "bold",size = 12, color = "gray20"),
         plot.caption = element_text(family = "serif", size = 9, color = "gray30"))
 
+#save line + column chart
+ggsave(plot = lcc, filename = "Line_column_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300)
+
 #create a combo chart (Line + stacked columns)
-superstore%>%ggplot(aes(x = mon))+
+lsc<-superstore%>%ggplot(aes(x = mon))+
   geom_bar(aes(y = Sales, fill = Category), stat = "summary", fun = sum,position = "stack", width = 0.5, alpha = 0.8)+
   geom_line(aes(y = Profit, color = "Profit",group = 1), stat = "summary", fun = sum, linewidth = 1.1)+
   scale_color_manual(values = c("Profit"="steelblue"))+
@@ -47,8 +51,12 @@ superstore%>%ggplot(aes(x = mon))+
         plot.title = element_text(family = "serif", face = "bold",size = 12, color = "gray20"),
         plot.caption = element_text(family = "serif", size = 9, color = "gray30"))
 
+#save line + stacked columns
+ggsave(plot = lsc, filename = "Line_stacked_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300)
+
 #creating a combo chart (line + clustered columns)
-superstore%>%ggplot(aes(x = Region))+
+lccc<-superstore%>%ggplot(aes(x = Region))+
   geom_bar(aes(y = Sales, fill = Category), stat = "summary", fun = sum,position = "dodge", width = 0.5, alpha = 0.8)+
   geom_line(aes(y = Profit, color = "Profit",group = 1), stat = "summary", fun = sum, linewidth = 1.5)+
   scale_color_manual(values = c("Profit"="brown"))+
@@ -66,8 +74,12 @@ superstore%>%ggplot(aes(x = Region))+
         plot.title = element_text(family = "serif", face = "bold",size = 12, color = "gray20"),
         plot.caption = element_text(family = "serif", size = 9, color = "gray30"))
 
+#save line + clustered columns
+ggsave(plot = lccc, filename = "Line_clustered_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300)
+
 #creating a combo chart (area + column chart)
-superstore%>%ggplot(aes(x = mon))+
+acc<-superstore%>%ggplot(aes(x = mon))+
   geom_area(aes(y = Profit, fill = "Profit",group = 1), stat = "summary", fun = sum)+
   geom_bar(aes(y = Sales, fill = "Sales"), stat = "summary", fun = sum, width = 0.5)+
   scale_fill_manual(values = c("Sales"="steelblue","Profit"="lightblue"))+
@@ -83,8 +95,12 @@ superstore%>%ggplot(aes(x = mon))+
         plot.title = element_text(family = "serif", face = "bold",size = 12, color = "gray20"),
         plot.caption = element_text(family = "serif", size = 9, color = "gray30"))
 
+#save area + column chart
+ggsave(plot = acc, filename = "Area_column_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300)
+
 #creating a combo chart (line + area chart)
-superstore%>%ggplot(aes(x = mon))+
+lac<-superstore%>%ggplot(aes(x = mon))+
   geom_area(aes(y = Sales, fill = "Sales", group = 1), stat = "summary", fun = sum)+
   geom_line(aes(y = Profit, color = "Profit",group = 1), stat = "summary", fun = sum, linewidth = 1.2)+
   scale_fill_manual(values = c("Sales"="lightblue"))+
@@ -100,3 +116,8 @@ superstore%>%ggplot(aes(x = mon))+
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif", face = "bold",size = 12, color = "gray20"),
         plot.caption = element_text(family = "serif", size = 9, color = "gray30"))
+
+
+#save line + area chart
+ggsave(plot = lac, filename = "Line_area_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300) 
