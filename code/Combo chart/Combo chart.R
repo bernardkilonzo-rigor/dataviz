@@ -1,6 +1,7 @@
 #load libraries
 library(tidyverse)
 library(scales)
+library(paletteer)
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Sample%20-%20Superstore.csv")
@@ -24,5 +25,43 @@ superstore%>%ggplot(aes(x = mon))+
         axis.text = element_text(family = "serif", size = 9, color = "gray30"),
         axis.title = element_text(family = "serif", size = 10, color = "gray25"),
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
+        plot.title = element_text(family = "serif", face = "bold",size = 12, color = "gray20"),
+        plot.caption = element_text(family = "serif", size = 9, color = "gray30"))
+
+#create combo chart (Line + stacked column)
+superstore%>%ggplot(aes(x = mon))+
+  geom_bar(aes(y = Sales, fill = Category), stat = "summary", fun = sum,position = "stack", width = 0.5, alpha = 0.8)+
+  geom_line(aes(y = Profit, color = "Profit",group = 1), stat = "summary", fun = sum, linewidth = 1.1)+
+  scale_color_manual(values = c("Profit"="steelblue"))+
+  scale_fill_paletteer_d("nationalparkcolors::Acadia")+
+  scale_y_continuous(labels = comma)+
+  labs(title = "Tracking Sales and Profit",
+       caption = "Viz by: Bernard Kilonzo",
+       x = "Month", y = "Value", fill = "Category", color = NULL)+
+  theme(panel.background = element_blank(),
+        axis.line = element_line(color = "gray30"),
+        axis.text = element_text(family = "serif", size = 9, color = "gray30"),
+        axis.title = element_text(family = "serif", size = 10, color = "gray25"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray30"),
+        legend.title = element_text(family = "serif", size = 10, color = "gray25"),
+        plot.title = element_text(family = "serif", face = "bold",size = 12, color = "gray20"),
+        plot.caption = element_text(family = "serif", size = 9, color = "gray30"))
+
+#create combo chart (line + clustered bars)
+superstore%>%ggplot(aes(x = Region))+
+  geom_bar(aes(y = Sales, fill = Category), stat = "summary", fun = sum,position = "dodge", width = 0.5, alpha = 0.8)+
+  geom_line(aes(y = Profit, color = "Profit",group = 1), stat = "summary", fun = sum, linewidth = 1.5)+
+  scale_color_manual(values = c("Profit"="brown"))+
+  scale_fill_paletteer_d("nationalparkcolors::Acadia")+
+  scale_y_continuous(labels = comma)+
+  labs(title = "Tracking Sales and Profit",
+       caption = "Viz by: Bernard Kilonzo",
+       x = "Month", y = "Value", fill = "Category", color = NULL)+
+  theme(panel.background = element_blank(),
+        axis.line = element_line(color = "gray30"),
+        axis.text = element_text(family = "serif", size = 9, color = "gray30"),
+        axis.title = element_text(family = "serif", size = 10, color = "gray25"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray30"),
+        legend.title = element_text(family = "serif", size = 10, color = "gray25"),
         plot.title = element_text(family = "serif", face = "bold",size = 12, color = "gray20"),
         plot.caption = element_text(family = "serif", size = 9, color = "gray30"))
