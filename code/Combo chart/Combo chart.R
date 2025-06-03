@@ -14,8 +14,8 @@ superstore<-superstore%>%mutate(Order.Date=dmy(Order.Date))%>%
 lcc<-superstore%>%ggplot(aes(x = mon))+
   geom_bar(aes(y = Sales, fill = "Sales"), stat = "summary", fun = sum, width = 0.5)+
   geom_line(aes(y = Profit, color = "Profit",group = 1), stat = "summary", fun = sum, linewidth = 1)+
-  scale_color_manual(values = c("Profit"="brown"))+
-  scale_fill_manual(values = c("Sales"="steelblue"))+
+  scale_color_manual(values = c("Profit"="steelblue"))+
+  scale_fill_manual(values = c("Sales"="lightblue"))+
   scale_y_continuous(labels = comma)+
   labs(title = "Sales and Profit Performance by Month",
        caption = "Viz by: Bernard Kilonzo",
@@ -59,7 +59,7 @@ ggsave(plot = lsc, filename = "Line_stacked_chart.png",
 lccc<-superstore%>%ggplot(aes(x = Region))+
   geom_bar(aes(y = Sales, fill = Category), stat = "summary", fun = sum,position = "dodge", width = 0.5, alpha = 0.8)+
   geom_line(aes(y = Profit, color = "Profit",group = 1), stat = "summary", fun = sum, linewidth = 1.5)+
-  scale_color_manual(values = c("Profit"="brown"))+
+  scale_color_manual(values = c("Profit"="steelblue"))+
   scale_fill_paletteer_d("nationalparkcolors::Acadia")+
   scale_y_continuous(labels = comma)+
   labs(title = "Tracking Sales and Profit",
