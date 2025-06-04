@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\Dumbbell")
 #load libraries
 library(tidyverse)
 library(scales)
@@ -50,8 +49,8 @@ labs(title = "Sales and Profit Comparison by Sub-Category",
         plot.title = element_text(family = "serif", face = "bold", size = 14, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray35"))
 
-#Dumbbell chart comparing more than two values
 
+#Dumbbell chart comparing more than two values
 #summarizing sales, profit and quantity by Region
 superstore_v2<-superstore%>%group_by(Region)%>%
   summarise(sales = sum(Sales), profit = sum(Profit), quantity = sum(Quantity))
