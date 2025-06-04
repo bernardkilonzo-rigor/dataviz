@@ -36,20 +36,21 @@ ggsave(plot = db_v1, filename = "Dumbbell_plot_v1.png",
 #Option II (using ggalt package)
 install.packages("ggalt")
 library(ggalt)
+library(ggtext)
 
 #creating the plot using ggalt package
 db_v2<-superstore_v1%>%ggplot(aes(x = profit, xend = sales, y = Sub.Category))+
   geom_dumbbell(color = "gray", size =3,
                 colour_x="brown", colour_xend ="steelblue")+
   scale_x_continuous(labels = comma)+
-labs(title = "Sales and Profit Comparison by Sub-Category",
+labs(title = "<span style='color:steelblue'>Sales</span> and <span style='color:brown'>Profit</span> Comparison by Sub-Category",
        x = "value", y = "Sub-Category", caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         axis.line = element_line(color = "gray45", linewidth = 0.3),
         axis.ticks = element_line(color = "gray45", linewidth = 0.3),
         axis.text = element_text(family = "serif", color = "gray35", size = 9),
         axis.title = element_text(family = "serif", color = "gray25", size = 10),
-        plot.title = element_text(family = "serif", face = "bold", size = 14, color = "gray25"),
+        plot.title = element_markdown(family = "serif", face = "bold", size = 14, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray35"))
 
 #saving the plot
