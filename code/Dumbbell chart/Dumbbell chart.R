@@ -10,7 +10,7 @@ superstore_v1<-superstore%>%group_by(Sub.Category)%>%
   summarise(sales = sum(Sales), profit = sum(Profit))
 
 #creating the plot
-ggplot(superstore_v1)+
+db_v1<-ggplot(superstore_v1)+
   geom_segment(aes(x = profit, xend = sales, y = Sub.Category, yend =Sub.Category),color = "gray65")+
   geom_point(aes(x = profit, y = Sub.Category,color ="profit"), size =4)+
   geom_point(aes(x = sales, y = Sub.Category,color = "sales"), size = 4)+
@@ -29,13 +29,16 @@ labs(title = "Sales and Profit Comparison by Sub-Category",
         plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray20"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray25"))
 
+#saving the plot
+ggsave(plot = db_v1, filename = "Dumbbell_plot_v1.png",
+       width = 8, height = 6, units = "in", dpi = 300) 
 
 #Option II (using ggalt package)
 install.packages("ggalt")
 library(ggalt)
 
 #creating the plot using ggalt package
-superstore_v1%>%ggplot(aes(x = profit, xend = sales, y = Sub.Category))+
+db_v2<-superstore_v1%>%ggplot(aes(x = profit, xend = sales, y = Sub.Category))+
   geom_dumbbell(color = "gray", size =3,
                 colour_x="brown", colour_xend ="steelblue")+
   scale_x_continuous(labels = comma)+
@@ -49,6 +52,9 @@ labs(title = "Sales and Profit Comparison by Sub-Category",
         plot.title = element_text(family = "serif", face = "bold", size = 14, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray35"))
 
+#saving the plot
+ggsave(plot = db_v2, filename = "Dumbbell_plot_v2.png",
+       width = 8, height = 6, units = "in", dpi = 300) 
 
 #Dumbbell chart comparing more than two values
 #summarizing sales, profit and quantity by Region
@@ -60,7 +66,7 @@ superstore_v2<-superstore_v2%>%
   pivot_longer(sales:quantity, names_to = "group", values_to = "values")
 
 #creating the plot
-superstore_v2%>%ggplot(aes(x = values, y = Region, color = group))+
+db_v3<-superstore_v2%>%ggplot(aes(x = values, y = Region, color = group))+
   geom_line(aes(group = Region), color = "gray")+
   geom_point(size = 5)+
   scale_color_manual(values = c("brown","#72874e","steelblue"))+
@@ -77,4 +83,7 @@ labs(title = "Profit vs. Sales vs. Quantity by Region",
         legend.title = element_text(family = "serif", color = "gray35", size = 10),
         plot.title = element_text(family = "serif", face = "bold", color = "gray25", size = 14),
         plot.caption = element_text(family = "serif", face = "italic", color = "gray35", size = 9))
-  
+
+#saving the plot
+ggsave(plot = db_v3, filename = "Dumbbell_plot_v3.png",
+       width = 8, height = 6, units = "in", dpi = 300)   
