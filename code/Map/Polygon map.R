@@ -13,7 +13,7 @@ merged_data<-adm2_shapefiles%>%left_join(
   survey_sample, by =c("commune"="Commune"))
 
 #creating a map (using continuous legend)
-merged_data%>%ggplot(aes(geometry=geometry, label = commune,
+map_1<-merged_data%>%ggplot(aes(geometry=geometry, label = commune,
                          fill = Sample.Size))+
   geom_sf(color ="white", linewidth = 0.1)+
   scale_fill_gradient(low = "#fe9f6d", high = "#3b0f70")+
@@ -29,6 +29,10 @@ merged_data%>%ggplot(aes(geometry=geometry, label = commune,
         legend.title = element_text(family = "serif", size = 8),
         legend.text = element_text(family = "serif", size = 8))
 
+#saving the plot
+ggsave(plot = map_1, filename = "Polygon_map_1.png",
+       width = 8, height = 6, units = "in", dpi = 300)
+
 #creating map using discrete legend
 #grouping the sample size into bins
 merged_data<-merged_data%>%mutate(bins = case_when(
@@ -39,7 +43,7 @@ merged_data<-merged_data%>%mutate(bins = case_when(
 ))
 
 #creating the map (discrete legend)
-merged_data%>%ggplot(aes(geometry=geometry, label = commune,
+map_2<-merged_data%>%ggplot(aes(geometry=geometry, label = commune,
                          fill = bins))+
   geom_sf(color ="white", linewidth = 0.1)+
   scale_fill_manual(values = c("100-200"="#fe9f6d","201-300"="#f4665c",
@@ -56,3 +60,6 @@ merged_data%>%ggplot(aes(geometry=geometry, label = commune,
         legend.title = element_text(family = "serif", size = 8),
         legend.text = element_text(family = "serif", size = 8))
 
+#saving the plot
+ggsave(plot = map_2, filename = "Polygon_map_2.png",
+       width = 8, height = 6, units = "in", dpi = 300)
