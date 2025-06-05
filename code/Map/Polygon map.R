@@ -4,7 +4,7 @@ library(sf)
 library(paletteer)
 
 #load data
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\Map")
+setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Map\\haiti_adm2_boundaries")
 survey_sample<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Survey%20Sample.csv")
 adm2_shapefiles<-st_read("hti_boundaries_communes_adm2_cnigs_polygon.shp")#download the files and read them from your computer
 
