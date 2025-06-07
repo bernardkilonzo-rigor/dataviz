@@ -20,7 +20,7 @@ sales_prop<-sales_prop%>%
 sales_prop$label<-reorder(sales_prop$label, sales_prop$percent_sales)
 
 #creating circular bar plot with ggplot2
-sales_prop%>%ggplot(aes(x = label, y = percent_sales, fill = label))+
+rbp<-sales_prop%>%ggplot(aes(x = label, y = percent_sales, fill = label))+
   geom_bar(width = 0.9, stat = "identity")+
   coord_polar(theta = "y")+
   xlab("")+ylab("")+ylim(c(0,1))+
@@ -30,11 +30,14 @@ sales_prop%>%ggplot(aes(x = label, y = percent_sales, fill = label))+
   labs(title = "Proportion of Sales by Month",
        caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
-        panel.grid.major = element_line(colour = "#eeeeee", linewidth = 0.1),
+        panel.grid.major = element_line(colour = "gray90", linewidth = 0.1),
         panel.grid.minor = element_blank(),
         axis.text = element_blank(),
         axis.ticks = element_blank(),
         legend.position = "none",
         plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray10"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray35"))
-  
+
+#saving the plot
+ggsave(plot = rbp, filename = "Radial_plot.png",
+       width = 8, height = 6, units = "in", dpi = 300)
