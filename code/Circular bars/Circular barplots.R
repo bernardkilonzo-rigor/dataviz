@@ -25,7 +25,7 @@ superstore_cal$hjust<- ifelse(superstore_cal$angle < -90,1,0)
 superstore_cal$angle<-ifelse(superstore_cal$angle < -90,superstore_cal$angle+180,superstore_cal$angle)
 
 #creating a circular bar plot
-superstore_cal%>%ggplot(aes(x = id, y = sales))+
+cbp<-superstore_cal%>%ggplot(aes(x = id, y = sales))+
   geom_bar(stat = "identity", fill=alpha("#72874e",0.9))+
   ylim(-30000,120000)+
   coord_polar(start = 0)+
@@ -34,4 +34,8 @@ superstore_cal%>%ggplot(aes(x = id, y = sales))+
             alpha =0.6,size =2.0, angle=superstore_cal$angle,
             inherit.aes = FALSE)+
   theme_void()
+
+#saving the circular bar plot
+ggsave(plot = cbp, filename = "circular_bar_plot.png",
+       width = 8, height = 6, units = "in", dpi = 300) 
 
