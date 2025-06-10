@@ -17,7 +17,7 @@ Ke_pop_v1<-Ke_pop%>%pivot_longer(Male:Female, names_to = "Gender",
                                  values_to = "Pop")
 
 #creating a basic population pyramid chart (year = 2019)
-Ke_pop_v1%>%filter(Year==2019)%>%
+bpp<-Ke_pop_v1%>%filter(Year==2019)%>%
   ggplot(aes(x = `Age Group`, y =Pop/1e6, fill =Gender))+
   geom_bar(stat = "identity")+
   coord_flip()+
@@ -37,5 +37,7 @@ Ke_pop_v1%>%filter(Year==2019)%>%
         plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
 
-
+#saving the plot
+ggsave(plot = bpp, filename = "population_pyramid_1.png",
+       width = 8, height = 6, units = "in", dpi = 300) 
 
