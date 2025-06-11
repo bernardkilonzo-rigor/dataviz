@@ -69,7 +69,7 @@ ggsave(plot = grouped_pp, filename = "population_pyramid_2.png",
 
 #overlaying three periods (1999, 2009 & 2019)
 #creating a stacked population pyramid plot
-Ke_pop_v1%>%ggplot(aes(x = `Age Group`, y =Pop/1e6, fill =Year))+
+stacked_pp<-Ke_pop_v1%>%ggplot(aes(x = `Age Group`, y =Pop/1e6, fill =Year))+
   geom_bar(stat = "identity", position = position_stack())+
   coord_flip()+
   scale_y_continuous(labels = abs)+
@@ -88,3 +88,6 @@ Ke_pop_v1%>%ggplot(aes(x = `Age Group`, y =Pop/1e6, fill =Year))+
         plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
 
+#saving the plot
+ggsave(plot = stacked_pp, filename = "population_pyramid_3.png",
+       width = 8, height = 6, units = "in", dpi = 300)
