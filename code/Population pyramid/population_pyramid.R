@@ -43,7 +43,7 @@ ggsave(plot = bpp, filename = "population_pyramid_1.png",
 
 #Overlaying two periods (2009 & 2019)
 #creating grouped population pyramid plot
-Ke_pop_v1%>%filter(Year>2008)%>%
+grouped_pp<-Ke_pop_v1%>%filter(Year>2008)%>%
   ggplot(aes(x = `Age Group`, y =Pop/1e6,fill =interaction(Gender, Year) ,group = Year))+
   geom_bar(stat = "identity", position = position_dodge(width = 0.85), width = 1)+
   coord_flip()+
@@ -62,3 +62,7 @@ Ke_pop_v1%>%filter(Year>2008)%>%
         legend.title = element_text(family = "serif",face = "bold" ,size = 9, color = "gray30"),
         plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
+
+#saving the plot
+ggsave(plot = grouped_pp, filename = "population_pyramid_2.png",
+       width = 8, height = 6, units = "in", dpi = 300)
