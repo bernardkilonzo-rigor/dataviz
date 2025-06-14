@@ -13,7 +13,7 @@ Rank_data<-superstore%>%
   mutate(rank =dense_rank(desc(sales)))
 
 #creating bump chart
-Rank_data%>%ggplot(aes(x = mon, y = rank, group =Sub.Category, color =Sub.Category))+
+bc<-Rank_data%>%ggplot(aes(x = mon, y = rank, group =Sub.Category, color =Sub.Category))+
   geom_line(linewidth = 0.6)+
   geom_point(size =2.5)+
   scale_y_reverse()+
@@ -31,5 +31,8 @@ Rank_data%>%ggplot(aes(x = mon, y = rank, group =Sub.Category, color =Sub.Catego
         plot.title = element_text(family = "serif", face = "bold", size = 12, colour = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray35"))
 
+#Saving the plot
+ggsave(plot = bc, filename = "Bump_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300) 
 
 
