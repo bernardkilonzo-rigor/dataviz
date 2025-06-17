@@ -8,16 +8,16 @@ superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dat
 #computing rankings
 Rank_data<-superstore%>%
   mutate(mon = month(Order.Date, label = TRUE))%>%
-  group_by(mon,Sub.Category)%>%
+  group_by(mon,Region)%>%
   summarise(sales =sum(Sales))%>%
   mutate(rank =dense_rank(desc(sales)))
 
 #creating bump chart
-bc<-Rank_data%>%ggplot(aes(x = mon, y = rank, group =Sub.Category, color =Sub.Category))+
-  geom_line(linewidth = 0.6)+
-  geom_point(size =2.5)+
+bc<-Rank_data%>%ggplot(aes(x = mon, y = rank, group =Region, color =Region))+
+  geom_line(linewidth = 1.0)+
+  geom_point(size =5)+
   scale_y_reverse()+
-  scale_fill_paletteer_d("palettetown::solrock")+
+  scale_color_paletteer_d("PrettyCols::Autumn")+
   labs(title = "Bump Chart",
        caption = "Viz by: Bernard Kilonzo",
        x = "Months", y = "Performance Rankings")+
