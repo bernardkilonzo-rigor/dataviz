@@ -34,5 +34,3 @@ bc<-Rank_data%>%ggplot(aes(x = mon, y = rank, group =Region, color =Region))+
 #Saving the plot
 ggsave(plot = bc, filename = "Bump_chart.png",
        width = 8, height = 6, units = "in", dpi = 300) 
-
-
