@@ -23,8 +23,8 @@ sc<-Rank_data%>%ggplot(aes(x = yr, y = rank, group =Sub.Category, color =Sub.Cat
   geom_line(linewidth = 1.0)+
   geom_point(size =4)+
   scale_y_reverse()+
-  geom_text(data = Rank_data%>%filter(yr==2019), aes(label = label), hjust =0.1, vjust=-0.7, size =3.5)+
-  geom_text(data = Rank_data%>%filter(yr==2020), aes(label = label), hjust =0.8, vjust=-0.7, size =3.5)+
+  geom_text(data = Rank_data%>%filter(yr==2019), aes(label = label), hjust =0.1, vjust=-0.7, size =3)+
+  geom_text(data = Rank_data%>%filter(yr==2020), aes(label = label), hjust =0.8, vjust=-0.7, size =3)+
   labs(title = "Ranking Sales by Sub-Category",
        caption = "Viz by: Bernard Kilonzo",
        x = "Year", y = "Rank")+
