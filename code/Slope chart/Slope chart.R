@@ -19,9 +19,9 @@ Rank_data<-superstore%>%filter(yr>2018)%>%
 Rank_data$label<-paste0(Rank_data$rank,"-",Rank_data$Sub.Category)
 
 #creating slope chart
-Rank_data%>%ggplot(aes(x = yr, y = rank, group =Sub.Category, color =Sub.Category))+
+sc<-Rank_data%>%ggplot(aes(x = yr, y = rank, group =Sub.Category, color =Sub.Category))+
   geom_line(linewidth = 1.0)+
-  geom_point(size =5)+
+  geom_point(size =4)+
   scale_y_reverse()+
   geom_text(data = Rank_data%>%filter(yr==2019), aes(label = label), hjust =0.5, vjust=-0.5, size =3.5)+
   geom_text(data = Rank_data%>%filter(yr==2020), aes(label = label), hjust =0.5, vjust=-0.5, size =3.5)+
@@ -37,3 +37,7 @@ Rank_data%>%ggplot(aes(x = yr, y = rank, group =Sub.Category, color =Sub.Categor
         legend.position = "none",
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray20"),
         plot.caption = element_text(family = "serif", color = "gray35", size = 9))
+
+#Saving the plot
+ggsave(plot = sc, filename = "Slope_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300) 
