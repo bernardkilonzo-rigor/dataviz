@@ -23,6 +23,17 @@ Rank_data%>%ggplot(aes(x = yr, y = rank, group =Sub.Category, color =Sub.Categor
   geom_line(linewidth = 1.0)+
   geom_point(size =5)+
   scale_y_reverse()+
-  labs(title = "Bump Chart",
+  geom_text(data = Rank_data%>%filter(yr==2019), aes(label = label), hjust =0.5, vjust=-0.5, size =3.5)+
+  geom_text(data = Rank_data%>%filter(yr==2020), aes(label = label), hjust =0.5, vjust=-0.5, size =3.5)+
+  labs(title = "Ranking Sales by Sub-Category",
        caption = "Viz by: Bernard Kilonzo",
-       x = "Year", y = "Rank")
+       x = "Year", y = "Rank")+
+  theme(panel.background = element_blank(),
+        axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.x = element_text(family = "serif", color = "gray35", size = 9),
+        axis.title.x = element_text(family = "serif", color = "gray20", size = 10),
+        legend.position = "none",
+        plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray20"),
+        plot.caption = element_text(family = "serif", color = "gray35", size = 9))
