@@ -10,6 +10,8 @@ state_sales<-superstore%>%group_by(State)%>%
   summarise(sales = sum(Sales))
 
 #creating a tree map
-state_sales%>%ggplot(aes(area = sales, fill = sales,
-                        label = State))+
-  geom_treemap()
+state_sales%>%ggplot(aes(area = sales, fill = sales,label = State))+
+  geom_treemap(color = "gray45")+
+  scale_fill_gradient(low = "lightblue", high = "steelblue")+
+  labs(title = "Revenue by State",
+       caption = "Viz by: Bernard Kilonzo", fill = "Legend")
