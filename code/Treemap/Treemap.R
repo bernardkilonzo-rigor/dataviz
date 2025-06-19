@@ -10,8 +10,13 @@ state_sales<-superstore%>%group_by(State)%>%
   summarise(sales = sum(Sales))
 
 #creating a tree map
-state_sales%>%ggplot(aes(area = sales, fill = sales,label = State))+
+tmp<-state_sales%>%ggplot(aes(area = sales, fill = sales,label = State))+
   geom_treemap(color = "gray45")+
   scale_fill_gradient(low = "lightblue", high = "steelblue")+
   labs(title = "Revenue by State",
        caption = "Viz by: Bernard Kilonzo", fill = "Legend")
+
+
+#save 100% stacked bar plot
+ggsave(plot = tmp, filename = "Treemap.png",
+       width = 8, height = 6, units = "in", dpi = 300) 
