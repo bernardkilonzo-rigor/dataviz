@@ -9,19 +9,19 @@ superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dat
 Rank_data<-superstore%>%
   mutate(mon = month(Order.Date, label = TRUE))%>%
   group_by(mon,Region)%>%
-  summarise(sales =sum(Sales))%>%
+  summarise(sales =round(sum(Sales),0))%>%
   mutate(rank =dense_rank(desc(sales)))
 
 #Adding labels
-Rank_data$label<-paste0(Rank_data$rank,"-",Rank_data$Region)
-
+Rank_data$label<-paste0(Rank_data$rank,"-",Rank_data$Region," -",Rank_data$sales)
+Rank_data
 #creating bump chart
 bc<-Rank_data%>%ggplot(aes(x = mon, y = rank, group =Region, color =Region))+
   geom_line(linewidth = 1.0)+
   geom_point(size =5)+
   scale_y_reverse()+
-  geom_text(data = Rank_data%>%filter(mon=="Jan"), aes(label = label), hjust=0.5,vjust=-1, size =3.5)+
-  geom_text(data = Rank_data%>%filter(mon=="Dec"), aes(label = label), hjust=0.5,vjust=-1, size =3.5)+
+  geom_text(data = Rank_data%>%filter(mon=="Jan"), aes(label = label), hjust=0.5,vjust=-1, size =3)+
+  geom_text(data = Rank_data%>%filter(mon=="Dec"), aes(label = label), hjust=0.5,vjust=-1, size =3)+
   scale_color_paletteer_d("PrettyCols::Autumn")+
   labs(title = "Ranking Sales Performance by Region",
        caption = "Viz by: Bernard Kilonzo",
