@@ -12,11 +12,11 @@ superstore<-superstore%>%mutate(Order.Date=dmy(Order.Date))%>%
 #computing ranks by yr & state
 Rank_data<-superstore%>%filter(yr>2018)%>%
   group_by(yr,Sub.Category)%>%
-  summarise(sales =sum(Sales))%>%
+  summarise(sales =round(sum(Sales),0))%>%
   mutate(rank =dense_rank(desc(sales)))
 
 #computing labels
-Rank_data$label<-paste0(Rank_data$rank,"-",Rank_data$Sub.Category)
+Rank_data$label<-paste0(Rank_data$rank,"-",Rank_data$Sub.Category,"~",Rank_data$sales)
 
 #creating slope chart
 sc<-Rank_data%>%ggplot(aes(x = yr, y = rank, group =Sub.Category, color =Sub.Category))+
