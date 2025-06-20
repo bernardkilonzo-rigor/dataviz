@@ -13,15 +13,15 @@ Rank_data<-superstore%>%
   mutate(rank =dense_rank(desc(sales)))
 
 #Adding labels
-Rank_data$label<-paste0(Rank_data$rank,"-",Rank_data$Region," -",Rank_data$sales)
-Rank_data
+Rank_data$label<-paste0(Rank_data$rank,"-",Rank_data$Region,"~",Rank_data$sales)
+
 #creating bump chart
 bc<-Rank_data%>%ggplot(aes(x = mon, y = rank, group =Region, color =Region))+
   geom_line(linewidth = 1.0)+
   geom_point(size =5)+
   scale_y_reverse()+
-  geom_text(data = Rank_data%>%filter(mon=="Jan"), aes(label = label), hjust=0.5,vjust=-1, size =3)+
-  geom_text(data = Rank_data%>%filter(mon=="Dec"), aes(label = label), hjust=0.5,vjust=-1, size =3)+
+  geom_text(data = Rank_data%>%filter(mon=="Jan"), aes(label = label), hjust=0.1,vjust=-1, size =3)+
+  geom_text(data = Rank_data%>%filter(mon=="Dec"), aes(label = label), hjust=0.7,vjust=-1, size =3)+
   scale_color_paletteer_d("PrettyCols::Autumn")+
   labs(title = "Ranking Sales Performance by Region",
        caption = "Viz by: Bernard Kilonzo",
