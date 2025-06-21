@@ -1,6 +1,5 @@
 #load libraries
 library(tidyverse)
-library(readxl)
 library(scales)
 
 #load data
