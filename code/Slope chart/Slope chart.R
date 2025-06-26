@@ -19,7 +19,7 @@ Rank_data<-superstore%>%filter(yr>2018, Region=="East")%>%
 Rank_data$label<-paste0(Rank_data$rank,"-",Rank_data$State,"~",Rank_data$sales)
 
 #creating slope chart
-Rank_data%>%ggplot(aes(x = yr, y = rank, group =State, color =State))+
+sc<-Rank_data%>%ggplot(aes(x = yr, y = rank, group =State, color =State))+
   geom_line(linewidth = 1.0)+
   geom_point(size =4)+
   scale_y_reverse()+
