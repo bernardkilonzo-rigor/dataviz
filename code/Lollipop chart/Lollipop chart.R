@@ -9,7 +9,7 @@ superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dat
 superstore<-superstore%>%mutate(mon = month(Order.Date,TRUE))
 
 #create a lollipop chart
-superstore%>%group_by(mon)%>%
+lp<-superstore%>%group_by(mon)%>%
   summarise(sales = sum(Sales))%>%
   ggplot(aes(y = mon, x = sales))+
   geom_segment(aes(x = 0, xend =sales, y = mon, yend =mon), color = "gray70", linewidth=1.5)+
@@ -23,4 +23,7 @@ superstore%>%group_by(mon)%>%
         axis.text = element_text(family = "serif", size = 10, color = "gray25"),
         plot.title = element_text(family = "serif", face = "bold", size = 14, color = "gray20"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray50"))
-  
+
+#saving the plot
+ggsave(plot = lp, filename = "Lollipop_plot.png",
+       width = 8, height = 6, units = "in", dpi = 300)
