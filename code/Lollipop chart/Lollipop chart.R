@@ -10,6 +10,6 @@ superstore<-superstore%>%mutate(mon = month(Order.Date,TRUE))
 #create a lollipop chart
 superstore%>%group_by(mon)%>%
   summarise(sales = sum(Sales))%>%
-  ggplot(aes(x = mon, y = sales))+
-  geom_segment(aes(x = mon, xend =mon, y = 0, yend =sales))+
+  ggplot(aes(y = mon, x = sales))+
+  geom_segment(aes(x = 0, xend =sales, y = mon, yend =mon))+
   geom_point()
