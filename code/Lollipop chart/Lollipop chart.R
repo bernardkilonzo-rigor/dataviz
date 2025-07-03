@@ -12,8 +12,8 @@ superstore<-superstore%>%mutate(mon = month(Order.Date,TRUE))
 lp<-superstore%>%group_by(mon)%>%
   summarise(sales = sum(Sales))%>%
   ggplot(aes(y = mon, x = sales))+
-  geom_segment(aes(x = 0, xend =sales, y = mon, yend =mon), color = "gray70", linewidth=1.5)+
-  geom_point(size = 6, color = "brown")+
+  geom_segment(aes(x = 0, xend =sales, y = mon, yend =mon), color = "lightblue", linewidth=1.5)+
+  geom_point(size = 6, color = "steelblue")+
   scale_x_continuous(labels = comma)+
   labs(title = "Sales by Month",
        caption = "Viz by: Bernard Kilonzo",
