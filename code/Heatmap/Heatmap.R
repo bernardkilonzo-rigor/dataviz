@@ -29,3 +29,10 @@ hp<-profit_summary%>%ggplot(aes(x = mon, y = Sub.Category, fill = profit))+
 #saving the plot
 ggsave(plot = hp, filename = "Heatmap.png",
        width = 8, height = 6, units = "in", dpi = 300) 
+
+#labeling the heatmap
+hp_labs<-hp+geom_text(aes(label = profit), color = "gray25", size =2.5)
+
+#saving the plot
+ggsave(plot = hp_labs, filename = "Heatmap_1.png",
+       width = 8, height = 6, units = "in", dpi = 300) 
