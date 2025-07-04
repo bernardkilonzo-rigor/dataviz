@@ -1,5 +1,7 @@
 #load libraries
 library(tidyverse)
+library(ggthemes)
+library(paletteer)
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Sample%20-%20Superstore.csv")
@@ -12,8 +14,8 @@ profit_summary<-superstore%>%mutate(mon = month(Order.Date, label=TRUE))%>%
 #creating heat map
 hp<-profit_summary%>%ggplot(aes(x = mon, y = Sub.Category, fill = profit))+
   geom_tile(color = "white", lwd =0.1)+
-  scale_fill_gradient2(low = "red", mid = "gray90", high = "green", midpoint = 0)+
-    labs(title = "Analysis of Profit by Month & Sub Category",
+  scale_fill_paletteer_c("grDevices::RdYlBu")+
+      labs(title = "Analysis of Profit by Month & Sub Category",
        x = "Month", y = "Sub Category", caption = "Viz  by: Bernard Kilonzo",
        fill = "Profit")+
   theme(panel.background = element_blank(),
