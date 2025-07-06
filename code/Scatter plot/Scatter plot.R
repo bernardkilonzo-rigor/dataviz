@@ -6,7 +6,7 @@ library(paletteer)
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Sample%20-%20Superstore.csv")
 
 #creating scatter plot
-superstore%>%ggplot(aes(x = Sales, y =Profit, size = Discount, color =Profit))+
+scp<-superstore%>%ggplot(aes(x = Sales, y =Profit, size = Discount, color =Profit))+
   geom_point(alpha =0.5)+
   scale_color_paletteer_c("ggthemes::Red-Green-Gold Diverging")+
   labs(title = "Sales vs. Profit vs. Discount",
@@ -19,3 +19,7 @@ superstore%>%ggplot(aes(x = Sales, y =Profit, size = Discount, color =Profit))+
         legend.title = element_text(family = "serif", color = "gray25", size = 9),
         plot.title = element_text(family = "serif", face = "bold", color = "gray25", size = 13),
         plot.caption = element_text(family = "serif", face = "italic", color = "gray45", size = 9))
+
+#saving the plot
+ggsave(plot = scp, filename = "Scatter_plot.png",
+       width = 8, height = 6, units = "in", dpi = 300) 
