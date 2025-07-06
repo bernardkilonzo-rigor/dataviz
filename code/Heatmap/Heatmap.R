@@ -14,7 +14,7 @@ profit_summary<-superstore%>%mutate(mon = month(Order.Date, label=TRUE))%>%
 #creating heat map
 hp<-profit_summary%>%ggplot(aes(x = mon, y = Sub.Category, fill = profit))+
   geom_tile(color = "white", lwd =0.1)+
-  scale_fill_paletteer_c("grDevices::RdYlBu")+
+  scale_fill_paletteer_c("ggthemes::Red-Green-Gold Diverging")+
       labs(title = "Analysis of Profit by Month & Sub Category",
        x = "Month", y = "Sub Category", caption = "Viz  by: Bernard Kilonzo",
        fill = "Profit")+
