@@ -14,7 +14,7 @@ state_sales<-superstore%>%group_by(State)%>%
 #creating a tree map
 tmp<-state_sales%>%ggplot(aes(area = sales, fill = sales,label = State))+
   geom_treemap(color = "gray85", size =1)+
-  scale_fill_paletteer_c("grDevices::RdYlBu")+
+  scale_fill_paletteer_c("ggthemes::Red-Green-Gold Diverging")+
   labs(title = "Revenue by State",
        caption = "Viz by: Bernard Kilonzo", fill = "Sales")+
   theme(plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray20"),
