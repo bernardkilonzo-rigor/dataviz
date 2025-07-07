@@ -15,7 +15,7 @@ pie<-super_computed%>%ggplot(aes(x ="", y = discount, fill = Region))+
   geom_text(aes(label = discount), position = position_stack(vjust = 0.5))+
   coord_polar(theta = "y")+
   scale_fill_paletteer_d("wesanderson::Chevalier1")+
-  labs(title = "Order's Discount by Region",
+  labs(title = "Average Order's Discount by Region",
        caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         axis.title = element_blank(),
