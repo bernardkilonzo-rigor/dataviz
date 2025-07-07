@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Pie Chart")
 #load libraries
 library(tidyverse)
 library(paletteer)
@@ -11,7 +10,7 @@ super_computed<-superstore%>%group_by(Region)%>%
   summarise(discount =round(mean(Discount),2))
 
 #create pie chart
-super_computed%>%ggplot(aes(x ="", y = discount, fill = Region))+
+pie<-super_computed%>%ggplot(aes(x ="", y = discount, fill = Region))+
   geom_col()+
   geom_text(aes(label = discount), position = position_stack(vjust = 0.5))+
   coord_polar(theta = "y")+
@@ -26,3 +25,7 @@ super_computed%>%ggplot(aes(x ="", y = discount, fill = Region))+
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif", face = "bold", color = "gray25", size =13),
         plot.caption = element_text(family = "serif", face = "italic", color = "gray40", size = 9))
+
+#saving the plot
+ggsave(plot= pie, filename = "Pie_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300)
