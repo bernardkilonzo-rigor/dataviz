@@ -1,4 +1,3 @@
-#load libraries
 library(tidyverse)
 library(paletteer)
 
@@ -11,8 +10,8 @@ super_computed<-superstore%>%group_by(Region)%>%
 
 #create pie chart
 pie<-super_computed%>%ggplot(aes(x ="", y = discount, fill = Region))+
-  geom_col()+
-  geom_text(aes(label = discount), position = position_stack(vjust = 0.5))+
+  geom_col(color ="white")+
+  geom_text(aes(label = discount),family ="serif",size =3.3,color = "gray15",position = position_stack(vjust = 0.5))+
   coord_polar(theta = "y")+
   scale_fill_paletteer_d("wesanderson::Chevalier1")+
   labs(title = "Average Order's Discount by Region",
