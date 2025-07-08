@@ -11,7 +11,7 @@ sales_summ<-superstore%>%group_by(Segment)%>%
   summarise(sales =round(sum(Sales),0))
 
 #creating a donut chart
-sales_summ%>%ggplot(aes(x = 3, y = sales, fill =Segment))+
+donut<-sales_summ%>%ggplot(aes(x = 3, y = sales, fill =Segment))+
   geom_col(color ="white")+
   coord_polar(theta = "y")+
   xlim(c(0.2, 3+0.5))+
@@ -28,3 +28,7 @@ sales_summ%>%ggplot(aes(x = 3, y = sales, fill =Segment))+
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif", face = "bold", color = "gray25", size =13),
         plot.caption = element_text(family = "serif", face = "italic", color = "gray40", size = 9))
+
+#saving the plot
+ggsave(plot= donut, filename = "Donut_chart_1.png",
+       width = 8, height = 6, units = "in", dpi = 300)
