@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Donut chart")
 #load libraries
 library(tidyverse)
 library(paletteer)
@@ -34,7 +33,7 @@ donut<-sales_summ%>%ggplot(aes(x = 3, y = sales, fill =Segment))+
 ggsave(plot= donut, filename = "Donut_chart_1.png",
        width = 8, height = 6, units = "in", dpi = 300)
 
-#100% Donut chart
+#100% donut chart
 #computing percent of sales by product category
 sales_per<-superstore%>%group_by(Category)%>%
   summarise(sales =sum(Sales))%>%
@@ -43,7 +42,7 @@ sales_per<-superstore%>%group_by(Category)%>%
 sales_per
 
 #creating 100% donut chart
-sales_per%>%ggplot(aes(x = 3, y = sales_percent, fill =Category))+
+donut_1<-sales_per%>%ggplot(aes(x = 3, y = sales_percent, fill =Category))+
   geom_col(color ="white")+
   coord_polar(theta = "y")+
   xlim(c(0.2, 3+0.5))+
@@ -60,3 +59,7 @@ sales_per%>%ggplot(aes(x = 3, y = sales_percent, fill =Category))+
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif", face = "bold", color = "gray25", size =13),
         plot.caption = element_text(family = "serif", face = "italic", color = "gray40", size = 9))
+
+#saving the plot
+ggsave(plot= donut_1, filename = "Donut_chart_2.png",
+       width = 8, height = 6, units = "in", dpi = 300)
