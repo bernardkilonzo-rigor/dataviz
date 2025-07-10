@@ -3,7 +3,7 @@ library(tidyverse)
 library(paletteer)
 
 #load data
-superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Sample%20-%20Superstore.csv")
+superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #computing rankings
 Rank_data<-superstore%>%
