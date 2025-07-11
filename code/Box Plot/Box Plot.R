@@ -1,15 +1,16 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Box Plot")
 #load libraries
 library(tidyverse)
+library(paletteer)
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #create a basic box plot
-bp<-superstore%>%ggplot(aes(y = Sub.Category, x = Discount, fill =Sub.Category))+
-  stat_boxplot(geom = "errorbar",width =0.5)+
+bp<-superstore%>%filter(Region=="East")%>%ggplot(aes(y = State, x = Quantity, fill =State))+
+  stat_boxplot(geom = "errorbar",width =0.4)+
   geom_boxplot()+
-  labs(title = "Distribution of Discounts by Sub-Category",
+  scale_fill_paletteer_d("palettetown::solrock")+
+  labs(title = "Order Distribution by Quantity by State",
        caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         axis.line = element_line(color = "gray30", linewidth = 0.2),
