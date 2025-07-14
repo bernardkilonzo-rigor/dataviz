@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Jitter Box Plots")
-
 #load libraries
 library(tidyverse)
 library(paletteer)
@@ -8,7 +6,7 @@ library(paletteer)
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #creating jitter box plot
-superstore%>%filter(Region=="East")%>%ggplot(aes(y = State, x = Quantity, color = State))+
+jbp<-superstore%>%filter(Region=="East")%>%ggplot(aes(y = State, x = Quantity, color = State))+
   stat_boxplot(geom = "errorbar",width =0.4)+
   geom_boxplot(outlier.color = NA)+#removing the outliers
   geom_jitter(size =0.7)+
@@ -24,3 +22,6 @@ superstore%>%filter(Region=="East")%>%ggplot(aes(y = State, x = Quantity, color 
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray35"))
 
+#saving the plot
+ggsave(plot = jbp, filename = "jitter_boxplot.png",
+       width = 8, height = 6, units = "in", dpi = 300)
