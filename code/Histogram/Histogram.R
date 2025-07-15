@@ -7,8 +7,8 @@ library(tidyverse)
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #create a basic histogram graph
-superstore%>%filter(Sales<500)%>%ggplot(aes(x = Sales))+
-  geom_histogram(binwidth = 20, color="gray50",linewidth =0.1, fill ="white")+
+hp<-superstore%>%filter(Sales<500)%>%ggplot(aes(x = Sales))+
+  geom_histogram(binwidth = 20, color="gray30",linewidth =0.1, fill ="white")+
   scale_x_continuous(limits = c(0,NA), expand = c(0,0))+
   scale_y_continuous(limits = c(0,NA), expand = c(0,0))+
   labs(title = "Histogram Graph", caption = "Viz by Bernard Kilonzo")+
@@ -19,3 +19,6 @@ superstore%>%filter(Sales<500)%>%ggplot(aes(x = Sales))+
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray45"))
   
+#saving the plot
+ggsave(plot = hp, filename = "Histogram_plot.png",
+       width = 8, height = 6, units = "in", dpi = 300)
