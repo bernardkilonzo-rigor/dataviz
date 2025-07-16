@@ -1,3 +1,4 @@
+setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Histogram")
 #load libraries
 library(tidyverse)
 
@@ -20,3 +21,10 @@ hp<-superstore%>%filter(Sales<500)%>%ggplot(aes(x = Sales))+
 #saving the plot
 ggsave(plot = hp, filename = "Histogram_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#histogram with density
+superstore%>%filter(Sales<500)%>%ggplot(aes(x = Sales))+
+  geom_histogram(aes(y = after_stat(density)),binwidth = 20, color="gray2",linewidth =0.2, fill ="white")+
+  geom_density(linewidth =0.5, color ="brown", fill = "gold", alpha =0.5)+
+  scale_x_continuous(limits = c(0,NA), expand = c(0,0))+
+  scale_y_continuous(limits = c(0,NA), expand = c(0,0))
