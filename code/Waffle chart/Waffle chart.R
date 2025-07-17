@@ -6,8 +6,8 @@ library(paletteer)
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
-view(superstore)
-#Compute sales proportions by product category
+
+#computing sales proportions by shipping mode
 sales_prop<-superstore%>%group_by(Ship.Mode)%>%
   summarise(sales = sum(Sales))%>%
   mutate(proprtion = sales/sum(sales))%>%
@@ -15,4 +15,8 @@ sales_prop<-superstore%>%group_by(Ship.Mode)%>%
 
 #creating waffle chart
 sales_prop%>%ggplot(aes(fill =Ship.Mode, values =percnt))+
-  geom_waffle(n_rows = 10)
+  geom_waffle(n_rows = 10, color ="white")+
+  scale_fill_paletteer_d("rockthemes::electric")+
+  labs(title = "Waffle Chart - Proportion of Sales by Shipping Mode",
+       caption = "Viz by: Bernard Kilonzo", fill ="Ship Mode")+
+  theme_void()
