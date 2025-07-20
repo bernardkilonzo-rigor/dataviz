@@ -4,7 +4,7 @@ library(paletteer)
 library(scales)
 
 #load data
-superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Sample%20-%20Superstore.csv")
+superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #modify the data
 #add a column that computes month as a string
