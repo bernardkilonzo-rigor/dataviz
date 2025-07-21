@@ -11,4 +11,8 @@ scatter_plot<-superstore%>%ggplot(aes(x = Discount, y = Quantity))+
   geom_point()
 
 #Adding marginal histograms
-ggMarginal(scatter_plot, type = "histogram")
+marginal_hist<-ggMarginal(scatter_plot, type = "histogram")
+
+#saving the plot
+ggsave(plot = marginal_hist, filename = "marginal_histogram.png",
+       width = 8, height = 6, units = "in", dpi = 300)
