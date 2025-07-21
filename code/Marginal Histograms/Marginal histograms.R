@@ -6,8 +6,9 @@ library(ggExtra)
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
-#create visualization
-p<-superstore%>%ggplot(aes(x = Discount, y = Quantity))+
+#creating the scatter plot
+scatter_plot<-superstore%>%ggplot(aes(x = Discount, y = Quantity))+
   geom_point()
 
-ggMarginal(p, type = "histogram")
+#Adding marginal histograms
+ggMarginal(scatter_plot, type = "histogram")
