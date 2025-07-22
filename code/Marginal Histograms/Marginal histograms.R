@@ -8,11 +8,14 @@ superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dat
 
 #creating the scatter plot
 scatter_plot<-superstore%>%ggplot(aes(x = Discount, y = Quantity))+
-  geom_point()
+  geom_point(color ="steelblue")+
+  theme(panel.background = element_blank(),
+        panel.grid.major = element_line(color = "gray90", linewidth = 0.1))
 
 #Adding marginal histograms
-marginal_hist<-ggMarginal(scatter_plot, type = "histogram")
-
+marginal_hist<-ggMarginal(scatter_plot, type = "histogram", fill ="lightblue", color = "steelblue", linewidth =0.1)
+marginal_hist
 #saving the plot
 ggsave(plot = marginal_hist, filename = "marginal_histogram.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
