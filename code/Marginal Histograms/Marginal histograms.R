@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Marginal Histograms")
 #load libraries
 library(tidyverse)
 library(ggExtra)
@@ -9,9 +8,11 @@ superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dat
 #creating the scatter plot
 scatter_plot<-superstore%>%ggplot(aes(x = Discount, y = Quantity))+
   geom_point(color ="steelblue", size = 0.5)+
+  labs(caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         panel.grid.major = element_line(color = "gray90", linewidth = 0.1),
-        axis.line = element_line(colour = "gray60", linewidth = 0.2))
+        axis.line = element_line(colour = "gray60", linewidth = 0.2),
+        plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray30"))
 
 
 #Adding marginal histograms
