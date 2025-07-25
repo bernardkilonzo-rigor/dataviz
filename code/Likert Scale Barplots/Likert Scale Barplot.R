@@ -17,8 +17,10 @@ q4[]<-lapply(q4, factor, levels =c("Highly dissatisfied","Dissatisfied",
 likert_summary<-likert(q4)
 
 #create a plot
-plot(likert_summary)+
-  scale_fill_manual(values = c("#bf623d", "#e3a462", "#d4d4d4", "#a7cee8", "#6b9bc2"))
+lsp<-plot(likert_summary)
 
+#saving the plot
+ggsave(plot = lsp, filename = "Likert_scale_plot.png",
+       width = 8, height = 6, units = "in", dpi = 300)
 
 
