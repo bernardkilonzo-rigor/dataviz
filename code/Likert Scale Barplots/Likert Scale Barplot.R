@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Likert Scale Barplots")
 #load libraries
 library(tidyverse)
 library(likert)
@@ -35,3 +34,6 @@ lsp_1<-plot(likert_summary)+
   theme(plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray20"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray30"))
 
+#saving the plot
+ggsave(plot = lsp_1, filename = "Likert_scale_plot_1.png",
+       width = 8, height = 6, units = "in", dpi = 300)
