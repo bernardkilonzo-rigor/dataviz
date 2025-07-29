@@ -11,5 +11,10 @@ profit_summary<-superstore%>%group_by(Sub.Category)%>%
   summarise(profit = round(sum(Profit),0))
 
 #creating waterfall chart
-waterfall(profit_summary, calc_total = TRUE)
-
+waterfall(profit_summary,
+          draw_lines = FALSE,#remove lines
+          rect_width = 0.8,#rectangles width
+          rect_text_size = 0.8,
+          total_rect_color = "brown",
+          calc_total = TRUE)+
+  theme_minimal()
