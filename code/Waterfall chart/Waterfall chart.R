@@ -2,6 +2,7 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Waterfall
 #load libraries
 library(waterfalls)
 library(tidyverse)
+library(scales)
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -17,6 +18,7 @@ waterfall(profit_summary,
           rect_text_size = 0.8,
           total_rect_color = "steelblue",
           calc_total = TRUE)+
+  scale_y_continuous(labels = comma)+
   theme_minimal()+
   labs(title = "Waterfall Chart",
        caption = "Viz by: Bernard Kilonzo",
@@ -25,5 +27,6 @@ waterfall(profit_summary,
         axis.line = element_line(color = "gray30", linewidth = 0.1),
         axis.title = element_text(family = "serif",face = "bold", color = "gray25", size = 10),
         axis.text = element_text(family = "serif", color = "gray35", size = 9),
+        axis.text.x = element_text(angle = 45, hjust = 1),
         plot.title = element_text(family = "serif", face = "bold", color = "gray20", size = 13),
         plot.caption = element_text(family = "serif", face = "italic", color = "gray40", size = 9))
