@@ -14,9 +14,12 @@ profit_summary<-superstore%>%group_by(Sub.Category)%>%
 #creating waterfall chart
 waterfall(profit_summary,
           draw_lines = FALSE,#remove lines
-          rect_width = 0.8,#rectangles width
+          rect_width = 0.96,#rectangles width
+          draw_axis.x = "none",
           rect_text_size = 0.8,
-          total_rect_color = "steelblue",
+          rect_border = NA,
+          total_rect_border_color = NA,
+          total_rect_color = "#b48f2c",
           calc_total = TRUE)+
   scale_y_continuous(labels = comma)+
   theme_minimal()+
