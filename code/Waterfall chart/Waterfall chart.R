@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Waterfall chart")
 #load libraries
 library(waterfalls)
 library(tidyverse)
@@ -12,7 +11,7 @@ profit_summary<-superstore%>%group_by(Sub.Category)%>%
   summarise(profit = round(sum(Profit),0))
 
 #creating waterfall chart
-waterfall(profit_summary,
+wfl<-waterfall(profit_summary,
           draw_lines = FALSE,#remove lines
           rect_width = 0.96,#rectangles width
           draw_axis.x = "none",
@@ -33,3 +32,7 @@ waterfall(profit_summary,
         axis.text.x = element_text(angle = 45, hjust = 1),
         plot.title = element_text(family = "serif", face = "bold", color = "gray20", size = 13),
         plot.caption = element_text(family = "serif", face = "italic", color = "gray40", size = 9))
+
+#saving the plot
+ggsave(plot = wfl, filename = "waterfall.png",
+       width = 8, height = 6, units = "in", dpi = 300)
