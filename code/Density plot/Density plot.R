@@ -7,7 +7,7 @@ library(tidyverse)
 survey_data<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Survey%20Data.csv")
 
 #create simple density plot (option 1)
-survey_data%>%ggplot(aes(x = Q6d, fill = Gender, color = Gender))+
+dp1<-survey_data%>%ggplot(aes(x = Q6d, fill = Gender, color = Gender))+
   geom_density(alpha =0.5, linewidth =0.8)+
   scale_fill_manual(values = c("#618c03", "#0476d9"))+
   scale_color_manual(values = c("#618c03", "#0476d9"))+
@@ -25,8 +25,12 @@ survey_data%>%ggplot(aes(x = Q6d, fill = Gender, color = Gender))+
         plot.title = element_text(family = "serif",face = "bold", color = "gray20", size = 13),
         plot.caption = element_text(family = "serif", face = "italic", color = "gray34", size = 9))
 
+#saving the plot
+ggsave(plot = dp1, filename = "density_plot_1.png",
+       width = 8, height = 6, units = "in", dpi = 300)
+
 #create simple density plot (option 2)
-survey_data%>%ggplot(aes(x = Q6d, color = Gender))+
+dp2<-survey_data%>%ggplot(aes(x = Q6d, color = Gender))+
   geom_density(lwd =1)+
   scale_color_manual(values = c("#618c03", "#bfb304"))+
   labs(title = "Density Plot",
@@ -43,3 +47,6 @@ survey_data%>%ggplot(aes(x = Q6d, color = Gender))+
         plot.title = element_text(family = "serif",face = "bold", color = "gray20", size = 13),
         plot.caption = element_text(family = "serif", face = "italic", color = "gray34", size = 9))
 
+#saving the plot
+ggsave(plot = dp2, filename = "density_plot_2.png",
+       width = 8, height = 6, units = "in", dpi = 300)
