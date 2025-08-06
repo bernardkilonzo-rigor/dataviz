@@ -17,12 +17,12 @@ new_stock<-stock%>%select(-symbol)
 #converting the data to xts
 new_stock_xts<-xts(new_stock[,-1], order.by = new_stock$date)
 
-#creating a simple plot
+#creating candlestick chart
 chartSeries(new_stock_xts, type = "candlesticks",
             theme = chartTheme("white"),
             name = "WLTW Stock")
 
-#saving the plot
+#saving the chart
 png("candlestick_chart.png", width = 800, height = 600) #opens PNG graphics device
 chartSeries(new_stock_xts, type = "candlesticks",
             theme = chartTheme("white"),
@@ -33,5 +33,14 @@ dev.off() #Closes the graphics device.
 #load data (getting Google stock data)
 getSymbols("GOOG", src = "yahoo", from = "2024-07-01", to = "2025-06-30")
 
-#create the plot
-chartSeries(GOOG, type = "candlesticks", theme = chartTheme("white"))
+#creating a candlestick chart
+chartSeries(GOOG, type = "candlesticks",
+            theme = chartTheme("white"),
+            name = "Google Stock")
+
+#saving the chart
+png("candlestick_chart_1.png", width = 800, height = 600) #opens PNG graphics device
+chartSeries(GOOG, type = "candlesticks",
+            theme = chartTheme("white"),
+            name = "Google Stock")
+dev.off() #Closes the graphics device.
