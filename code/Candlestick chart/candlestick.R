@@ -19,12 +19,16 @@ new_stock_xts<-xts(new_stock[,-1], order.by = new_stock$date)
 #creating candlestick chart
 chartSeries(new_stock_xts, type = "candlesticks",
             theme = chartTheme("white"),
+            up.col = "#46bd71",
+            dn.col = "#35366e",
             name = "WLTW Stock")
 
 #saving the chart
-png("candlestick_chart.png", width = 800, height = 600) #opens PNG graphics device
+png("candlestick_chart.png", width = 1400, height = 800) #opens PNG graphics device
 chartSeries(new_stock_xts, type = "candlesticks",
             theme = chartTheme("white"),
+            up.col = "#46bd71",
+            dn.col = "#35366e",
             name = "WLTW Stock")
 dev.off() #Closes the graphics device.
 
@@ -35,11 +39,15 @@ getSymbols("GOOG", src = "yahoo", from = "2024-07-01", to = "2025-06-30")
 #creating a candlestick chart
 chartSeries(GOOG, type = "candlesticks",
             theme = chartTheme("white"),
+            up.col = "#46bd71",
+            dn.col = "#35366e",
             name = "Google Stock")
 
 #saving the chart
-png("candlestick_chart_1.png", width = 800, height = 600) #opens PNG graphics device
+png("candlestick_chart_1.png", width = 1400, height = 800) #opens PNG graphics device
 chartSeries(GOOG, type = "candlesticks",
             theme = chartTheme("white"),
+            up.col = "#46bd71",
+            dn.col = "#35366e",
             name = "Google Stock")
 dev.off() #Closes the graphics device.
