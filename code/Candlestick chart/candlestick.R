@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Candlestick chart")
 #load libraries
 library(tidyverse)
 library(quantmod)
@@ -7,7 +6,7 @@ library(xts)
 #create a candlestick using local data
 #load data
 stock<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Stock%20Exchange%20Sample%20Data.csv")
-view(stock)
+
 #converting date to a date object
 stock$date <- as.Date(stock$date, format = "%d/%m/%Y")
 
