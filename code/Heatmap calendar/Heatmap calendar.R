@@ -2,7 +2,8 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Heatmap c
 #load libraries
 library(tidyverse)
 library(calendar)
-library(viridis)
+library(paletteer)
+library(ggthemes)
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -20,5 +21,5 @@ superstore<-superstore%>%filter(year(Order.Date)==2020)%>%
 superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
   geom_tile(color = "white")+
   facet_wrap(~month,scales = "free", ncol = 3)+
-  scale_fill_viridis(name = "Value", option = "C")
+  scale_fill_gradientn(colors = paletteer_c("grDevices::RdYlGn", 30))
   
