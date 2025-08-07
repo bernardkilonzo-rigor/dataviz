@@ -2,6 +2,7 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Heatmap c
 #load libraries
 library(tidyverse)
 library(calendar)
+library(viridis)
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -10,13 +11,14 @@ view(superstore)
 superstore$Order.Date<-as.Date(superstore$Order.Date, format = "%d/%m/%Y")
 
 #Computing required fields
-superstore<-superstore%>%mutate(
-  month = month(Order.Date, label = TRUE),
+superstore<-superstore%>%filter(year(Order.Date)==2020)%>%
+  mutate(month = month(Order.Date, label = TRUE),
   weekday =wday(Order.Date, label = TRUE),
   week = isoweek(Order.Date))
 
-#creating the plot
-superstore%>%ggplot(aes(x = weekday, y = week, fill = Sales))+
+#creating heatmap calendar
+superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
   geom_tile(color = "white")+
-  facet_wrap(~month, ncol = 3)
+  facet_wrap(~month,scales = "free", ncol = 3)+
+  scale_fill_viridis(name = "Value", option = "C")
   
