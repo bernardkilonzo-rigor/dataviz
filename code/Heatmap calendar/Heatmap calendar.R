@@ -21,7 +21,7 @@ superstore<-superstore%>%filter(year(Order.Date)==2020)%>%
 superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
   geom_tile(color = "white")+
   facet_wrap(~month,scales = "free", ncol = 3)+
-  scale_fill_gradientn(colors = paletteer_c("grDevices::RdYlGn", 30))+
+  scale_fill_gradient(low = "lightblue", high = "darkblue", na.value = "gray80")+
   labs(title = "Heatmap Calendar",
        caption = c("www.rigordatasolutions.com", "Viz by: Bernard Kilonzo"))+
   theme(plot.title = element_text(family = "serif", face = "bold", color = "gray20", size = 13),
