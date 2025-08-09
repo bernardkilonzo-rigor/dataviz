@@ -26,6 +26,11 @@ superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
        caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title = element_blank(),
+        axis.text.x.bottom = element_text(family = "serif", size = 8, color = "gray30"),
+        axis.ticks.x = element_line(linewidth = 0.2, color = "gray35"),
+        axis.ticks.length.x = unit(0.05,"cm"),
     plot.title = element_text(family = "serif", face = "bold", color = "gray20", size = 13),
     plot.caption = element_text(family = "serif", face = "italic", color = "gray35", size = 9))
   
