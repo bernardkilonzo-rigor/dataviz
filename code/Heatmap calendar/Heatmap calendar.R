@@ -23,7 +23,9 @@ superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
   facet_wrap(~month,scales = "free", ncol = 3)+
   scale_fill_gradient(low = "lightblue", high = "darkblue", na.value = "gray80")+
   labs(title = "Heatmap Calendar",
-       caption = c("www.rigordatasolutions.com", "Viz by: Bernard Kilonzo"))+
-  theme(plot.title = element_text(family = "serif", face = "bold", color = "gray20", size = 13),
-    plot.caption = element_text(family = "serif", face = "italic", color = "gray35", size = 9, hjust = c(0, 1)))
+       caption = "Viz by: Bernard Kilonzo")+
+  theme(panel.background = element_blank(),
+        axis.text.y = element_blank(),
+    plot.title = element_text(family = "serif", face = "bold", color = "gray20", size = 13),
+    plot.caption = element_text(family = "serif", face = "italic", color = "gray35", size = 9))
   
