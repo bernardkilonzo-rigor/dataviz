@@ -21,7 +21,7 @@ superstore<-superstore%>%filter(year(Order.Date)==2020)%>%
 superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
   geom_tile(color = "white")+
   facet_wrap(~month,scales = "free", ncol = 3)+
-  scale_fill_gradient(low = "lightblue", high = "darkblue", na.value = "gray80")+
+  scale_fill_gradientn(colors = paletteer_c("ggthemes::Temperature Diverging", 30))+
   labs(title = "Heatmap Calendar",
        caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
@@ -31,6 +31,8 @@ superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
         axis.text.x.bottom = element_text(family = "serif", size = 8, color = "gray30"),
         axis.ticks.x = element_line(linewidth = 0.2, color = "gray35"),
         axis.ticks.length.x = unit(0.05,"cm"),
-    plot.title = element_text(family = "serif", face = "bold", color = "gray20", size = 13),
-    plot.caption = element_text(family = "serif", face = "italic", color = "gray35", size = 9))
+        legend.title = element_text(family = "serif", face="bold", size = 10, color = "gray25"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray30"),
+        plot.title = element_text(family = "serif", face = "bold", color = "gray20", size = 13),
+        plot.caption = element_text(family = "serif", face = "italic", color = "gray35", size = 9))
   
