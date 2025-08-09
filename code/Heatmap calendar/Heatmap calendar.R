@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Heatmap calendar")
 #load libraries
 library(tidyverse)
 library(calendar)
@@ -17,8 +16,8 @@ superstore<-superstore%>%filter(year(Order.Date)==2020)%>%
   weekday =wday(Order.Date, label = TRUE),
   week = isoweek(Order.Date))
 
-#creating heat map calendar
-superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
+#creating a heat map calendar
+hmc<-superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
   geom_tile(color = "white")+
   facet_wrap(~month,scales = "free", ncol = 3)+
   scale_fill_gradientn(colors = paletteer_c("ggthemes::Temperature Diverging", 30))+
@@ -35,4 +34,7 @@ superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif", face = "bold", color = "gray20", size = 13),
         plot.caption = element_text(family = "serif", face = "italic", color = "gray35", size = 9))
-  
+
+#saving the plot
+ggsave(plot = hmc, filename = "heatmap_calendar.png",
+       width = 8, height = 6, units = "in", dpi = 300)
