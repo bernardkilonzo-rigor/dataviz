@@ -14,7 +14,7 @@ superstore$Order.Date<-as.Date(superstore$Order.Date, format = "%d/%m/%Y")
 superstore<-superstore%>%filter(year(Order.Date)==2020)%>%
   mutate(month = month(Order.Date, label = TRUE),
   weekday =wday(Order.Date, label = TRUE),
-  week = isoweek(Order.Date))
+  week = floor_date(Order.Date, unit = "week", week_start = 7))
 
 #creating a heat map calendar
 hmc<-superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
