@@ -14,7 +14,7 @@ calendar_data<-superstore%>%
   mutate(month = month(Order.Date, label = TRUE),
   weekday =wday(Order.Date, label = TRUE),
   day = day(Order.Date),
-  week = isoweek(Order.Date))
+  week = floor_date(Order.Date, unit = "week", week_start = 7))
 
 #creating monthly heatmap calendar
 calendar_data%>%ggplot(aes(x = weekday, y = week, fill = Sales))+
