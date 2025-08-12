@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Heatmap calendar")
 #load libraries
 library(tidyverse)
 library(calendar)
