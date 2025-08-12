@@ -1,3 +1,4 @@
+setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Heatmap calendar")
 #load libraries
 library(tidyverse)
 library(calendar)
@@ -16,8 +17,13 @@ superstore<-superstore%>%filter(year(Order.Date)==2020)%>%
   weekday =wday(Order.Date, label = TRUE),
   week = floor_date(Order.Date, unit = "week", week_start = 7))
 
+#computing the average discount by order date
+superstore_comp<-superstore%>%select(Order.Date,month,week,weekday,Sales,Discount)%>%
+  group_by(Order.Date,month,week,weekday)%>%
+  summarise(discount = mean(Discount))
+
 #creating a heat map calendar
-hmc<-superstore%>%ggplot(aes(x = weekday, y = week, fill = Discount))+
+hmc<-superstore_comp%>%ggplot(aes(x = weekday, y = week, fill = discount))+
   geom_tile(color = "white")+
   facet_wrap(~month,scales = "free", ncol = 3)+
   scale_fill_gradientn(colors = paletteer_c("ggthemes::Temperature Diverging", 30))+
