@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Monthly heatmap calendar")
 #load libraries
 library(tidyverse)
 
@@ -22,7 +21,7 @@ calendar_grouped<-calendar_data%>%select(Order.Date,month,week,weekday,day,Sales
   summarise(total_sales = sum(Sales))
 
 #creating monthly heat map calendar
-calendar_grouped%>%ggplot(aes(x = weekday, y = week, fill = total_sales))+
+mhmc<-calendar_grouped%>%ggplot(aes(x = weekday, y = week, fill = total_sales))+
   geom_tile(color = "white")+
   geom_text(aes(label = day), size =3, color = "black")+
   scale_fill_distiller(palette = "YlOrRd", direction = 1)+
@@ -37,3 +36,7 @@ calendar_grouped%>%ggplot(aes(x = weekday, y = week, fill = total_sales))+
         legend.text = element_text(family = "serif", size = 9, color = "gray35"),
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray50"))
+
+#saving the plot
+ggsave(plot = mhmc, filename = "monthly_heatmap_calendar.png",
+       width = 8, height = 6, units = "in", dpi = 300)
