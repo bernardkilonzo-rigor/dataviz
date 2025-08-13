@@ -25,4 +25,15 @@ calendar_grouped<-calendar_data%>%select(Order.Date,month,week,weekday,day,Sales
 calendar_grouped%>%ggplot(aes(x = weekday, y = week, fill = total_sales))+
   geom_tile(color = "white")+
   geom_text(aes(label = day), size =3, color = "black")+
-  scale_fill_distiller(palette = "YlOrRd", direction = 1)
+  scale_fill_distiller(palette = "YlOrRd", direction = 1)+
+  labs(title = "Monthly Heatmap Calendar",
+       caption = "Viz by: Bernard Kilonzo", fill ="Sales",
+       x = "Weekday", y = "Week")+
+  theme(panel.background = element_blank(),
+        axis.title = element_text(family = "serif", face = "bold", size = 10, color = "gray35"),
+        axis.text = element_text(family = "serif", size = 9, color = "gray35"),
+        axis.ticks = element_line(color = "gray35"),
+        legend.title = element_text(family = "serif",face ="bold", size = 10, color = "gray35"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray35"),
+        plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray25"),
+        plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray50"))
