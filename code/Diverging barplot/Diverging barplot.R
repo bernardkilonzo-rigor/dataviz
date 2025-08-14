@@ -14,9 +14,14 @@ profitability<-superstore%>%filter(Region=="Central")%>%
 #classifying data set
 profitability$type<-ifelse(profitability$profit >= 0, "Profitable", "Unprofitable")
 
+#creating sample visualization
+profitability%>%ggplot(aes(x = reorder(Sub.Category, profit), y = profit, fill = type)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  scale_fill_manual(values = c("Profitable" = "steelblue", "Unprofitable" = "tomato"))
 
 
-
+#create a another alternative using dataset below...
 #Summarizing performance by month for the two years
 summary_metrics<-superstore%>%mutate(mon = month(Order.Date, label = TRUE))%>%
   group_by(mon)%>%
