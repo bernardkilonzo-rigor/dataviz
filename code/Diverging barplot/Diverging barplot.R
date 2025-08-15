@@ -15,10 +15,21 @@ profitability<-superstore%>%filter(Region=="Central")%>%
 profitability$type<-ifelse(profitability$profit >= 0, "Profitable", "Unprofitable")
 
 #creating sample visualization
-profitability%>%ggplot(aes(x = reorder(Sub.Category, profit), y = profit, fill = type)) +
+profitability%>%ggplot(aes(y = reorder(Sub.Category, profit), x = profit, fill = type)) +
   geom_bar(stat = "identity") +
-  coord_flip() +
-  scale_fill_manual(values = c("Profitable" = "steelblue", "Unprofitable" = "tomato"))
+  scale_fill_manual(values = c("Profitable" = "steelblue", "Unprofitable" = "tomato"))+
+  labs(title = "Profitability by Sub-Category",
+       x = "Profit", y = "Sub-Category", fill = "Legend",
+       caption = "Viz by: Bernard Kilonzo")+
+  theme(panel.background = element_blank(),
+        axis.line = element_line(color = "gray50", linewidth = 0.2),
+        axis.ticks = element_line(colour = "gray50", linewidth = 0.2),
+        axis.title = element_text(family = "serif", face = "bold",size = 10, color = "gray40"),
+        axis.text = element_text(family = "serif", size = 9, color = "gray40"),
+        legend.title = element_text(family = "serif", face = "bold", size = 10, color = "gray30"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray35"),
+        plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray25"),
+        plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
 
 
 #create a another alternative using dataset below...
