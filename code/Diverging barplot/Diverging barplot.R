@@ -15,7 +15,7 @@ profitability<-superstore%>%filter(Region=="Central")%>%
 profitability$type<-ifelse(profitability$profit >= 0, "Profitable", "Unprofitable")
 
 #creating sample visualization
-profitability%>%ggplot(aes(y = reorder(Sub.Category, profit), x = profit, fill = type)) +
+dbp<-profitability%>%ggplot(aes(y = reorder(Sub.Category, profit), x = profit, fill = type)) +
   geom_bar(stat = "identity") +
   scale_fill_manual(values = c("Profitable" = "steelblue", "Unprofitable" = "tomato"))+
   labs(title = "Profitability by Sub-Category",
@@ -31,6 +31,9 @@ profitability%>%ggplot(aes(y = reorder(Sub.Category, profit), x = profit, fill =
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
 
+#saving the plot
+ggsave(plot = dbp, filename = "diverging_barplot.png",
+       width = 8, height = 6, units = "in", dpi = 300)
 
 #create a another alternative using dataset below...
 #Summarizing performance by month for the two years
