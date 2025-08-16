@@ -36,6 +36,7 @@ dbp<-profitability%>%ggplot(aes(y = reorder(Sub.Category, profit), x = profit, f
 ggsave(plot = dbp, filename = "diverging_barplot.png",
        width = 8, height = 6, units = "in", dpi = 300)
 
+#diverging bar plot (option 2)
 #Summarizing performance by month for the two years
 summary_metrics<-superstore%>%mutate(mon = month(Order.Date, label = TRUE))%>%
   group_by(mon)%>%
@@ -51,6 +52,7 @@ long_summary_metrics<-summary_metrics%>%
 long_summary_metrics%>%ggplot(aes(y =mon, x = Revenue, fill = Year))+
   geom_bar(stat = "identity")+
   scale_x_continuous(labels = abs)+
+  scale_fill_manual(values = c("tomato","steelblue"))+
   labs(title = "Diverging Bar Chart", x ="Sales", y = "Month",
        caption = "Viz By: Bernard Kilonzo", fill ="Legend")+
   theme(panel.background = element_blank(),
