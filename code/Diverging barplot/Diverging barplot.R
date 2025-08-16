@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Diverging barplot")
 #load libraries
 library(tidyverse)
 library(scales)
@@ -12,10 +11,10 @@ profitability<-superstore%>%filter(Region=="Central")%>%
   group_by(Sub.Category)%>%
   summarise(profit =sum(Profit))
 
-#classifying data set
+#categorizing profit values
 profitability$type<-ifelse(profitability$profit >= 0, "Profitable", "Unprofitable")
 
-#creating sample visualization
+#creating diverging bar plot
 dbp<-profitability%>%ggplot(aes(y = reorder(Sub.Category, profit), x = profit, fill = type)) +
   geom_bar(stat = "identity") +
   scale_fill_manual(values = c("Profitable" = "steelblue", "Unprofitable" = "tomato"))+
@@ -36,20 +35,20 @@ dbp<-profitability%>%ggplot(aes(y = reorder(Sub.Category, profit), x = profit, f
 ggsave(plot = dbp, filename = "diverging_barplot.png",
        width = 8, height = 6, units = "in", dpi = 300)
 
-#diverging bar plot (option 2)
-#Summarizing performance by month for the two years
+#creating diverging bar plot (option 2)
+#Summarizing the sales performance by month for the year 2019 & 2020
 summary_metrics<-superstore%>%mutate(mon = month(Order.Date, label = TRUE))%>%
   group_by(mon)%>%
   summarise(sales_2019 =sum(ifelse(year(Order.Date)==2019, Sales,0)),
             sales_2020 =sum(ifelse(year(Order.Date)==2020, Sales,0)))
 
-#converting the summary data into long format
+#converting the summarized data into long format
 long_summary_metrics<-summary_metrics%>%
   pivot_longer(sales_2019:sales_2020, names_to = "Year", values_to = "Sales")%>%
   mutate(Revenue = if_else(Year=="sales_2019", -Sales, Sales))
 
 #creating diverging bar plot (option 2)
-long_summary_metrics%>%ggplot(aes(y =mon, x = Revenue, fill = Year))+
+dbp_2<-long_summary_metrics%>%ggplot(aes(y =mon, x = Revenue, fill = Year))+
   geom_bar(stat = "identity")+
   scale_x_continuous(labels = abs)+
   scale_fill_manual(values = c("tomato","steelblue"))+
@@ -64,5 +63,7 @@ long_summary_metrics%>%ggplot(aes(y =mon, x = Revenue, fill = Year))+
         legend.text = element_text(family = "serif", size = 9, color = "gray35"),
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
-  
-  
+
+#saving the plot
+ggsave(plot = dbp_2, filename = "diverging_barplot_2.png",
+       width = 8, height = 6, units = "in", dpi = 300)
