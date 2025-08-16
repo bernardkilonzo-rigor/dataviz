@@ -35,9 +35,15 @@ dbp<-profitability%>%ggplot(aes(y = reorder(Sub.Category, profit), x = profit, f
 ggsave(plot = dbp, filename = "diverging_barplot.png",
        width = 8, height = 6, units = "in", dpi = 300)
 
-#create a another alternative using dataset below...
 #Summarizing performance by month for the two years
 summary_metrics<-superstore%>%mutate(mon = month(Order.Date, label = TRUE))%>%
   group_by(mon)%>%
   summarise(sales_2019 =sum(ifelse(year(Order.Date)==2019, Sales,0)),
             sales_2020 =sum(ifelse(year(Order.Date)==2020, Sales,0)))
+
+#converting the summary data into long format
+long_summary_metrics<-summary_metrics%>%
+  pivot_longer(sales_2019:sales_2020, names_to = "Year", values_to = "Sales")%>%
+  mutate(Revenue = if_else(Year=="sales_2019", -Sales, Sales))
+
+  
