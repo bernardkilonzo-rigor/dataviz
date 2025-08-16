@@ -1,6 +1,7 @@
 setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Diverging barplot")
 #load libraries
 library(tidyverse)
+library(scales)
 
 #load data set
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -46,4 +47,20 @@ long_summary_metrics<-summary_metrics%>%
   pivot_longer(sales_2019:sales_2020, names_to = "Year", values_to = "Sales")%>%
   mutate(Revenue = if_else(Year=="sales_2019", -Sales, Sales))
 
+#creating diverging bar plot (option 2)
+long_summary_metrics%>%ggplot(aes(y =mon, x = Revenue, fill = Year))+
+  geom_bar(stat = "identity")+
+  scale_x_continuous(labels = abs)+
+  labs(title = "Diverging Bar Chart", x ="Sales", y = "Month",
+       caption = "Viz By: Bernard Kilonzo", fill ="Legend")+
+  theme(panel.background = element_blank(),
+        axis.line = element_line(color = "gray40", linewidth = 0.2),
+        axis.ticks = element_line(color = "gray40", linewidth = 0.1),
+        axis.title = element_text(family = "serif", face = "bold", color = "gray35", size = 10),
+        axis.text = element_text(family = "serif", color = "gray35", size = 9),
+        legend.title = element_text(family = "serif", face = "bold", color = "gray35", size = 10),
+        legend.text = element_text(family = "serif", size = 9, color = "gray35"),
+        plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray25"),
+        plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
+  
   
