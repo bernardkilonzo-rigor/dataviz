@@ -1,6 +1,5 @@
 #load libraries
 library(tidyverse)
-library(calendar)
 library(paletteer)
 library(ggthemes)
 
