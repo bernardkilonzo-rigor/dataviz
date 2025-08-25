@@ -3,12 +3,12 @@ library(tidyverse)
 library(paletteer)
 library(scales)
 
-#load dataset
+#load the data set
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Sample%20-%20Superstore.csv")
 
 #Creating a grouped bar chart
 bp<-superstore%>%ggplot(aes(x =Region, y = Sales, fill =Category))+
-  geom_bar(stat = "summary", fun = sum, position = "dodge")+
+  geom_bar(stat = "summary", fun = sum, position = "dodge", width = 0.5)+
   scale_y_continuous(labels = comma)+
   scale_fill_paletteer_d("nationalparkcolors::Acadia")+
   labs(title = "Sales Performance by Product Category per Region",
@@ -24,7 +24,7 @@ bp<-superstore%>%ggplot(aes(x =Region, y = Sales, fill =Category))+
         plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray30"),
         plot.caption = element_text(family = "serif", face = "italic", size = 8),
         )
- 
+
 #save grouped bar plot
 ggsave(plot = bp, filename = "grouped_bar_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
@@ -32,7 +32,7 @@ ggsave(plot = bp, filename = "grouped_bar_plot.png",
 
 #Creating stacked bar plot
 sp<-superstore%>%ggplot(aes(x =Region, y = Sales, fill =Category))+
-  geom_bar(stat = "summary", fun = sum, position = "stack", width = 0.5)+#specify position as stack
+  geom_bar(stat = "summary", fun = sum, position = "stack", width = 0.3)+#specify position as stack
   scale_y_continuous(labels = comma)+
   scale_fill_paletteer_d("nationalparkcolors::Acadia")+
   labs(title = "Sales Performance by Product Category per Region",
