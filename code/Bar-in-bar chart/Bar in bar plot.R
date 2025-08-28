@@ -3,7 +3,7 @@ library(tidyverse)
 library(scales)
 
 #load data
-superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Sample%20-%20Superstore.csv")
+superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #Extract months as strings
 superstore<-superstore%>%mutate(Order.Date =dmy(Order.Date))%>%
@@ -31,3 +31,4 @@ bbp<-superstore%>%ggplot(aes(x = mon))+
 #save plot
 ggsave(plot = bbp, filename = "bar_in_bar_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
