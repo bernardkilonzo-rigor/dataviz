@@ -4,7 +4,7 @@ library(paletteer)
 library(zoo)
 
 #load data
-superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Sample%20-%20Superstore.csv")
+superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #extracting month year from order date
 superstore<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
