@@ -3,7 +3,7 @@ library(ggridges)
 library(tidyverse)
 
 #load dataset
-surface_temperature<-read_csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/global%20surface%20temperature.csv")
+surface_temperature<-read_csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/global%20surface%20temperature.csv")
 
 #pivoting dataset
 surface_temperature<-surface_temperature%>%
