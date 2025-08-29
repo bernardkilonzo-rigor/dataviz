@@ -3,7 +3,7 @@ library(tidyverse)
 library(ggradar)
 
 #load data
-data_roles<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Data%20roles.csv")
+data_roles<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Data%20roles.csv")
 
 #create radar chart_1
 lcols<-c("#0476d9","#618c03","#bfb304","#a68b03")#line colors
@@ -36,7 +36,7 @@ library(fmsb)
 
 #load data
 #note, the first and second row in this data represents the maximum and minimum values respectively.
-data_roles1<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Data_roles_v2.csv")
+data_roles1<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Data_roles_v2.csv")
 
 #define colors
 areas <- c(rgb(1, 0, 0, 0.25),
