@@ -4,7 +4,7 @@ library(tidyverse)
 library(paletteer)
 
 #load data
-parliament<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Ug_Parliament.csv")
+parliament<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Ug_Parliament.csv")
 
 #Create parliament plot
 parliament_plot<-parliament_data(parliament,
