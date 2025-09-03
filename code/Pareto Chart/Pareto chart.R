@@ -17,5 +17,12 @@ state_sales<-state_sales%>%
   mutate(cum_sales =cumsum(sales),
          cum_perc = cum_sales/sum(sales)*100)
 
-#creating pareto chart in ggplot2
-
+#creating a Pareto chart in ggplot2
+state_sales%>%ggplot(aes(x = reorder(State, -sales)))+
+  geom_bar(aes(y = sales), stat = "identity", fill = "steelblue")+
+  geom_line(aes(y = cum_perc * max(sales) / 100, group = 1), color ="red", size =1)+
+  geom_point(aes(y = cum_perc * max(sales)/100), color = "red", size =2)+
+  scale_y_continuous(
+    name = "sales",
+    sec.axis = sec_axis(~ . * 100 / max(state_sales$sales), name = "Cumulative Percentage"
+  ))
