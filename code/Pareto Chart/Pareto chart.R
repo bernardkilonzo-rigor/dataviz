@@ -2,6 +2,7 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Pareto Ch
 
 #load libraries
 library(tidyverse)
+library(scales)
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -20,9 +21,14 @@ state_sales<-state_sales%>%
 #creating a Pareto chart in ggplot2
 state_sales%>%ggplot(aes(x = reorder(State, -sales)))+
   geom_bar(aes(y = sales), stat = "identity", fill = "steelblue")+
-  geom_line(aes(y = cum_perc * max(sales) / 100, group = 1), color ="red", size =1)+
+  geom_line(aes(y = cum_perc * max(sales) / 100, group = 1), color ="red", linewidth =1)+
   geom_point(aes(y = cum_perc * max(sales)/100), color = "red", size =2)+
   scale_y_continuous(
-    name = "sales",
+    name = "Sales",
     sec.axis = sec_axis(~ . * 100 / max(state_sales$sales), name = "Cumulative Percentage"
-  ))
+  ))+
+  labs(title = "Pareto Chart",
+       x = "State", caption = "Viz By: Bernard Kilonzo")+
+  theme(panel.background = element_blank(),
+        axis.line = element_line(color = "gray30", linewidth = 0.1),
+        axis.ticks = element_line(color = "gray30", linewidth = 0.1))
