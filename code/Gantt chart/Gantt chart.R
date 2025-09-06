@@ -14,7 +14,6 @@ project_timeline<-project_timeline%>%
   mutate(label = paste(Expert.Assigned, Task, sep = "-"))
 
 #creating a basic gantt chart
-project_timeline%>%ggplot(aes(x =Start.date, xend =End.date, y = Expert.Assigned,
-                              yend = Expert.Assigned, color = Task))+
-  facet_grid(~Task, scales = "free_y")+
-  geom_segment(linewidth =8)
+project_timeline%>%ggplot(aes(x =Start.date, xend =End.date, y = label,
+                              yend = label, color = Task))+
+  geom_segment(linewidth =6)
