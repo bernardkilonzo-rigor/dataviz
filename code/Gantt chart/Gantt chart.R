@@ -16,4 +16,5 @@ project_timeline<-project_timeline%>%
 #creating a basic gantt chart
 project_timeline%>%ggplot(aes(x =Start.date, xend =End.date, y = label,
                               yend = label, color = Task))+
-  geom_segment(linewidth =6)
+  geom_segment(linewidth =6)+
+  theme(panel.background = element_blank())
