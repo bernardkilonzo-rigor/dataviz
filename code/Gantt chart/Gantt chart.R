@@ -1,6 +1,7 @@
 setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Gantt chart")
 #load libraries
 library(tidyverse)
+library(paletteer)
 
 #load data
 project_timeline<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Project%20Timelines.csv")
@@ -17,4 +18,5 @@ project_timeline<-project_timeline%>%
 project_timeline%>%ggplot(aes(x =Start.date, xend =End.date, y = label,
                               yend = label, color = Task))+
   geom_segment(linewidth =6)+
+  scale_color_paletteer_d("ggsci::default_jco")+
   theme(panel.background = element_blank())
