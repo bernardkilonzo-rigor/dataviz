@@ -19,4 +19,10 @@ project_timeline%>%ggplot(aes(x =Start.date, xend =End.date, y = label,
                               yend = label, color = Task))+
   geom_segment(linewidth =6)+
   scale_color_paletteer_d("ggsci::default_jco")+
-  theme(panel.background = element_blank())
+  labs(x = "Month", y = "Individual Assigned")+
+  theme(panel.background = element_blank(),
+        axis.ticks = element_line(color = "gray35", linewidth = 0.1),
+        axis.title = element_text(family = "serif", face = "bold", size = 10, color = "gray30"),
+        axis.text = element_text(family = "serif", size = 9, color = "gray30"),
+        legend.title = element_text(family = "serif", face = "bold", size = 10, color = "gray30"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray30"))
