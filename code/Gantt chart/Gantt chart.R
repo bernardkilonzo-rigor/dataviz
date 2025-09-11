@@ -1,11 +1,10 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Gantt chart")
 #load libraries
 library(tidyverse)
 library(paletteer)
 
 #load data
 project_timeline<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Project%20Timelines.csv")
-view(project_timeline)
+
 #converting start and end dates into date objects
 project_timeline$Start.date<-dmy(project_timeline$Start.date)
 project_timeline$End.date<-dmy(project_timeline$End.date)
@@ -14,8 +13,8 @@ project_timeline$End.date<-dmy(project_timeline$End.date)
 project_timeline<-project_timeline%>%
   mutate(label = paste(Expert.Assigned, Task, sep = "-"))
 
-#creating a basic gantt chart
-project_timeline%>%ggplot(aes(x =Start.date, xend =End.date, y = label,
+#creating a basic Gantt chart
+gc<-project_timeline%>%ggplot(aes(x =Start.date, xend =End.date, y = label,
                               yend = label, color = Task))+
   geom_segment(linewidth =6)+
   scale_color_paletteer_d("ggsci::default_jco")+
@@ -30,3 +29,7 @@ project_timeline%>%ggplot(aes(x =Start.date, xend =End.date, y = label,
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray20"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
+
+#saving the plot
+ggsave(plot = gc, filename = "Gantt.png",
+       width = 8, height = 6, units = "in", dpi = 300)
