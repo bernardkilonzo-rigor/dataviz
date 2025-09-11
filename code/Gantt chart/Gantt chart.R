@@ -23,6 +23,7 @@ project_timeline%>%ggplot(aes(x =Start.date, xend =End.date, y = label,
        caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         axis.ticks = element_line(color = "gray35", linewidth = 0.1),
+        axis.line = element_line(linewidth = 0.1, color = "gray30"),
         axis.title = element_text(family = "serif", face = "bold", size = 10, color = "gray30"),
         axis.text = element_text(family = "serif", size = 9, color = "gray30"),
         legend.title = element_text(family = "serif", face = "bold", size = 10, color = "gray30"),
