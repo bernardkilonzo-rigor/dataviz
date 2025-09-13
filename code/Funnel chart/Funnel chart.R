@@ -15,4 +15,10 @@ advert_data<-advert_data%>%
                                   ymin = cumsum(Value) - Value,
                                   ymax = cumsum(Value))
 
+#Creating the plot
+ggplot(advert_data) +
+  geom_rect(aes(xmin = -Value/2, xmax = Value/2, ymin = ymin, ymax = ymax, fill = Stage)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  coord_flip() +
+  theme_minimal()
 
