@@ -9,4 +9,10 @@ advert_data<-data.frame(
   Value =c(2500,986,197,25)
 )
 
+#Adding y-position for plotting
+advert_data<-advert_data%>%
+  mutate(Stage = factor(Stage, levels = rev(Stage)),
+                                  ymin = cumsum(Value) - Value,
+                                  ymax = cumsum(Value))
+
 
