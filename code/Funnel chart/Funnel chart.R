@@ -3,4 +3,10 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Funnel ch
 #Load libraries
 library(tidyverse)
 
-#load data
+#create data
+advert_data<-data.frame(
+  Stage =c("Ads Reach","Visitors","Leads","Customers"),
+  Value =c(2500,986,197,25)
+)
+
+
