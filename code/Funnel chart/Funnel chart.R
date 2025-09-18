@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Funnel chart")
-
 #Load libraries
 library(tidyverse)
 library(paletteer)
@@ -17,7 +15,7 @@ advert_data<-advert_data%>%
                                   ymax = cumsum(Value))
 
 #Creating the plot
-ggplot(advert_data) +
+fc<-ggplot(advert_data) +
   geom_rect(aes(xmin = -Value/2, xmax = Value/2, ymin = ymin, ymax = ymax, fill = Stage)) +
   scale_y_continuous(expand = c(0, 0))+
   coord_flip()+
@@ -31,3 +29,7 @@ ggplot(advert_data) +
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray20"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
 
+
+#saving the plot
+ggsave(plot = fc, filename = "Funnel_chart.png",
+       width = 8, height = 6, units = "in",dpi = 300)
