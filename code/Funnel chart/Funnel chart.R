@@ -2,6 +2,7 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Funnel ch
 
 #Load libraries
 library(tidyverse)
+library(paletteer)
 
 #create data
 advert_data<-data.frame(
@@ -18,7 +19,15 @@ advert_data<-advert_data%>%
 #Creating the plot
 ggplot(advert_data) +
   geom_rect(aes(xmin = -Value/2, xmax = Value/2, ymin = ymin, ymax = ymax, fill = Stage)) +
-  scale_y_continuous(expand = c(0, 0)) +
-  coord_flip() +
-  theme_minimal()
+  scale_y_continuous(expand = c(0, 0))+
+  coord_flip()+
+  scale_fill_paletteer_d("trekcolors::enara2")+
+  labs(title = "Funnel Chart", caption = "Viz by: Bernard Kilonzo")+
+  theme(panel.background = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        legend.title = element_text(family = "serif", face = "bold", size = 10, color = "gray25"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray30"),
+        plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray20"),
+        plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
 
