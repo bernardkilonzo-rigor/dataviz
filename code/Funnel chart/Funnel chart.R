@@ -19,7 +19,7 @@ fc<-ggplot(advert_data) +
   geom_rect(aes(xmin = -Value/2, xmax = Value/2, ymin = ymin, ymax = ymax, fill = Stage)) +
   scale_y_continuous(expand = c(0, 0))+
   coord_flip()+
-  scale_fill_paletteer_d("trekcolors::enara2")+
+  scale_fill_paletteer_d("rockthemes::alice")+
   labs(title = "Funnel Chart", caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         axis.text = element_blank(),
