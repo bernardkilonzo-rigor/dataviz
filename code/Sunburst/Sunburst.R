@@ -20,3 +20,15 @@ fig <- plot_ly(
 
 fig
 
+#Install packages
+install.packages("sunburstR")
+library(sunburstR)
+
+# Create hierarchical paths
+data <- data.frame(
+  paths = c("Earth-Africa-Kenya", "Earth-Asia-India", "Earth-Europe-Germany"),
+  values = c(5, 7, 8)
+)
+
+# Create sunburst chart
+sunburst(data)
