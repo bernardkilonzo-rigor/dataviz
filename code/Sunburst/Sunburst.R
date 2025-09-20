@@ -1,7 +1,13 @@
 setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Sunburst")
 
-#load libraries
-library(ggplot2)
+#load library
 library(plotly)
 
-#load data set
+#create data set
+data <- data.frame(
+  Labels = c("France", "England", "Kenya", "Sudan", "India", "China", "Germany"),
+  Parents = c("Europe", "Europe", "Africa", "Africa", "Asia", "Asia", "Europe"),
+  Values = c(0, 10, 5, 15, 7, 20, 8)
+)
+
+
