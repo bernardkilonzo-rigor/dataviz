@@ -7,7 +7,16 @@ library(plotly)
 data <- data.frame(
   Labels = c("France", "England", "Kenya", "Sudan", "India", "China", "Germany"),
   Parents = c("Europe", "Europe", "Africa", "Africa", "Asia", "Asia", "Europe"),
-  Values = c(0, 10, 5, 15, 7, 20, 8)
+  Values = c(3, 10, 5, 15, 7, 20, 8)
 )
 
+#create sunburst chart
+fig <- plot_ly(
+  labels = data$Labels,
+  parents = data$Parents,
+  values = data$Values,
+  type = 'sunburst'
+)
+
+fig
 
