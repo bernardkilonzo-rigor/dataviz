@@ -3,6 +3,9 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Control c
 #load libraries
 library(tidyverse)
 library(zoo)
+install.packages("ggQC")
+library(ggQC)
+install.packages(c("ggplot2", "ggQC"))
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -16,7 +19,7 @@ super_cal<-superstore%>%group_by(my)%>%
   summarise(sales =sum(Sales))
 
 #create control chart
-superstore%>%ggplot(aes(x = my, y = Value)) +
+super_cal%>%ggplot(aes(x = my, y = sales)) +
   geom_point() + 
   geom_line() +
   stat_QC(method = "XmR", auto.label = TRUE, label.digits = 2, show.1n2.sigma = TRUE) +
