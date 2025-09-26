@@ -3,9 +3,7 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Control c
 #load libraries
 library(tidyverse)
 library(zoo)
-install.packages("ggQC")
-library(ggQC)
-install.packages(c("ggplot2", "ggQC"))
+library(qcc)
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -17,6 +15,9 @@ superstore<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
 #computing sales by month year
 super_cal<-superstore%>%group_by(my)%>%
   summarise(sales =sum(Sales))
+
+qcc(super_cal, type = "xbar")
+
 
 #create control chart
 super_cal%>%ggplot(aes(x = my, y = sales)) +
