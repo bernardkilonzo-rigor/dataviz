@@ -28,5 +28,10 @@ qc +
   geom_hline(yintercept = super_cal$ucl, linetype = "dashed", color = "red") +
   geom_hline(yintercept = super_cal$lcl, linetype = "dashed", color = "blue") +
   geom_hline(yintercept = super_cal$cl,  linetype = "solid",  color = "black") +
-  labs(title = "Control Chart with Manual Limits")
+  labs(title = "Control Chart with Manual Limits",
+       x = "weeks", y = "Sales", caption = "Viz by: Bernard Kilonzo")+
+  theme(axis.title = element_text(family = "serif", face = "bold", size = 10, color = "gray30"),
+        axis.text = element_text(family = "serif", size = 9, color = "gray30"),
+        plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray20"),
+        plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
 
