@@ -2,27 +2,31 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Control c
 
 #load libraries
 library(tidyverse)
-library(zoo)
-library(qcc)
+library(qicharts2)
 
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #extracting month year from order date
 superstore<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
-  mutate(my = as.yearmon(Order.Date))
+  mutate(week = week(Order.Date))
 
 #computing sales by month year
-super_cal<-superstore%>%group_by(my)%>%
-  summarise(sales =sum(Sales))
-
-qcc(super_cal, type = "xbar")
-
+super_cal<-superstore%>%group_by(week)%>%
+  summarise(sales =sum(Sales))%>%
+  mutate(mean = mean(sales),
+            sd = sd(sales),
+            ucl = mean(sales)+2*sd,
+            lcl = mean(sales)-2*sd)
 
 #create control chart
-super_cal%>%ggplot(aes(x = my, y = sales)) +
-  geom_point() + 
-  geom_line() +
-  stat_QC(method = "XmR", auto.label = TRUE, label.digits = 2, show.1n2.sigma = TRUE) +
-  stat_QC(method = "mR") +
-  scale_x_continuous(expand = expansion(mult = 0.15))
+qc<-qic(sales,data = super_cal, chart="xbar")
+qc
+
+#formatting
+qc +
+  geom_hline(yintercept = super_cal$ucl, linetype = "dashed", color = "red") +
+  geom_hline(yintercept = super_cal$lcl, linetype = "dashed", color = "blue") +
+  geom_hline(yintercept = super_cal$mean,  linetype = "solid",  color = "black") +
+  labs(title = "Control Chart with Manual Limits")
+
