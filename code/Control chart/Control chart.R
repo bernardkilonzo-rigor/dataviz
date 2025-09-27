@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Control chart")
-
 #load libraries
 library(tidyverse)
 library(qicharts2)
@@ -7,7 +5,7 @@ library(qicharts2)
 #load data
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
-#extracting weeks from order date
+#extracting week date part from order date
 superstore<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
   mutate(week = week(Order.Date))
 
@@ -21,7 +19,6 @@ super_cal<-superstore%>%group_by(week)%>%
 
 #creating control chart
 q<-qic(sales,data = super_cal, chart="xbar")
-
 
 #formatting control chart
 qc<-q+
