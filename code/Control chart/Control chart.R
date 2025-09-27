@@ -20,11 +20,11 @@ super_cal<-superstore%>%group_by(week)%>%
             lcl = mean(sales)-2*sd)
 
 #creating control chart
-qc<-qic(sales,data = super_cal, chart="xbar")
+q<-qic(sales,data = super_cal, chart="xbar")
 
 
-#formatting
-qc +
+#formatting control chart
+qc<-q+
   geom_hline(yintercept = super_cal$ucl, linetype = "dashed", color = "red") +
   geom_hline(yintercept = super_cal$lcl, linetype = "dashed", color = "blue") +
   geom_hline(yintercept = super_cal$cl,  linetype = "solid",  color = "black") +
@@ -35,3 +35,6 @@ qc +
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray20"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
 
+#saving the plot
+ggsave(plot = qc, filename = "control_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300)
