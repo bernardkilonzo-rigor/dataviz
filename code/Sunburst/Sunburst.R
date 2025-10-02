@@ -1,34 +1,11 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Sunburst")
-
 #load library
-library(plotly)
+library(sunburstR)
 
-#create data set
+#create hierarchical data
 data <- data.frame(
-  Labels = c("France", "England", "Kenya", "Sudan", "India", "China", "Germany"),
-  Parents = c("Europe", "Europe", "Africa", "Africa", "Asia", "Asia", "Europe"),
-  Values = c(3, 10, 5, 15, 7, 20, 8)
+  paths = c("Technology-Consumer-Tables", "Furniture-Corporate-Bookcases", "Office Supplies-Home Office-Furnishings"),
+  values = c(55, 150, 760)
 )
 
 #create sunburst chart
-fig <- plot_ly(
-  labels = data$Labels,
-  parents = data$Parents,
-  values = data$Values,
-  type = 'sunburst'
-)
-
-fig
-
-#Install packages
-install.packages("sunburstR")
-library(sunburstR)
-
-# Create hierarchical paths
-data <- data.frame(
-  paths = c("Earth-Africa-Kenya", "Earth-Asia-India", "Earth-Europe-Germany"),
-  values = c(5, 7, 8)
-)
-
-# Create sunburst chart
 sunburst(data)
