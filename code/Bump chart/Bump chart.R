@@ -47,7 +47,7 @@ ggsave(plot = bc, filename = "Bump_chart.png",
 library(ggbump)
 
 #create bump chart
-Rank_data%>%ggplot(aes(x = mon, y = rank, group = Region, fill = Region)) +
+sbp<-Rank_data%>%ggplot(aes(x = mon, y = rank, group = Region, fill = Region)) +
   geom_bump(aes(color = Region), size = 2.5) +
   scale_y_reverse()+
   labs(title = "Ranking Sales Performance by Region",
@@ -65,4 +65,7 @@ Rank_data%>%ggplot(aes(x = mon, y = rank, group = Region, fill = Region)) +
         plot.title = element_text(family = "serif", face = "bold", size = 12, colour = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray35"))
 
+#saving the plot
+ggsave(plot = sbp, filename = "smooth_bump_plot.png",
+       width = 8, height = 6, units = "in", dpi = 300)
 
