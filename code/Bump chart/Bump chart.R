@@ -53,8 +53,16 @@ Rank_data%>%ggplot(aes(x = mon, y = rank, group = Region, fill = Region)) +
   labs(title = "Ranking Sales Performance by Region",
        y = "Rank",
        x = "Month",
-       caption = "Viz by: Bernard Kilonzo") +
-  theme_minimal() +
-  theme(legend.position = "bottom")
+       caption = "Viz by: Bernard Kilonzo")+
+  theme(panel.background = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        axis.title.y = element_blank(),
+        axis.title.x = element_text(family = "serif", size = 9, color = "gray35"),
+        axis.text.x = element_text(family = "serif", size = 9, color = "gray35"),
+        legend.position = "bottom",
+        plot.title = element_text(family = "serif", face = "bold", size = 12, colour = "gray25"),
+        plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray35"))
 
 
