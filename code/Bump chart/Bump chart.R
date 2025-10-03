@@ -46,3 +46,15 @@ ggsave(plot = bc, filename = "Bump_chart.png",
 #load library
 library(ggbump)
 
+#create bump chart
+Rank_data%>%ggplot(aes(x = mon, y = rank, group = Region, fill = Region)) +
+  geom_bump(aes(color = Region), size = 2.5) +
+  scale_y_reverse()+
+  labs(title = "Ranking Sales Performance by Region",
+       y = "Rank",
+       x = "Month",
+       caption = "Viz by: Bernard Kilonzo") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+
