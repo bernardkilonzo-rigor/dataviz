@@ -2,9 +2,10 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Gauge cha
 
 #load libraries
 library(plotly)
-
+library(webshot)
+webshot::install_phantomjs()
 #creating gauge chart
-plot_ly(
+gp<-plot_ly(
   type = "indicator",
   mode = "gauge+number+delta",
   value = 55,                        #Current value
@@ -24,3 +25,7 @@ plot_ly(
   ),
   title = list(text = "KPI Gauge Chart")
 )
+
+
+#saving the plot
+plotly::export(p =gp, file = "gauge_plot.png")
