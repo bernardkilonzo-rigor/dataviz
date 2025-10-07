@@ -12,3 +12,6 @@ data <- data.frame(
   target_50_percent = c(500,550,150,1450,850,250,750)
 )
 
+#shaping data
+data_pivot<-data%>%pivot_longer(target:target_50_percent, names_to = "target", values_to = "values")
+
