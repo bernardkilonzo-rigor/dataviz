@@ -13,5 +13,15 @@ data <- data.frame(
 )
 
 #shaping data
-data_pivot<-data%>%pivot_longer(target:target_50_percent, names_to = "target", values_to = "values")
+data_pivot<-data%>%pivot_longer(target_80_percent:target_50_percent, names_to = "targets", values_to = "value")
+view(data_pivot)
 
+#creating bullet chart in ggplot2
+ggplot(data_pivot, aes(x = product, y = value)) +
+  geom_bar(aes(fill = targets), stat = "identity", width = 0.6) +
+  geom_bar(data = data, aes(x = product, y = sales), stat = "identity", fill = "black", width = 0.3) +
+  geom_point(data = data, aes(x = product, y = target),stat = "identity", color = "red", size = 4) +
+  coord_flip() +
+  scale_fill_manual(values = c("target_50_percent" = "#d3d3d3", "target_80_percent" = "#a9a9a9")) +
+  labs(title = "Bullet Chart Example", x = "", y = "Value") +
+  theme_minimal()
