@@ -8,10 +8,11 @@ data <- data.frame(
   product = c("Chairs","Tables","Stationary","Phones","Copiers","Books","Printers"),
   sales = c(800,1200,200,2500,1500,650,1800),
   target = c(1000,1100,300,2900,1700,500,1500),
-  target_80_percent = c(800,880,240,2320,1360,400,1200),
+  target_80_percent = c(300,330,90,870,510,150,450),
   target_50_percent = c(500,550,150,1450,850,250,750)
 )
 
+view(data)
 #shaping data
 data_pivot<-data%>%pivot_longer(target_80_percent:target_50_percent, names_to = "targets", values_to = "value")
 view(data_pivot)
