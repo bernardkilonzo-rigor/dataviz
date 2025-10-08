@@ -12,10 +12,8 @@ data <- data.frame(
   target_50_percent = c(500,550,150,1450,850,250,750)
 )
 
-view(data)
 #shaping data
 data_pivot<-data%>%pivot_longer(target_80_percent:target_50_percent, names_to = "targets", values_to = "value")
-view(data_pivot)
 
 #creating bullet chart in ggplot2
 ggplot(data_pivot, aes(x = product, y = value)) +
@@ -24,5 +22,12 @@ ggplot(data_pivot, aes(x = product, y = value)) +
   geom_point(data = data, aes(x = product, y = target),stat = "identity", color = "red", size = 4) +
   coord_flip() +
   scale_fill_manual(values = c("target_50_percent" = "#d3d3d3", "target_80_percent" = "#a9a9a9")) +
-  labs(title = "Bullet Chart Example", x = "", y = "Value") +
-  theme_minimal()
+  labs(title = "Bullet Chart", x = "Product", y = "Sales", fill = "Legend", caption = "Viz by: Bernard Kilonzo")+
+  theme(panel.background = element_blank(),
+        axis.title = element_text(family = "serif",face = "bold", size = 10, color = "gray30"),
+        axis.text = element_text(family = "serif", size = 9, color = "gray30"),
+        axis.ticks = element_line(linewidth = 0.2, color = "gray30"),
+        legend.title = element_text(family = "serif", face = "bold", size = 10, color = "gray30"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray30"),
+        plot.title = element_text(family = "serif",face = "bold", size = 13, color = "gray30"),
+        plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
