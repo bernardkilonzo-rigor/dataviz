@@ -15,6 +15,9 @@ data <- data.frame(
 #shaping data
 data_pivot<-data%>%pivot_longer(target_80_percent:target_50_percent, names_to = "targets", values_to = "value")
 
+#ordering the targets
+data_pivot$targets<-factor(data_pivot$targets, levels = c("target_80_percent","target_50_percent"))
+
 #creating bullet chart in ggplot2
 ggplot(data_pivot, aes(x = product, y = value)) +
   geom_bar(aes(fill = targets), stat = "identity", width = 0.6) +
