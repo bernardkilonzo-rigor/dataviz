@@ -19,7 +19,7 @@ data_pivot<-data%>%pivot_longer(target_80_percent:target_50_percent, names_to = 
 data_pivot$targets<-factor(data_pivot$targets, levels = c("target_80_percent","target_50_percent"))
 
 #creating bullet chart in ggplot2
-ggplot(data_pivot, aes(x = product, y = value)) +
+bc<-ggplot(data_pivot, aes(x = product, y = value)) +
   geom_bar(aes(fill = targets), stat = "identity", width = 0.6) +
   geom_bar(data = data, aes(x = product, y = sales), stat = "identity", fill = "black", width = 0.3) +
   geom_point(data = data, aes(x = product, y = target),stat = "identity", color = "red", size = 4) +
@@ -34,3 +34,7 @@ ggplot(data_pivot, aes(x = product, y = value)) +
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif",face = "bold", size = 13, color = "gray30"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
+
+#saving the plot
+ggsave(plot = bc, filename = "bullet_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300)
