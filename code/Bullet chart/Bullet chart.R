@@ -1,3 +1,4 @@
+setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Bullet chart")
 #load libraries
 library(tidyverse)
 
@@ -9,6 +10,10 @@ data <- data.frame(
   target_80_percent = c(300,330,90,870,510,150,450),
   target_50_percent = c(500,550,150,1450,850,250,750)
 )
+
+#Flagging products met or exceeded target
+data<-data%>%
+  mutate(on_target = target>=sales)
 
 #shaping data
 data_pivot<-data%>%pivot_longer(target_80_percent:target_50_percent, names_to = "targets", values_to = "value")
@@ -32,7 +37,7 @@ bc<-ggplot(data_pivot, aes(x = product, y = value)) +
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif",face = "bold", size = 13, color = "gray30"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
-
+bc
 #saving the plot
 ggsave(plot = bc, filename = "bullet_chart.png",
        width = 8, height = 6, units = "in", dpi = 300)
