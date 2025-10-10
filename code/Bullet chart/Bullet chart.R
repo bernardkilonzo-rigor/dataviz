@@ -3,7 +3,7 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Bullet ch
 library(tidyverse)
 
 #create sample data
-data <- data.frame(
+target <- data.frame(
   product = c("Chairs","Tables","Stationary","Phones","Copiers","Books","Printers"),
   sales = c(800,1200,200,2500,1500,650,1800),
   target = c(1000,1100,300,2900,1700,500,1500),
@@ -11,12 +11,12 @@ data <- data.frame(
   target_50_percent = c(500,550,150,1450,850,250,750)
 )
 
-#Flagging products met or exceeded target
-data<-data%>%
-  mutate(on_target = target>=sales)
+#flagging products met or exceeded target
+target<-target%>%
+  mutate(on_target = sales>=target)
 
 #shaping data
-data_pivot<-data%>%pivot_longer(target_80_percent:target_50_percent, names_to = "targets", values_to = "value")
+data_pivot<-target%>%pivot_longer(target_80_percent:target_50_percent, names_to = "targets", values_to = "value")
 
 #ordering the targets
 data_pivot$targets<-factor(data_pivot$targets, levels = c("target_80_percent","target_50_percent"))
@@ -24,10 +24,11 @@ data_pivot$targets<-factor(data_pivot$targets, levels = c("target_80_percent","t
 #creating bullet chart in ggplot2
 bc<-ggplot(data_pivot, aes(x = product, y = value)) +
   geom_bar(aes(fill = targets), stat = "identity", width = 0.6) +
-  geom_bar(data = data, aes(x = product, y = sales), stat = "identity", fill = "black", width = 0.3) +
-  geom_point(data = data, aes(x = product, y = target),stat = "identity", color = "red", size = 4) +
+  geom_bar(data = target, aes(x = product, y = sales, fill = on_target), stat = "identity", width = 0.3) +
+  geom_point(data = target, aes(x = product, y = target),stat = "identity", color = "red", size = 4) +
   coord_flip() +
-  scale_fill_manual(values = c( "target_80_percent" = "#d3d3d3", "target_50_percent" = "#a9a9a9")) +
+  scale_fill_manual(values = c( "target_80_percent" = "#d3d3d3", "target_50_percent" = "#a9a9a9","TRUE"="steelblue",
+                                "FALSE"="orange")) +
   labs(title = "Bullet Chart", x = "Product", y = "Sales", fill = "Legend", caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         axis.title = element_text(family = "serif",face = "bold", size = 10, color = "gray30"),
