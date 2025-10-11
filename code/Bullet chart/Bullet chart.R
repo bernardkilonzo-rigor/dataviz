@@ -13,7 +13,9 @@ target <- data.frame(
 
 #flagging products met or exceeded target
 target<-target%>%
-  mutate(on_target = sales>=target)
+  mutate(kpi = if_else(
+    sales>=target,"on_target","below_target"
+  ))
 
 #shaping data
 data_pivot<-target%>%pivot_longer(target_80_percent:target_50_percent, names_to = "targets", values_to = "value")
@@ -24,11 +26,11 @@ data_pivot$targets<-factor(data_pivot$targets, levels = c("target_80_percent","t
 #creating bullet chart in ggplot2
 bc<-ggplot(data_pivot, aes(x = product, y = value)) +
   geom_bar(aes(fill = targets), stat = "identity", width = 0.6) +
-  geom_bar(data = target, aes(x = product, y = sales, fill = on_target), stat = "identity", width = 0.3) +
+  geom_bar(data = target, aes(x = product, y = sales, fill = kpi), stat = "identity", width = 0.3) +
   geom_point(data = target, aes(x = product, y = target),stat = "identity", color = "red", size = 4) +
   coord_flip() +
-  scale_fill_manual(values = c( "target_80_percent" = "#d3d3d3", "target_50_percent" = "#a9a9a9","TRUE"="steelblue",
-                                "FALSE"="orange")) +
+  scale_fill_manual(values = c( "target_80_percent" = "#d3d3d3", "target_50_percent" = "#a9a9a9","on_target"="steelblue",
+                                "below_target"="orange")) +
   labs(title = "Bullet Chart", x = "Product", y = "Sales", fill = "Legend", caption = "Viz by: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         axis.title = element_text(family = "serif",face = "bold", size = 10, color = "gray30"),
@@ -38,7 +40,7 @@ bc<-ggplot(data_pivot, aes(x = product, y = value)) +
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif",face = "bold", size = 13, color = "gray30"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray40"))
-bc
+
 #saving the plot
 ggsave(plot = bc, filename = "bullet_chart.png",
        width = 8, height = 6, units = "in", dpi = 300)
