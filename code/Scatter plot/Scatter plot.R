@@ -1,3 +1,4 @@
+setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Scatter plot")
 #load libraries
 library(tidyverse)
 library(paletteer)
@@ -6,9 +7,8 @@ library(paletteer)
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/refs/heads/main/data/Sample%20-%20Superstore.csv")
 
 #creating scatter plot
-scp<-superstore%>%ggplot(aes(x = Sales, y =Profit, size = Discount, color =Profit))+
-  geom_point(alpha =0.5)+
-  scale_color_paletteer_c("ggthemes::Red-Green-Gold Diverging")+
+scp<-superstore%>%ggplot(aes(x = Sales, y =Profit))+
+  geom_point(color ="brown", size = 4, alpha =0.5)+
   labs(title = "Sales vs. Profit vs. Discount",
        caption = "Viz by: Bernard Kilonzo",)+
   theme(panel.background = element_blank(),
