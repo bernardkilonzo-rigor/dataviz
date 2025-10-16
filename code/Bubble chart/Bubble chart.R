@@ -7,7 +7,7 @@ library(tidyverse)
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #creating bubble chart
-superstore%>%ggplot(aes(x = Sales, y = Profit, size = Discount, color = Profit))+
+bp<-superstore%>%ggplot(aes(x = Sales, y = Profit, size = Discount, color = Profit))+
   geom_point(alpha = 0.5)+
   labs(title = "Bubble Plot", caption = "Viz By: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
@@ -18,3 +18,7 @@ superstore%>%ggplot(aes(x = Sales, y = Profit, size = Discount, color = Profit))
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 10, color = "gray40"))
+
+#saving bubble plot
+ggsave(plot = bp, filename = "bubble_plot.png", 
+       width = 8, height = 6, units = "in", dpi = 300)
