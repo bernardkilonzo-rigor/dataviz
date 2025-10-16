@@ -9,4 +9,12 @@ superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dat
 #creating bubble chart
 superstore%>%ggplot(aes(x = Sales, y = Profit, size = Discount, color = Profit))+
   geom_point(alpha = 0.5)+
-  labs(title = "Bubble Plot")
+  labs(title = "Bubble Plot", caption = "Viz By: Bernard Kilonzo")+
+  theme(panel.background = element_blank(),
+        axis.title = element_text(family = "serif", face = "bold", size = 10, color = "gray30"),
+        axis.text = element_text(family = "serif", size = 9, color = "gray30"),
+        axis.ticks = element_line(linewidth = 0.1),
+        legend.title = element_text(family = "serif", size = 10, color = "gray30"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray30"),
+        plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray25"),
+        plot.caption = element_text(family = "serif", face = "italic", size = 10, color = "gray40"))
