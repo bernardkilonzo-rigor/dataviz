@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Bubble chart")
-
 #load libraries
 library(tidyverse)
 
