@@ -18,4 +18,5 @@ data_expanded <- data %>%
 
 #create marimekko chart
 ggplot(data_expanded) +
-  geom_mosaic(aes(x = product(Gender, Product), fill = Product))
+  geom_mosaic(aes(x = product(Gender, Product), fill = Product))+
+  theme_minimal()
