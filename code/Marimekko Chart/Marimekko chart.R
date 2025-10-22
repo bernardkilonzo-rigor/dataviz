@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Marimekko Chart")
-
 #load libraries
 install.packages("ggmosaic")
 library(ggmosaic)
@@ -10,7 +8,7 @@ library(paletteer)
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #create marimekko chart
-ggplot(superstore) +
+mrc<-ggplot(superstore) +
   geom_mosaic(aes(x = product(Category, Region), fill = Category))+
   scale_fill_paletteer_d("nationalparkcolors::Acadia")+
   labs(title = "Marimekko Chart",
@@ -23,3 +21,7 @@ ggplot(superstore) +
         legend.text = element_text(family = "serif", size = 9, color = "gray30"),
         plot.title = element_text(family = "serif", face = "bold", size = 13, color = "gray20"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray45"))
+
+#saving the plot
+ggsave(plot = mrc, filename = "Marimekko.png",
+       width = 8, height = 6, units = "in", dpi = 300)
