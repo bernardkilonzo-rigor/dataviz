@@ -1,28 +1,20 @@
 setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Quadrant chart")
-#load libraries
-library(ggplot2)
 
-#dataset
-set.seed(123)
-df <- data.frame(
-  name = paste("Item", 1:20),
-  x = rnorm(20, mean = 50, sd = 10),
-  y = rnorm(20, mean = 50, sd = 10)
-)
+#load libraries
+library(tidyverse)
+
+#load dataset
+superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #quandrant boundaries
-x_mid <- mean(df$x)
-y_mid <- mean(df$y)
-
+discount_mid <- mean(superstore$Discount)
+quantity_mid <- mean(superstore$Quantity)
 
 #Creating quandrant
-ggplot(df, aes(x = x, y = y)) +
+superstore%>%ggplot(aes(x = Discount, y = Quantity)) +
   geom_point(size = 3, color = "steelblue") +
-  geom_vline(xintercept = x_mid, linetype = "dashed", color = "gray") +
-  geom_hline(yintercept = y_mid, linetype = "dashed", color = "gray") +
-  geom_text(aes(label = name), vjust = -1, size = 3) +
-  theme_minimal() +
-  labs(title = "Quadrant Chart", x = "X Axis", y = "Y Axis")
+  geom_vline(xintercept = discount_mid, linetype = "dashed", color = "gray") +
+  geom_hline(yintercept = quantity_mid, linetype = "dashed", color = "gray")
 
 #coloring by quanadrant
 df$quadrant <- with(df, ifelse(x > x_mid & y > y_mid, "Q1",
