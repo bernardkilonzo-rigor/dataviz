@@ -2,6 +2,7 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Quadrant 
 
 #load libraries
 library(tidyverse)
+library(paletteer)
 
 #load data set
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -23,6 +24,7 @@ superstore%>%ggplot(aes(x = Discount, y = Quantity, color = quadrant)) +
   geom_vline(xintercept = discount_mid, linetype = "dashed", color = "gray") +
   geom_hline(yintercept = quantity_mid, linetype = "dashed", color = "gray")+
   labs(title = "Quadrant Chart", caption = "Viz By: Bernard Kilonzo", color = "Key")+
+  scale_color_paletteer_d("wesanderson::AsteroidCity1")+
   theme(panel.background = element_blank(),
         axis.line = element_line(color = "gray35", linewidth = 0.1),
         axis.ticks = element_line(color = "gray35", linewidth = 0.1),
