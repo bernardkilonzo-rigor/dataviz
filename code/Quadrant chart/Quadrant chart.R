@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Quadrant chart")
-
 #load libraries
 library(tidyverse)
 library(paletteer)
@@ -19,7 +17,7 @@ superstore$quadrant<- with(superstore, ifelse(
 )))
 
 #Creating quadrant chart
-superstore%>%ggplot(aes(x = Discount, y = Quantity, color = quadrant)) +
+qc<-superstore%>%ggplot(aes(x = Discount, y = Quantity, color = quadrant)) +
   geom_point(size = 3) +
   geom_vline(xintercept = discount_mid, linetype = "dashed", color = "gray") +
   geom_hline(yintercept = quantity_mid, linetype = "dashed", color = "gray")+
@@ -34,3 +32,7 @@ superstore%>%ggplot(aes(x = Discount, y = Quantity, color = quadrant)) +
         legend.text = element_text(family = "serif", size = 9, color = "gray25"),
         plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray25"),
         plot.caption = element_text(family = "serif", face = "italic", size = 10, color = "gray45"))
+
+#saving the plot
+ggsave(plot = qc, filename = "quadrant_chart.png",
+       width = 8, height = 6, units = "in", dpi = 300)
