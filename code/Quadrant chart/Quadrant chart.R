@@ -21,4 +21,14 @@ superstore$quadrant<- with(superstore, ifelse(
 superstore%>%ggplot(aes(x = Discount, y = Quantity, color = quadrant)) +
   geom_point(size = 3) +
   geom_vline(xintercept = discount_mid, linetype = "dashed", color = "gray") +
-  geom_hline(yintercept = quantity_mid, linetype = "dashed", color = "gray")
+  geom_hline(yintercept = quantity_mid, linetype = "dashed", color = "gray")+
+  labs(title = "Quadrant Chart", caption = "Viz By: Bernard Kilonzo", color = "Key")+
+  theme(panel.background = element_blank(),
+        axis.line = element_line(color = "gray35", linewidth = 0.1),
+        axis.ticks = element_line(color = "gray35", linewidth = 0.1),
+        axis.title = element_text(family = "serif", face = "bold", size = 10, color = "gray25"),
+        axis.text = element_text(family = "serif", color = "gray25", size = 9),
+        legend.title = element_text(family = "serif", face = "bold", size = 10, color = "gray25"),
+        legend.text = element_text(family = "serif", size = 9, color = "gray25"),
+        plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray25"),
+        plot.caption = element_text(family = "serif", face = "italic", size = 10, color = "gray45"))
