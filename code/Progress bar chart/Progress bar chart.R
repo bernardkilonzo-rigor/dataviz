@@ -11,4 +11,7 @@ data<-data.frame(ID = 1:5,
 #Add a new column computing percent to completion
 data<-data%>%mutate(percent_to_complete = 100 -percent_complete)
 
-#create progress bar chart
+#create progress bar chart (simple bar chart)
+
+
+#create progress bar chart (showcasing percent to complete)
