@@ -22,11 +22,10 @@ data%>%ggplot(aes(y = Project_Task, x = percent_complete))+
         plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray20"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray35"))
 
+#Adding a new column computing 100% complete
+data<-data%>%mutate(complete_project = 100)
 
-#Add a new column computing percent to completion
-data<-data%>%mutate(percent_to_complete = 100 -percent_complete)
-
-#create progress bar chart (simple bar chart)
-
-
-#create progress bar chart (showcasing percent to complete)
+#creating progress bar chart (as a bar-in-bar chart)
+data%>%ggplot(aes(y = Project_Task))+
+  geom_bar(aes(x = percent_complete), stat = "identity", width = 0.2, fill = "blue", alpha = 0.5)+
+  geom_bar(aes(x = complete_project), stat = "identity", width = 0.4, fill = "steelblue", alpha = 0.5)
