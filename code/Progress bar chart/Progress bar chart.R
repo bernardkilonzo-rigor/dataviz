@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Progress bar chart")
-
 #load libraries
 library(tidyverse)
 
@@ -9,7 +7,7 @@ data<-data.frame(ID = 1:5,
                  percent_complete =c(80,65,30,45,17))
 
 #creating progress bar chart (a simple bar chart)
-data%>%ggplot(aes(y = Project_Task, x = percent_complete))+
+bc<-data%>%ggplot(aes(y = Project_Task, x = percent_complete))+
   geom_bar(stat = "identity", fill = "#618c03", width = 0.4, alpha = 0.8)+
   geom_text(aes(label = paste0(percent_complete,"%")),size =2.5, vjust = 0.5, hjust = -0.1)+
   labs(y = "Project Name", x = "Percent Complete",
@@ -22,11 +20,15 @@ data%>%ggplot(aes(y = Project_Task, x = percent_complete))+
         plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray20"),
         plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray35"))
 
+#saving the plot
+ggsave(plot = bc, filename = "progress_bar_chart.png",
+       width = 8, height = 8, units = "in", dpi = 300)
+
 #adding a new column computing 100% complete
 data<-data%>%mutate(complete_project = 100)
 
 #creating progress bar chart (as a bar-in-bar chart)
-data%>%ggplot(aes(y = Project_Task))+
+bb<-data%>%ggplot(aes(y = Project_Task))+
   geom_bar(aes(x = percent_complete), stat = "identity", width = 0.2, fill = "#618c03", alpha = 0.8)+
   geom_bar(aes(x = complete_project), stat = "identity", width = 0.4, fill = "#bfb304", alpha = 0.4)+
   geom_text(aes(y = Project_Task, x = percent_complete,label = paste0(percent_complete,"%")),size = 2.5, vjust = 0.5, hjust =-0.5)+
@@ -39,3 +41,7 @@ data%>%ggplot(aes(y = Project_Task))+
         axis.ticks = element_line(linewidth = 0.1, color = "gray25"),
         plot.title = element_text(family = "serif", face = "bold", size = 12, color = "gray20"),
         plot.caption = element_text(family = "serif", face = "italic", size = 10, color = "gray45"))
+
+#saving the plot
+ggsave(plot = bb, filename = "progress_bar_chart_1.png",
+       width = 8, height = 6, units = "in", dpi = 300)
