@@ -10,7 +10,7 @@ data<-data.frame(ID = 1:5,
 
 #creating progress bar chart (a simple bar chart)
 data%>%ggplot(aes(y = Project_Task, x = percent_complete))+
-  geom_bar(stat = "identity", fill = "steelblue", width = 0.4)+
+  geom_bar(stat = "identity", fill = "#618c03", width = 0.4, alpha = 0.8)+
   geom_text(aes(label = paste0(percent_complete,"%")),size =2.5, vjust = 0.5, hjust = -0.1)+
   labs(y = "Project Name", x = "Percent Complete",
        title = "Project Completion Report", caption = "Viz By: Bernard Kilonzo")+
@@ -27,8 +27,9 @@ data<-data%>%mutate(complete_project = 100)
 
 #creating progress bar chart (as a bar-in-bar chart)
 data%>%ggplot(aes(y = Project_Task))+
-  geom_bar(aes(x = percent_complete), stat = "identity", width = 0.2, fill = "blue", alpha = 0.5)+
-  geom_bar(aes(x = complete_project), stat = "identity", width = 0.4, fill = "steelblue", alpha = 0.5)+
+  geom_bar(aes(x = percent_complete), stat = "identity", width = 0.2, fill = "#618c03", alpha = 0.8)+
+  geom_bar(aes(x = complete_project), stat = "identity", width = 0.4, fill = "#bfb304", alpha = 0.4)+
+  geom_text(aes(y = Project_Task, x = percent_complete,label = paste0(percent_complete,"%")),size = 2.5, vjust = 0.5, hjust =-0.5)+
   labs(title = "Project Completion Report", caption = "Viz By: Bernard Kilonzo",
        x = "Percent Complete", y = "Project Name")+
   theme(panel.background = element_blank(),
