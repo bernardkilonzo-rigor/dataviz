@@ -1,3 +1,4 @@
+setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Grouped & Stacked bar plots")
 #load libraries
 library(tidyverse)
 library(paletteer)
@@ -52,3 +53,12 @@ sp<-superstore%>%ggplot(aes(x =Region, y = Sales, fill =Category))+
 #save stacked bar plot
 ggsave(plot = sp, filename = "stacked_bar_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#computing Sales by Sub-Category
+Sales_cal<-superstore%>%group_by(Sub.Category)%>%
+  summarise(sales = sum(Sales))
+
+#creating simple bar chart using plotly
