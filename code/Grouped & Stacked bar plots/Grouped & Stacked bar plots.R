@@ -62,3 +62,8 @@ Sales_cal<-superstore%>%group_by(Sub.Category)%>%
   summarise(sales = sum(Sales))
 
 #creating simple bar chart using plotly
+plot_ly(data = Sales_cal,
+       x = ~Sub.Category, 
+       y = ~sales, type = "bar", 
+       color = "orange")
+  
