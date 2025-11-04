@@ -72,3 +72,8 @@ fig_1%>%layout(
   title = "Revenue by Sub-Category",
   xaxis = list(title = "Sub-Category"),
   yaxis = list(title = "Revenue"))  
+
+#creating grouped barplot with plotly
+superstore%>%group_by(Region, Category)%>%
+  summarise(sales = sum(Sales))%>%
+  plot_ly(x = ~Region, y = ~sales,color = ~Category, type = "bar" )
