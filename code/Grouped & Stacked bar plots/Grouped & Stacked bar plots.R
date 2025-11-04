@@ -79,3 +79,13 @@ superstore%>%group_by(Region, Category)%>%
   plot_ly(x = ~Region, y = ~sales,color = ~Category, type = "bar")%>%
   layout(title = "Revenue by Region & Category",
          yaxis = list(title = "Revenue"))
+
+#creating stacked barplot with plotly
+superstore%>%group_by(Region, Category)%>%
+  summarise(sales = sum(Sales))%>%
+  plot_ly(x = ~Region, y = ~sales,color = ~Category, type = "bar")%>%
+  layout(barmode = "stack",
+         title = "Revenue by Region & Category",
+         yaxis = list(title = "Revenue"))
+
+         
