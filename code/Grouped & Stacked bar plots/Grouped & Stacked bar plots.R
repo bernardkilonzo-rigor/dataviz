@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Grouped & Stacked bar plots")
 #load libraries
 library(tidyverse)
 library(paletteer)
