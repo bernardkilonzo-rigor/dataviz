@@ -71,19 +71,21 @@ fig_bc<-plot_ly(data = Sales_cal,
          yaxis = list(title = "<b>Revenue</b>"))
 fig_b
 
-#creating grouped barplot with plotly
+#creating grouped bar plot with plotly
 superstore%>%group_by(Region, Category)%>%
   summarise(sales = sum(Sales))%>%
   plot_ly(x = ~Region, y = ~sales,color = ~Category, type = "bar")%>%
-  layout(title = "Revenue by Region & Category",
-         yaxis = list(title = "Revenue"))
+  layout(title = list(text = "<b>Revenue by Region & Category</b>", font = list(font = 15, color = "steelblue")),
+         yaxis = list(title = "<b>Revenue</b>"),
+         xaxis = list(title = "<b>Region</b>"))
 
-#creating stacked barplot with plotly
+#creating stacked bar plot with plotly
 superstore%>%group_by(Region, Category)%>%
   summarise(sales = sum(Sales))%>%
   plot_ly(x = ~Region, y = ~sales,color = ~Category, type = "bar")%>%
   layout(barmode = "stack",
-         title = "Revenue by Region & Category",
-         yaxis = list(title = "Revenue"))
+         title =  list(text = "<b>Revenue by Region & Category</b>", font = list(font = 15, color = "steelblue")),
+         yaxis = list(title = "<b>Revenue</b>"),
+         xaxis = list(title = "<b>Region</b>"))
 
          
