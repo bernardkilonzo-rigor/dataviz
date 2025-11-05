@@ -62,16 +62,14 @@ Sales_cal<-superstore%>%group_by(Sub.Category)%>%
   summarise(sales = sum(Sales))
 
 #creating simple bar chart using plotly
-fig_1<-plot_ly(data = Sales_cal,
+fig_bc<-plot_ly(data = Sales_cal,
        x = ~Sub.Category, 
        y = ~sales, type = "bar", 
-       color = "orange")
-
-#Adding titles and labels
-fig_1%>%layout(
-  title = "Revenue by Sub-Category",
-  xaxis = list(title = "Sub-Category"),
-  yaxis = list(title = "Revenue"))  
+       marker = list(color = "steelblue"))%>%
+  layout(title = list(text = "<b>Revenue by Sub-Category</b>", font = list(size = 15, color = "steelblue")),
+         xaxis = list(title = "<b>Sub-Category</b>"),
+         yaxis = list(title = "<b>Revenue</b>"))
+fig_b
 
 #creating grouped barplot with plotly
 superstore%>%group_by(Region, Category)%>%
