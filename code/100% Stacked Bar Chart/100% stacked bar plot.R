@@ -1,3 +1,4 @@
+setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\100% Stacked Bar Chart")
 #load libraries
 library(tidyverse)
 library(paletteer)
@@ -37,4 +38,16 @@ stck<-Prtions%>%ggplot(aes(x =month, y = percent, fill =Region))+
 
 #save 100% stacked bar plot
 ggsave(plot = stck, filename = "Rplot.png",
-       width = 8, height = 6, units = "in", dpi = 300) 
+       width = 8, height = 6, units = "in", dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#create 100% bar chart with plotly
+superstore%>%mutate(month=month(Order.Date, label =TRUE))%>%
+  group_by(month, Region)%>%
+  summarise(sales = sum(Sales))%>%
+  mutate(pr=sales/sum(sales))%>%
+  mutate(percent=formattable::percent(pr))%>%
+  plot_ly(x = ~month, y= ~percent, color = ~Region, type = "bar")%>%
+  layout(barmode = "stack")
