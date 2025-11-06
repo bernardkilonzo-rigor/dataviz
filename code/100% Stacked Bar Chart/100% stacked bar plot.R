@@ -1,4 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\100% Stacked Bar Chart")
 #load libraries
 library(tidyverse)
 library(paletteer)
@@ -50,6 +49,6 @@ superstore%>%mutate(month=month(Order.Date, label =TRUE))%>%
   mutate(pr=sales/sum(sales)*100)%>%
   plot_ly(x = ~month, y= ~pr, color = ~Region, type = "bar")%>%
   layout(barmode = "stack",
-         title = "100% Stacked Bar Plot",
-         xaxis = list(title = "Months"),
-         yaxis = list(title = "Percent"))
+         title = list(text = "<b>Proportion of Revenue by Months</b>", font = list(font = 14, color = "steelblue")),
+         xaxis = list(title = "<b>Months</b>"),
+         yaxis = list(title = "<b>Percent</b>"))
