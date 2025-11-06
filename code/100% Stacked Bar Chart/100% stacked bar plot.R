@@ -47,7 +47,9 @@ library(plotly)
 superstore%>%mutate(month=month(Order.Date, label =TRUE))%>%
   group_by(month, Region)%>%
   summarise(sales = sum(Sales))%>%
-  mutate(pr=sales/sum(sales))%>%
-  mutate(percent=formattable::percent(pr))%>%
-  plot_ly(x = ~month, y= ~percent, color = ~Region, type = "bar")%>%
-  layout(barmode = "stack")
+  mutate(pr=sales/sum(sales)*100)%>%
+  plot_ly(x = ~month, y= ~pr, color = ~Region, type = "bar")%>%
+  layout(barmode = "stack",
+         title = "100% Stacked Bar Plot",
+         xaxis = list(title = "Months"),
+         yaxis = list(title = "Percent"))
