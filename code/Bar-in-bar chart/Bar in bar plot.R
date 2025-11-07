@@ -32,3 +32,14 @@ bbp<-superstore%>%ggplot(aes(x = mon))+
 ggsave(plot = bbp, filename = "bar_in_bar_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
 
+#load new libraries
+library(plotly)
+
+#creating bar-in-bar chart with plotly
+superstore%>%mutate(Order.Date =dmy(Order.Date))%>%
+  mutate(mon = month(Order.Date, label = TRUE))%>%
+  group_by(mon)%>%
+  summarise(sales =sum(Sales), profit = sum(Profit))%>%
+  plot_ly(x = ~mon)%>%
+  add_bars(y = ~sales, name = "Sales")%>%
+  add_bars(y = ~profit, name = "Profit", width = 0.4)
