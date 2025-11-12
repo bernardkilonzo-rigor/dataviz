@@ -43,6 +43,9 @@ superstore%>%mutate(Order.Date =dmy(Order.Date))%>%
   plot_ly(y = ~mon, type = "bar")%>%
   add_bars(x = ~sales, name = "Sales", marker = list(color = "lightblue"))%>%
   add_bars(x = ~profit, name = "Profit", marker = list(color = "steelblue"),width = 0.4)%>%
-  layout(barmode = "overlay")
+  layout(barmode = "overlay",
+         title = list(text = "<b>Bar-in-Bar Chart</b>"),
+         xaxis = list(title = "<b>Metrics</b>"),
+         yaxis = list(title = "<b>Months</b>"))
 
            
