@@ -26,3 +26,13 @@ ap<-superstore%>%ggplot(aes(x = my, y =Sales))+
 #save plot
 ggsave(plot = ap, filename = "area_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#Getting the data ready
+sample_data<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
+  mutate(my = as.yearmon(Order.Date))%>%
+  group_by(my)%>%
+  summarise(sales = sum(Sales))
+
