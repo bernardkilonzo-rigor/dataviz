@@ -27,6 +27,7 @@ ap<-superstore%>%ggplot(aes(x = my, y =Sales))+
 ggsave(plot = ap, filename = "area_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
 
+#creating similar viz with plotly library
 #load plotly library
 library(plotly)
 
