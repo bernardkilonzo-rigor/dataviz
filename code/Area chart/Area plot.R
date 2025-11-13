@@ -38,4 +38,7 @@ sample_data<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
 
 #creating area chart with plotly library
 sample_data%>%plot_ly(x = ~my, y = ~sales, type = "scatter", mode = "lines",
-                      fill = "tozeroy", line = list(color = "steelblue"))
+                      fill = "tozeroy", line = list(color = "steelblue"))%>%
+  layout(title = list(text = "<b>Revenue by Month Year</b>"),
+         xaxis = list(title = "<b>Month Year</b>"),
+         yaxis = list(title = "<b>Revenue</b>"))
