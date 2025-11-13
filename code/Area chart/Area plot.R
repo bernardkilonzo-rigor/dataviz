@@ -36,3 +36,6 @@ sample_data<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
   group_by(my)%>%
   summarise(sales = sum(Sales))
 
+#creating area chart with plotly library
+sample_data%>%plot_ly(x = ~my, y = ~sales, type = "scatter", mode = "lines",
+                      fill = "tozeroy", line = list(color = "steelblue"))
