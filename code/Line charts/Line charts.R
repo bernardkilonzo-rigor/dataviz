@@ -61,4 +61,7 @@ Sample_data<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
 #creating a line chart
 Sample_data%>%plot_ly(x = ~my, y = ~sales, type = "scatter",mode = "lines+markers",
                       line = list(color = "steelblue"),
-                      marker = list(size =8))
+                      marker = list(size =8))%>%
+  layout(title = list(text = "<b> Line Chart </b>"),
+         xaxis = list(title = "<b> Months </b>"),
+         yaxis = list(title = "<b> Sales </b>"))
