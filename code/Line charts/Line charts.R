@@ -48,3 +48,14 @@ mlp<-superstore%>%ggplot(aes(x = my, y = Sales, color =Region))+
 #save multiple line plot
 ggsave(plot = mlp, filename = "multiple_line_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#Get the data ready
+Sample_data<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
+  mutate(my = as.yearmon(Order.Date))%>%
+  group_by(my)%>%
+  summarise(sales =sum(Sales))
+
+
