@@ -58,4 +58,7 @@ Sample_data<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
   group_by(my)%>%
   summarise(sales =sum(Sales))
 
-
+#creating a line chart
+Sample_data%>%plot_ly(x = ~my, y = ~sales, type = "scatter",mode = "lines+markers",
+                      line = list(color = "steelblue"),
+                      marker = list(size =8))
