@@ -72,3 +72,6 @@ Sample_data1<-superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
   mutate(my = as.yearmon(Order.Date))%>%
   group_by(my, Region)%>%
   summarise(sales =sum(Sales))
+
+#Creating multiple line plot with plotly library
+Sample_data1%>%plot_ly(x = ~my, y = ~sales,color = ~Region, type = "scatter",mode = "lines+markers")
