@@ -134,4 +134,7 @@ sample_data<-superstore%>%mutate(Order.Date=dmy(Order.Date))%>%
 #creating combo chart (bar+line) in plotly
 sample_data%>%plot_ly()%>%
   add_bars(x = ~sample_data$mon, y = ~sample_data$sales, name = "Sales")%>%
-  add_lines(x = ~sample_data$mon, y = ~sample_data$profit, name = "Profit")
+  add_lines(x = ~sample_data$mon, y = ~sample_data$profit, name = "Profit")%>%
+  layout(title = list(text = "<b> Combo chart (Bar + Line Plot) </b>"),
+         xaxis = list(title = "<b> Month </b>"),
+         yaxis = list(title = "<b> Value </b>"))
