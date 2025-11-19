@@ -121,3 +121,12 @@ lac<-superstore%>%ggplot(aes(x = mon))+
 #save line + area chart
 ggsave(plot = lac, filename = "Line_area_chart.png",
        width = 8, height = 6, units = "in", dpi = 300) 
+
+#load plotly library
+library(plotly)
+
+#preparing sample dataset
+sample_data<-superstore%>%mutate(Order.Date=dmy(Order.Date))%>%
+  mutate(mon = month(Order.Date, label = TRUE))%>%
+  group_by(mon)%>%
+  summarise(sales = sum(Sales), profit = sum(Profit))
