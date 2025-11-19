@@ -130,3 +130,8 @@ sample_data<-superstore%>%mutate(Order.Date=dmy(Order.Date))%>%
   mutate(mon = month(Order.Date, label = TRUE))%>%
   group_by(mon)%>%
   summarise(sales = sum(Sales), profit = sum(Profit))
+
+#creating combo chart (bar+line) in plotly
+sample_data%>%plot_ly()%>%
+  add_bars(x = ~sample_data$mon, y = ~sample_data$sales, name = "Sales")%>%
+  add_lines(x = ~sample_data$mon, y = ~sample_data$profit, name = "Profit")
