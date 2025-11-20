@@ -138,3 +138,9 @@ sample_data%>%plot_ly()%>%
   layout(title = list(text = "<b> Combo chart (Bar + Line Plot) </b>"),
          xaxis = list(title = "<b> Month </b>"),
          yaxis = list(title = "<b> Value </b>"))
+
+#creating combo chart (line + area chart) in plotly
+sample_data%>%plot_ly(x = ~mon)%>%
+  add_trace(y = ~sales, type = "scatter", mode = "lines", 
+            fill = "tozeroy", name = "Sales")%>%
+  add_lines(y = ~profit, name = "Profit")
