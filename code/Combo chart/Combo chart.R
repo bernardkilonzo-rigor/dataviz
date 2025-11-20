@@ -143,4 +143,7 @@ sample_data%>%plot_ly()%>%
 sample_data%>%plot_ly(x = ~mon)%>%
   add_trace(y = ~sales, type = "scatter", mode = "lines", 
             fill = "tozeroy", name = "Sales")%>%
-  add_lines(y = ~profit, name = "Profit")
+  add_lines(y = ~profit, name = "Profit")%>%
+  layout(title = list(text = "<b> Combo chart (Area + Line Plot) </b>"),
+         xaxis = list(title = "<b> Month </b>"),
+         yaxis = list(title = "<b> Value </b>"))
