@@ -157,4 +157,14 @@ sample_data%>%plot_ly(x = ~mon)%>%
          xaxis = list(title = "<b> Month </b>"),
          yaxis = list(title = "<b> Value </b>"))
 
+#create combo chart (line + grouped bars) in plotly
+#prepare sample dataset
+df <- data.frame(
+  category = rep(c("A", "B", "C"), each = 2),
+  group    = rep(c("G1", "G2"), times = 3),
+  value    = c(10, 15, 20, 25, 30, 35),
+  line_val = c(12, 22, 32)  # one line value per category
+)
+
+
 
