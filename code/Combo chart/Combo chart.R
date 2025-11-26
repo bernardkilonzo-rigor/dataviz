@@ -178,11 +178,10 @@ sample_data%>%plot_ly(x = ~mon)%>%
 #create combo chart (line + grouped bars) in plotly
 #prepare sample dataset
 df <- data.frame(
-  category = rep(c("A", "B", "C"), each = 2),
-  group    = rep(c("G1", "G2"), times = 3),
-  value    = c(10, 15, 20, 25, 30, 35),
-  line_val = c(12, 22, 32)  # one line value per category
+  Quarter = rep(c("Q1", "Q2", "Q3", "Q4"), each = 2),
+  Product = rep(c("Solar", "Automotive"), times = 4),
+  Sales = c(120, 150, 180, 200, 160, 170, 190, 210),
+  Target = rep(c(140, 160, 180, 200), each = 2)  # line values
 )
-
-
+view(df)
 
