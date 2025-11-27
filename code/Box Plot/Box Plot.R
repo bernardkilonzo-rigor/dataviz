@@ -27,3 +27,6 @@ ggsave(plot = bp, filename = "box_plot.png",
 
 #load plotly library
 library(plotly)
+
+#creating a simple boxplot with plotly library
+superstore%>%plot_ly(x = ~Sales, color = ~Region, type = "box")
