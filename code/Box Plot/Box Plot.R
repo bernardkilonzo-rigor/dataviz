@@ -24,3 +24,6 @@ bp<-superstore%>%filter(Region=="East")%>%ggplot(aes(y = State, x = Quantity, fi
 #saving the plot
 ggsave(plot = bp, filename = "box_plot.png",
        width = 8, height = 6, dpi = 300)
+
+#load plotly library
+library(plotly)
