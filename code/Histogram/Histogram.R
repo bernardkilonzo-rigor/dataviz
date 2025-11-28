@@ -38,3 +38,10 @@ hdp<-superstore%>%filter(Sales<500)%>%ggplot(aes(x = Sales))+
 #saving the plot
 ggsave(plot = hdp, filename = "histogram_density_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#creating histogram graph  with plotly
+superstore%>%filter(Sales<500)%>%
+  plot_ly(x = ~Sales, type = "histogram",xbins = list(size = 20))
