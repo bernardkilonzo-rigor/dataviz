@@ -44,4 +44,8 @@ library(plotly)
 
 #creating histogram graph  with plotly
 superstore%>%filter(Sales<500)%>%
-  plot_ly(x = ~Sales, type = "histogram",xbins = list(size = 20))
+  plot_ly(x = ~Sales, type = "histogram",xbins = list(size = 30),
+          marker = list(color = "brown"))%>%
+  layout(title = list(text = "<b>Histogram Graph</b>", font = list(font = 14, color = "steelblue")),
+         xaxis = list(title = "<b>Bins</b>"),
+         yaxis = list(title = "<b>Frequency</b>"))
