@@ -49,3 +49,6 @@ superstore%>%filter(Sales<500)%>%
   layout(title = list(text = "<b>Histogram Graph</b>", font = list(font = 14, color = "steelblue")),
          xaxis = list(title = "<b>Bins</b>"),
          yaxis = list(title = "<b>Frequency</b>"))
+
+#creating density trace
+data_1<-superstore%>%select(Sales)%>%filter(Sales<500)
