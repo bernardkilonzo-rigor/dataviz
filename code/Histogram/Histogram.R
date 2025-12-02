@@ -50,5 +50,10 @@ superstore%>%filter(Sales<500)%>%
          xaxis = list(title = "<b>Bins</b>"),
          yaxis = list(title = "<b>Frequency</b>"))
 
-#creating density trace
+#Extracting data set
 data_1<-superstore%>%select(Sales)%>%filter(Sales<500)
+
+#Computing density
+dens <-density(data_1$Sales)
+
+  
