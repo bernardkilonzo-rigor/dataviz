@@ -56,4 +56,12 @@ data_1<-superstore%>%select(Sales)%>%filter(Sales<500)
 #Computing density
 dens <-density(data_1$Sales)
 
-  
+#creating density plot
+density_plot<-plot_ly(
+  x = ~dens$x,
+  y = ~dens$y,
+  type = "scatter",
+  mode = "lines",
+  name = "Density",
+  line = list(color = 'blue', width = 2))
+
