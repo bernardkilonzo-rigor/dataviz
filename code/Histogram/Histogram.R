@@ -57,11 +57,16 @@ data_1<-superstore%>%select(Sales)%>%filter(Sales<500)
 dens <-density(data_1$Sales)
 
 #creating density plot
-density_plot<-plot_ly(
+plot_ly(
   x = ~dens$x,
   y = ~dens$y,
   type = "scatter",
   mode = "lines",
   name = "Density",
-  line = list(color = 'blue', width = 2))
+  line = list(color = 'steelblue', width = 2))%>%
+  layout(title = list(text = "<b>Histogram Graph</b>", font = list(font = 14, color = "steelblue")),
+         xaxis = list(title = "<b>Bins</b>"),
+         yaxis = list(title = "<b>Frequency</b>"))
+
+#creating histogram with density plot with plotly
 
