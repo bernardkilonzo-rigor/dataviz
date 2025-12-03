@@ -69,4 +69,14 @@ plot_ly(
          yaxis = list(title = "<b>Frequency</b>"))
 
 #creating histogram with density plot with plotly
+hgp<-superstore%>%filter(Sales<500)%>%
+  plot_ly(x = ~Sales, type = "histogram",xbins = list(size = 30),
+          marker = list(color = "brown"))
 
+dpp<-plot_ly(
+  x = ~dens$x,
+  y = ~dens$y,
+  type = "scatter",
+  mode = "lines",
+  name = "Density",
+  line = list(color = 'steelblue', width = 2))
