@@ -70,7 +70,9 @@ plot_ly(
 
 #creating histogram with density plot with plotly
 hgp<-superstore%>%filter(Sales<500)%>%
-  plot_ly(x = ~Sales, type = "histogram",xbins = list(size = 30),
+  plot_ly(x = ~Sales, type = "histogram",
+          histnorm = "probability density",
+          xbins = list(size = 30),
           marker = list(color = "brown"))
 
 dpp<-plot_ly(
@@ -80,3 +82,13 @@ dpp<-plot_ly(
   mode = "lines",
   name = "Density",
   line = list(color = 'steelblue', width = 2))
+
+#overlaying the two plots
+hgp%>%
+  add_trace(
+    x = ~dens$x,
+    y = ~dens$y,
+    type = "scatter",
+    mode = "lines",
+    name = "Density",
+    line = list(color = 'steelblue', width = 2))
