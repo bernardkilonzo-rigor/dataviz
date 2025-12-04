@@ -44,4 +44,6 @@ advert_data<-advert_data[order(-advert_data$Value),]
 advert_data$Stage<-factor(advert_data$Stage, levels = advert_data$Stage)
 
 #creating funnel chart with plotly library
-advert_data%>%plot_ly(y = ~Stage,x = ~Value,type = "funnel")
+advert_data%>%plot_ly(y = ~Stage,x = ~Value,type = "funnel")%>%
+  layout(title = list(text = "<b> Funnel Chart </b>"), 
+         yaxis = list(title = "<b> Marketing Stages</b>"))
