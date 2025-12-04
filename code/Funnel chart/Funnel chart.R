@@ -33,3 +33,12 @@ fc<-ggplot(advert_data) +
 #saving the plot
 ggsave(plot = fc, filename = "Funnel_chart.png",
        width = 8, height = 6, units = "in",dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#Ordering the stages in descending order
+advert_data<-advert_data[order(-advert_data$Value),]
+
+#converting the stages to factor
+advert_data$Stage<-factor(advert_data$Stage, levels = advert_data$Stage)
