@@ -79,4 +79,7 @@ profitability$Sub.Category<-factor(profitability$Sub.Category, levels = profitab
 
 #creating divergent bar chart with plotly library
 profitability%>%plot_ly(x = ~profit, y = ~Sub.Category,
-                        type = "bar", orientation = "h",color = ~type)
+                        type = "bar", orientation = "h",color = ~type)%>%
+  layout(title =  list(text = "<b>Profit by Sub-Category</b>", font = list(font = 15, color = "steelblue")),
+         yaxis = list(title = "<b>Sub-Category</b>"),
+         xaxis = list(title = "<b>Profit</b>"))
