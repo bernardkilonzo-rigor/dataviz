@@ -71,6 +71,12 @@ ggsave(plot = dbp_2, filename = "diverging_barplot_2.png",
 #load plotly library
 library(plotly)
 
+#ordering profit in descending order
+profitability<-profitability[order(profitability$profit),]
+
+#converting sub-category to a factor
+profitability$Sub.Category<-factor(profitability$Sub.Category, levels = profitability$Sub.Category)
+
 #creating divergent bar chart with plotly library
 profitability%>%plot_ly(x = ~profit, y = ~Sub.Category,
                         type = "bar", orientation = "h",color = ~type)
