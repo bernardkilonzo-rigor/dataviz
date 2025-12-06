@@ -67,3 +67,10 @@ dbp_2<-long_summary_metrics%>%ggplot(aes(y =mon, x = Revenue, fill = Year))+
 #saving the plot
 ggsave(plot = dbp_2, filename = "diverging_barplot_2.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#creating divergent bar chart with plotly library
+profitability%>%plot_ly(x = ~profit, y = ~Sub.Category,
+                        type = "bar", orientation = "h",color = ~type)
