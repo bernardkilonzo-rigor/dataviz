@@ -30,3 +30,11 @@ vp<-superstore%>%ggplot(aes(x = Region, y = Discount))+
 #saving the plot
 ggsave(plot = vp, filename = "Violin_plot.png",
        width = 8, height = 3, dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#creating violin plot using plotly library
+superstore%>%plot_ly(y = ~Discount, x = ~Region,
+                     type = "violin")
+  
