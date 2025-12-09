@@ -36,5 +36,6 @@ library(plotly)
 
 #creating violin plot using plotly library
 superstore%>%plot_ly(y = ~Discount, x = ~Region,
-                     type = "violin")
+                     type = "violin",
+                     meanline = list(visible  =TRUE, color = "red"))
   
