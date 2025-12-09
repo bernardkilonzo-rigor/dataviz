@@ -36,7 +36,8 @@ library(plotly)
 
 #creating violin plot using plotly library
 superstore%>%plot_ly(y = ~Discount, x = ~Region,
-                     type = "violin",
+                     type = "violin", fillcolor = "lightgray",
+                     line = list(color = "gray"),
                      meanline = list(visible  =TRUE, color = "red"))%>%
   layout(title = list(text = "<b>Discount Distribution by Region</b>", font = list(font = 14, color = "steelblue")),
          xaxis = list(title = "<b>Region</b>"),
