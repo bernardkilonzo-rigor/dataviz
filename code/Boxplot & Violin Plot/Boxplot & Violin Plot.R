@@ -46,3 +46,11 @@ vbp_2<-superstore%>%ggplot(aes(x =Region, y =Quantity, fill =Region))+
 #saving the plot
 ggsave(plot = vbp_2, filename = "boxplot_violin_plot_2.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#create violin plot with boxplot in plotly
+superstore%>%plot_ly(y = ~Quantity, x = ~Region,
+                     type = "violin", fillcolor = "lightgray",
+                     line = list(color = "gray"))
