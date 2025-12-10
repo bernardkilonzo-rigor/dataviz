@@ -55,4 +55,7 @@ superstore%>%plot_ly(y = ~Quantity, x = ~Region,
                      type = "violin", fillcolor = "lightgray",
                      line = list(color = "gray"),
                      box = list(visible = TRUE,fillcolor = "lightblue",
-                                line = list(color = "steelblue")))
+                                line = list(color = "steelblue")))%>%
+  layout(title = list(text = "<b>Distribution of Order Quantity by Region</b>"),
+         xaxis = list(title = "<b>Region</b>"),
+         yaxis = list(title = "<b>Quantity</b>"))
