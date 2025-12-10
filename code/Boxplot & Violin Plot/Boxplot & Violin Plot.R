@@ -53,4 +53,6 @@ library(plotly)
 #create violin plot with boxplot in plotly
 superstore%>%plot_ly(y = ~Quantity, x = ~Region,
                      type = "violin", fillcolor = "lightgray",
-                     line = list(color = "gray"))
+                     line = list(color = "gray"),
+                     box = list(visible = TRUE,fillcolor = "lightblue",
+                                line = list(color = "steelblue")))
