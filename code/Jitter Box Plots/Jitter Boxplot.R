@@ -25,3 +25,12 @@ jbp<-superstore%>%filter(Region=="East")%>%ggplot(aes(y = State, x = Quantity, c
 #saving the plot
 ggsave(plot = jbp, filename = "jitter_boxplot.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#creating jitter boxplot with plotly library
+superstore%>%filter(Region=="East")%>%
+  plot_ly(y = ~State, x = ~Quantity, type = "box",
+          boxpoints = "all",jitter = 0.5)
+  
