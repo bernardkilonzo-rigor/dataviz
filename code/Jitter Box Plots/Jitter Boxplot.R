@@ -35,4 +35,7 @@ superstore%>%filter(Region=="East")%>%
           boxpoints = "all",jitter = 0.5,
           pointpos = 0,fillcolor ="lightgray",
           marker = list(size = 4, color = "gray"),
-          line = list(color = "steelblue"))
+          line = list(color = "steelblue"))%>%
+  layout(title = list(text = "<b>Order Distribution by Quantity & State</b>"),
+         xaxis = list(title = "<b>Quantiy</b>"),
+         yaxis = list(title = "<b>State</b>"))
