@@ -33,5 +33,6 @@ library(plotly)
 superstore%>%filter(Region=="East")%>%
   plot_ly(y = ~State, x = ~Quantity, type = "box",
           boxpoints = "all",jitter = 0.5,
-          pointpos = 0)
-  
+          pointpos = 0,fillcolor ="lightgray",
+          marker = list(size = 4, color = "gray"),
+          line = list(color = "steelblue"))
