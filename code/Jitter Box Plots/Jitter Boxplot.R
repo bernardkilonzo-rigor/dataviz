@@ -32,5 +32,6 @@ library(plotly)
 #creating jitter boxplot with plotly library
 superstore%>%filter(Region=="East")%>%
   plot_ly(y = ~State, x = ~Quantity, type = "box",
-          boxpoints = "all",jitter = 0.5)
+          boxpoints = "all",jitter = 0.5,
+          pointpos = 0)
   
