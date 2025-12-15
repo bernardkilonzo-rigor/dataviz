@@ -27,7 +27,12 @@ ggsave(plot = tmp, filename = "Treemap.png",
 #load plotly library
 library(plotly)
 
-#preparing sample dataset
+#preparing sample data set
 sample_data<-superstore%>%group_by(Region, State)%>%
   summarise(sales = sum(Sales))
+
+#creating tree map plot using plotly library
+plot_ly(type = "treemap", labels = sample_data$State,
+                      parents = sample_data$Region,
+                      values =sample_data$sales)
 
