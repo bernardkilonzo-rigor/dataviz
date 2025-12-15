@@ -22,4 +22,12 @@ tmp<-state_sales%>%ggplot(aes(area = sales, fill = sales,label = State))+
 
 #save 100% stacked bar plot
 ggsave(plot = tmp, filename = "Treemap.png",
-       width = 8, height = 6, units = "in", dpi = 300) 
+       width = 8, height = 6, units = "in", dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#preparing sample dataset
+sample_data<-superstore%>%group_by(Region, State)%>%
+  summarise(sales = sum(Sales))
+
