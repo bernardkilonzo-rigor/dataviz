@@ -36,7 +36,7 @@ labels <- c("Total",sample_data$State) #root + states
 parents <- c("", rep("Total", nrow(sample_data))) #root has no parent, all others share root
 values <- c(sum(sample_data$sales), sample_data$sales) #give root the total
 
-#creating tree map plot using plotly library
-plot_ly(type = "treemap", labels = sample_data$State,
-                      parents = sample_data$Region,
-                      values =sample_data$sales)
+#creating treemap plot using plotly library
+plot_ly(type = "treemap", labels = labels,
+                      parents = parents,
+                      values =values)
