@@ -41,4 +41,5 @@ plot_ly(type = "treemap", labels = labels,
                       parents = parents,
                       values =values,
         branchvalues = "total",
-        textinfo = "label+value+percent root")
+        textinfo = "label+value+percent root")%>%
+  layout(title =list(text ="<b> Total Revenue by State </b>"))
