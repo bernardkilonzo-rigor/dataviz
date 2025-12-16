@@ -39,4 +39,6 @@ values <- c(sum(sample_data$sales), sample_data$sales) #give root the total
 #creating treemap plot using plotly library
 plot_ly(type = "treemap", labels = labels,
                       parents = parents,
-                      values =values)
+                      values =values,
+        branchvalues = "total",
+        textinfo = "label+value+percent root")
