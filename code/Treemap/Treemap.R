@@ -54,3 +54,10 @@ data_2<-data.frame(parents =c("","USA","USA","USA","USA"),
                    sales = c(0,0,0,0,0))
 
 treemap_data<-rbind(data_2, new_data)
+
+#creating hierarchy treemap with plotly library
+plot_ly(type = "treemap",
+        labels = treemap_data$labels,
+        parents = treemap_data$parents,
+        values =treemap_data$sales,
+        textinfo = "label+value+percent parent+percent entry")
