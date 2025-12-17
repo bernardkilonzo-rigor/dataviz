@@ -43,3 +43,9 @@ plot_ly(type = "treemap", labels = labels,
         branchvalues = "total",
         textinfo = "label+value+percent root")%>%
   layout(title =list(text ="<b> Total Revenue by State </b>"))
+
+#preparing sample dataset by grouping sales by Region and State
+new_data<-superstore%>%group_by(Region, State)%>%
+  summarise(sales = sum(Sales))%>%
+  rename(parents =Region, labels = State)
+
