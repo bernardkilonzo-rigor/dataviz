@@ -51,4 +51,10 @@ library(plotly)
 target%>%plot_ly(y = ~product,
                  x = ~sales,
                  type = "bar",
-                 orientation = "h")
+                 orientation = "h",
+                 marker = list(color = "steelblue"))%>%
+  add_trace(x = ~target,
+            y = ~product,
+            type = "scatter",
+            mode = "markers",
+            marker = list(color = "red", symbol ="line-ns-open",size =20 ))
