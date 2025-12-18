@@ -43,3 +43,12 @@ bc<-ggplot(data_pivot, aes(x = product, y = value)) +
 #saving the plot
 ggsave(plot = bc, filename = "bullet_chart.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#loading plotly library
+library(plotly)
+
+#creating a bullet graph with plotly library
+target%>%plot_ly(y = ~product,
+                 x = ~sales,
+                 type = "bar",
+                 orientation = "h")
