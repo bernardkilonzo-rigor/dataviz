@@ -59,5 +59,10 @@ target%>%plot_ly(y = ~product,
             type = "scatter",
             mode = "markers",
             marker = list(color = "red", symbol ="line-ns-open",size =20),
-            name = "Target Sales")
+            name = "Target Sales")%>%
+  layout(
+    title = "Bullet Graph: Actual Sales vs. Target Sales",
+    xaxis = list(title = "Sales"),
+    yaxis = list(title = "Products")
+  )
   
