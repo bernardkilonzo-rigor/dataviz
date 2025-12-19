@@ -52,7 +52,7 @@ target%>%plot_ly(y = ~product,
                  x = ~sales,
                  type = "bar",
                  orientation = "h",
-                 marker = list(color = "steelblue"),
+                 marker = list(color = "lightgray"),
                  name = "Actual Sales")%>%
   add_trace(x = ~target,
             y = ~product,
