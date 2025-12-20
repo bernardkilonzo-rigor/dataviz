@@ -60,6 +60,11 @@ target%>%plot_ly(y = ~product,
             mode = "markers",
             marker = list(color = "red", symbol ="line-ns-open",size =20),
             name = "Target Sales")%>%
+  add_trace(x = ~target_50_percent,
+            y = ~product,
+            type = "scatter",
+            marker = list(color = "steelblue",symbol = "line-ns-open", size = 20),
+            name = "50%-Target")%>%
   layout(
     title = "Bullet Graph: Actual Sales vs. Target Sales",
     xaxis = list(title = "Sales"),
