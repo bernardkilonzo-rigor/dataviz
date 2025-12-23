@@ -64,17 +64,17 @@ target_cl%>%plot_ly(y = ~product,
             y = ~product,
             type = "scatter",
             mode = "markers",
-            marker = list(color = "red", symbol ="circle",size =10),
+            marker = list(color = "black", symbol ="circle",size =10),
             name = "Target Sales")%>%
   add_trace(x = ~target_50_percent,
             y = ~product,
             type = "scatter",
-            marker = list(color = "steelblue",symbol = "diamond", size = 7),
+            marker = list(color = "lightgray",symbol = "diamond", size = 7),
             name = "80%-Target")%>%
   add_trace(x = ~target_80_percent,
             y = ~product,
             type = "scatter",
-            marker = list(color = "green",symbol = "diamond", size = 7),
+            marker = list(color = "orange",symbol = "diamond", size = 7),
             name = "50%-Target")%>%
   layout(
     title = list(text ="<b>Bullet Graph: Actual Sales vs. Target Sales</b>",font = list(font = 10, color = "steelblue")),
