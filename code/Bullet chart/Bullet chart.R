@@ -54,11 +54,12 @@ target_cl <-target%>%
     Color = ifelse(Status == "on_target", "forestgreen", "firebrick"))
 
 #creating a bullet graph with plotly library
-target%>%plot_ly(y = ~product,
+target_cl%>%plot_ly(y = ~product,
                  x = ~sales,
                  type = "bar",
                  orientation = "h",
-                 marker = list(color = ~kpi))%>%
+                 marker = list(color = ~Color),
+                 name = ~Status)%>%
   add_trace(x = ~target,
             y = ~product,
             type = "scatter",
