@@ -47,13 +47,18 @@ ggsave(plot = bc, filename = "bullet_chart.png",
 #loading plotly library
 library(plotly)
 
+#Adding color flag
+target_cl <-target%>%
+  mutate(Status = if_else(
+    sales>=target,"on_target","below_target"),
+    Color = ifelse(Status == "on_target", "forestgreen", "firebrick"))
+
 #creating a bullet graph with plotly library
 target%>%plot_ly(y = ~product,
                  x = ~sales,
                  type = "bar",
                  orientation = "h",
-                 marker = list(color = "lightgray"),
-                 name = "Actual Sales")%>%
+                 marker = list(color = ~kpi))%>%
   add_trace(x = ~target,
             y = ~product,
             type = "scatter",
