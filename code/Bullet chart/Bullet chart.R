@@ -77,7 +77,7 @@ target_cl%>%plot_ly(y = ~product,
             marker = list(color = "orange",symbol = "diamond", size = 7),
             name = "50%-Target")%>%
   layout(
-    title = list(text ="<b>Bullet Graph: Actual Sales vs. Target Sales</b>",font = list(font = 10, color = "steelblue")),
+    title = list(text ="<b>Bullet Graph: Actual Sales vs. Target Sales</b>",font = list(font = 9, color = "gray")),
     xaxis = list(title = "Sales"),
     yaxis = list(title = "")
   )
