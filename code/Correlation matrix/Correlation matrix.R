@@ -72,4 +72,8 @@ corr_v4<-ggcorrplot(corr_matrix, method = "circle", type = "lower",#method=circl
 
 #saving the plot
 ggsave(plot = corr_v4, filename = "corr_plot_v4.png",
-       width = 8, height = 6, units = "in", dpi = 300) 
+       width = 8, height = 6, units = "in", dpi = 300)
+
+#loading plotly library
+library(plotly)
+
