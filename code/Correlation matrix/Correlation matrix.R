@@ -82,4 +82,6 @@ plot_ly(x = colnames(corr_matrix),
         y = rownames(corr_matrix),
         z = corr_matrix, 
         type = "heatmap", 
-        colors = colorRamp(c("darkred", "darkgreen", "gray70")))
+        colors = colorRamp(c("darkred", "darkgreen", "gray70")))%>%
+  layout(title = list(text = "<b>Correlation Matrix  (with Plotly)</b>"),
+         font = list(font = 10, color = "darkgreen"))
