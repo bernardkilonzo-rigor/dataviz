@@ -81,4 +81,5 @@ library(plotly)
 plot_ly(x = colnames(corr_matrix),
         y = rownames(corr_matrix),
         z = corr_matrix, 
-        type = "heatmap")
+        type = "heatmap", 
+        colors = colorRamp(c("darkred", "darkgreen", "gray70")))
