@@ -77,3 +77,8 @@ ggsave(plot = corr_v4, filename = "corr_plot_v4.png",
 #loading plotly library
 library(plotly)
 
+#creating correlation matrix with plotly library
+plot_ly(x = colnames(corr_matrix),
+        y = rownames(corr_matrix),
+        z = corr_matrix, 
+        type = "heatmap")
