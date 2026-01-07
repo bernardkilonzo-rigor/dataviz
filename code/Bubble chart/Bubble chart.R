@@ -20,3 +20,15 @@ bp<-superstore%>%ggplot(aes(x = Sales, y = Profit, size = Discount, color = Prof
 #saving bubble plot
 ggsave(plot = bp, filename = "bubble_plot.png", 
        width = 8, height = 6, units = "in", dpi = 300)
+
+#loading plotly library
+library(plotly)
+
+#creating a bubble chart in R with plotly
+superstore%>%plot_ly(x = ~Sales,
+                     y = ~Profit,
+                     type = "scatter",
+                     mode = "markers",
+                     marker = list(size = ~Discount,
+                                   sizemode = "diameter",
+                                   opacity = 0.7))
