@@ -34,4 +34,5 @@ superstore%>%plot_ly(x = ~Sales,
                                    sizeref =0.04,
                                    color = ~Profit,
                                    colorscale = "Viridis",
-                                   opacity = 0.7))
+                                   opacity = 0.7))%>%
+  layout(title = "Bubble Plot with Plotly")
