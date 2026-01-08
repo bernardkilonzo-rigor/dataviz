@@ -3,7 +3,7 @@ library(tidyverse)
 
 #load data
 survey_data<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Survey%20Data.csv")
-view(survey_data)
+
 #create simple density plot (option 1)
 dp1<-survey_data%>%ggplot(aes(x = Q6d, fill = Gender, color = Gender))+
   geom_density(alpha =0.5, linewidth =0.8)+
@@ -48,4 +48,7 @@ dp2<-survey_data%>%ggplot(aes(x = Q6d, color = Gender))+
 #saving the plot
 ggsave(plot = dp2, filename = "density_plot_2.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#loading plotly library
+library(plotly)
 
