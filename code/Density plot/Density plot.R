@@ -55,5 +55,8 @@ view(survey_data)
 
 #creating a density plot with plotly library
 dta<-density(survey_data$Q6d, na.rm = TRUE) #computing density
+
 #creating plot with plotly
-plot_ly(x = dta$x, y = dta$y, type = "scatter", mode = "lines")
+plot_ly(x = dta$x, y = dta$y, type = "scatter", mode = "lines",
+        fill = "tozeroy",
+        line = list(color = "steelblue"))
