@@ -51,4 +51,9 @@ ggsave(plot = dp2, filename = "density_plot_2.png",
 
 #loading plotly library
 library(plotly)
+view(survey_data)
 
+#creating a density plot with plotly library
+dta<-density(survey_data$Q6d, na.rm = TRUE) #computing density
+#creating plot with plotly
+plot_ly(x = dta$x, y = dta$y, type = "scatter", mode = "lines")
