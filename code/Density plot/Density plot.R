@@ -51,7 +51,6 @@ ggsave(plot = dp2, filename = "density_plot_2.png",
 
 #loading plotly library
 library(plotly)
-view(survey_data)
 
 #creating a density plot with plotly library
 dta<-density(survey_data$Q6d, na.rm = TRUE) #computing density
@@ -59,7 +58,8 @@ dta<-density(survey_data$Q6d, na.rm = TRUE) #computing density
 #creating plot with plotly
 plot_ly(x = dta$x, y = dta$y, type = "scatter", mode = "lines",
         fill = "tozeroy",
-        line = list(color = "steelblue"))%>%
+        fillcolor = "#afc480",
+        line = list(color = "#618c03"))%>%
   layout(title = "Density Plot with Plotly Library",
          xaxis = list(title ="Ratings (0-10)"),
          yaxis = list(title = "Density"))
