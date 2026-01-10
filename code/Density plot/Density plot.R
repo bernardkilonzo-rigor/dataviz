@@ -76,3 +76,27 @@ plot_ly(x = dta$x, y = dta$y, type = "scatter", mode = "lines",
 dens_list<-survey_data%>%
   group_by(Gender)%>%
   summarise(d = list(density(Q6d)), .groups = "drop")
+
+#creating grouped density plot (option 1)
+#building the plot by looping through groups
+p <- plot_ly()
+
+for (i in seq_len(nrow(dens_list))) {
+  d <- dens_list$d[[i]]      # density object
+  g <- dens_list$Gender[[i]]  # group name
+  
+  p <- p %>% add_trace(
+    x = d$x,
+    y = d$y,
+    type = "scatter",
+    mode = "lines",
+    fill = "tozeroy",
+    name = g
+  )
+}
+p%>%layout(
+  title = "Grouped Density Plot (Plotly)",
+  xaxis = list(title = "Ratings (0-10"),
+  yaxis = list(title = "Density")
+)
+
