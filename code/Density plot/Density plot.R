@@ -100,3 +100,24 @@ p%>%layout(
   yaxis = list(title = "Density")
 )
 
+#creating grouped density plot (option 2)
+#building the plot by looping through groups
+p <- plot_ly()
+
+for (i in seq_len(nrow(dens_list))) {
+  d <- dens_list$d[[i]]      # density object
+  g <- dens_list$Gender[[i]]  # group name
+  
+  p <- p %>% add_trace(
+    x = d$x,
+    y = d$y,
+    type = "scatter",
+    mode = "lines",
+    name = g
+  )
+}
+p%>%layout(
+  title = "Grouped Density Plot (Plotly)",
+  xaxis = list(title = "Ratings (0-10"),
+  yaxis = list(title = "Density")
+)
