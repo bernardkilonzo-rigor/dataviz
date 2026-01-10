@@ -55,11 +55,18 @@ library(plotly)
 #creating a density plot with plotly library
 dta<-density(survey_data$Q6d, na.rm = TRUE) #computing density
 
-#creating plot with plotly
+#creating plot with plotly (option 1)
 plot_ly(x = dta$x, y = dta$y, type = "scatter", mode = "lines",
         fill = "tozeroy",
         fillcolor = "#afc480",
         line = list(color = "#618c03"))%>%
+  layout(title = "Density Plot with Plotly Library",
+         xaxis = list(title ="Ratings (0-10)"),
+         yaxis = list(title = "Density"))
+
+#creating plot with plotly (option 2)
+plot_ly(x = dta$x, y = dta$y, type = "scatter", mode = "lines",
+        line = list(color = "#bfb304"))%>%
   layout(title = "Density Plot with Plotly Library",
          xaxis = list(title ="Ratings (0-10)"),
          yaxis = list(title = "Density"))
