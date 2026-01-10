@@ -70,3 +70,9 @@ plot_ly(x = dta$x, y = dta$y, type = "scatter", mode = "lines",
   layout(title = "Density Plot with Plotly Library",
          xaxis = list(title ="Ratings (0-10)"),
          yaxis = list(title = "Density"))
+
+#creating grouped density plot
+#computing density per group
+dens_list<-survey_data%>%
+  group_by(Gender)%>%
+  summarise(d = list(density(Q6d)), .groups = "drop")
