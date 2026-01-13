@@ -69,4 +69,5 @@ plot_ly(data = super_computed,
         values = ~discount,
         type = "pie",
         textinfo = "label+percent",
-        marker = list(colors = c("steelblue", "pink", "brown", "yellow")))
+        marker = list(colors = c("steelblue", "pink", "brown", "yellow")))%>%
+  layout(title = "Average Discount by Region")
