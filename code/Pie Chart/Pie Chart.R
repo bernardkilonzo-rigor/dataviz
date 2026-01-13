@@ -67,4 +67,5 @@ library(plotly)
 plot_ly(data = super_computed,
         labels = ~Region,
         values = ~discount,
-        type = "pie")
+        type = "pie",
+        textinfo = "label+percent")
