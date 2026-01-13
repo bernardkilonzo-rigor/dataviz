@@ -68,4 +68,5 @@ plot_ly(data = super_computed,
         labels = ~Region,
         values = ~discount,
         type = "pie",
-        textinfo = "label+percent")
+        textinfo = "label+percent",
+        marker = list(colors = c("steelblue", "pink", "brown", "yellow")))
