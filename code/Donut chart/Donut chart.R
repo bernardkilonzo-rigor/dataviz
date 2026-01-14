@@ -72,5 +72,8 @@ plot_ly(sales_summ,
         labels = ~Segment,
         values = ~sales,
         type ="pie",
-        hole = 0.5)
+        hole = 0.5,
+        textinfo = "label+percent",
+        marker = list(colors = c("brown","pink","gray")))
+  
         
