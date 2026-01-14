@@ -74,6 +74,6 @@ plot_ly(sales_summ,
         type ="pie",
         hole = 0.5,
         textinfo = "label+percent",
-        marker = list(colors = c("brown","pink","gray")))
-  
+        marker = list(colors = c("brown","pink","gray")))%>%
+  layout(title = list(text = "<b>Sales Proportion by Product Segment</b>"), font = list(font = 10, color = "gray"))
         
