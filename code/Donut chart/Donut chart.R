@@ -63,3 +63,14 @@ donut_1<-sales_per%>%ggplot(aes(x = 3, y = sales_percent, fill =Category))+
 #saving the plot
 ggsave(plot= donut_1, filename = "Donut_chart_2.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#loading plotly library
+library(plotly)
+
+#creating a donut chart with plotly library
+plot_ly(sales_summ,
+        labels = ~Segment,
+        values = ~sales,
+        type ="pie",
+        hole = 0.5)
+        
