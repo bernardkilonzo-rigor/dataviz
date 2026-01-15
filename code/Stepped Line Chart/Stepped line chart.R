@@ -27,3 +27,14 @@ slc<-sales_summary%>%ggplot(aes(x = my, y = sales))+
 #saving the plot
 ggsave(plot = slc, filename = "stepped_line_chart.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#loading plotly library
+library(plotly)
+
+#creating stepped line chart with plotly library
+plot_ly(data = sales_summary,
+        x = ~my,
+        y = ~sales,
+        type = "scatter",
+        mode = "lines",
+        line = list(shape = "hv"))
