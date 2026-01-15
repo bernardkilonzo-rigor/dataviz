@@ -37,4 +37,9 @@ plot_ly(data = sales_summary,
         y = ~sales,
         type = "scatter",
         mode = "lines",
-        line = list(shape = "hv"))
+        line = list(shape = "hv", color = "brown", width = 2))%>%
+  layout(title = "Revenue by Month",
+         xaxis = list(title = "Month"),
+         yaxis = list(title = "Revenue"))
+
+  
