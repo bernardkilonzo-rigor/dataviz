@@ -39,10 +39,12 @@ Revenue<-superstore%>%group_by(mon)%>%
 plot_ly(data = Revenue)%>%
   add_segments(x = ~revenue, xend = 0,
                y = ~mon, yend = ~mon,
-               line =list(color = "gray", width = 3))%>%
+               line =list(color = "lightblue", width = 3),
+               showlegend = FALSE)%>%
   add_markers(x = ~revenue,
               y = ~mon,
-              marker = list(size = 15, color = " brown"))%>%
-  layout(title = "Revenue by Month",
-         xaxis = list(title = "Revenue"),
+              marker = list(size = 15, color = "steelblue"),
+              showlegend = FALSE)%>%
+  layout(title =list(text = "<b>Revenue by Month</b>",font=list(font = 8, color = "steelblue")),
+         xaxis = list(title = "Revenue", zeroline = FALSE),
          yaxis = list(title = "Month"))
