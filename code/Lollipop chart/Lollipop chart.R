@@ -27,3 +27,11 @@ lp<-superstore%>%group_by(mon)%>%
 #saving the plot
 ggsave(plot = lp, filename = "Lollipop_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#loading plotly library
+library(plotly)
+
+#Computing revenue by month
+Revenue<-superstore%>%group_by(mon)%>%
+  summarise(revenue = sum(Sales))
+
