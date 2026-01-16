@@ -35,3 +35,11 @@ library(plotly)
 Revenue<-superstore%>%group_by(mon)%>%
   summarise(revenue = sum(Sales))
 
+#creating a lollipop chart with plotly library
+plot_ly(data = Revenue)%>%
+  add_segments(x = ~revenue, xend = 0,
+               y = ~mon, yend = ~mon,
+               line =list(color = "gray", width = 3))%>%
+  add_markers(x = ~revenue,
+              y = ~mon,
+              marker = list(size = 15, color = " brown"))
