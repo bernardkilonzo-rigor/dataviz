@@ -42,4 +42,7 @@ plot_ly(data = Revenue)%>%
                line =list(color = "gray", width = 3))%>%
   add_markers(x = ~revenue,
               y = ~mon,
-              marker = list(size = 15, color = " brown"))
+              marker = list(size = 15, color = " brown"))%>%
+  layout(title = "Revenue by Month",
+         xaxis = list(title = "Revenue"),
+         yaxis = list(title = "Month"))
