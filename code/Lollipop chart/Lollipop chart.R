@@ -45,6 +45,6 @@ plot_ly(data = Revenue)%>%
               y = ~mon,
               marker = list(size = 15, color = "steelblue"),
               showlegend = FALSE)%>%
-  layout(title =list(text = "<b>Revenue by Month</b>",font=list(font = 8, color = "steelblue")),
+  layout(title =list(text = "<b>Total Revenue by Month</b>",font=list(font = 8, color = "steelblue")),
          xaxis = list(title = "Revenue", zeroline = FALSE),
          yaxis = list(title = "Month"))
