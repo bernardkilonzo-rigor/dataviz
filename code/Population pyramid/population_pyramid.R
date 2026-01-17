@@ -94,12 +94,17 @@ ggsave(plot = stacked_pp, filename = "population_pyramid_3.png",
 #load plotly library
 library(plotly)
 
+#preparing data set (filtering only year 2019)
+filtered_data<-Ke_pop_v1%>%
+  filter(Year ==2019)
+
 #creating population pyramid plot
-plot_ly(data = Ke_pop_v1,
+plot_ly(data = filtered_data,
         x = ~Pop,
         y = ~`Age Group`,
         color = ~Gender,
         colors = c("steelblue","tomato"),
         type = "bar",
-        orientation = "h")
+        orientation = "h")%>%
+  layout(barmode = "overlay")
 
