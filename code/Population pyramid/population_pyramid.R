@@ -90,3 +90,16 @@ stacked_pp<-Ke_pop_v1%>%ggplot(aes(x = `Age Group`, y =Pop/1e6, fill =Year))+
 #saving the plot
 ggsave(plot = stacked_pp, filename = "population_pyramid_3.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#load plotly library
+library(plotly)
+
+#creating population pyramid plot
+plot_ly(data = Ke_pop_v1,
+        x = ~Pop,
+        y = ~`Age Group`,
+        color = ~Gender,
+        colors = c("steelblue","tomato"),
+        type = "bar",
+        orientation = "h")
+
