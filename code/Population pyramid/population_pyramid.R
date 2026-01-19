@@ -110,6 +110,7 @@ plot_ly(data = filtered_data,
          title = "<b> Population Pyramid of Kenya (2019)",
          xaxis = list(title ="Population (millions)",
                       tickvals = pretty(filtered_data$Pop),
-                      ticktext = abs(pretty(filtered_data$Pop))),
+                      ticktext = abs(pretty(filtered_data$Pop)),
+                      zeroline = FALSE),
          yaxis = list(title = "Age Group"))
 
