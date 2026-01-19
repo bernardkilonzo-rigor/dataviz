@@ -106,5 +106,8 @@ plot_ly(data = filtered_data,
         colors = c("steelblue","tomato"),
         type = "bar",
         orientation = "h")%>%
-  layout(barmode = "overlay")
+  layout(barmode = "overlay",
+         title = "<b> Population Pyramid of Kenya (2019)",
+         xaxis = list(title ="Population (millions)"),
+         yaxis = list(title = "Age Group"))
 
