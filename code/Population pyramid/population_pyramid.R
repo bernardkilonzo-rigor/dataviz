@@ -114,3 +114,13 @@ plot_ly(data = filtered_data,
                       zeroline = FALSE),
          yaxis = list(title = "Age Group"))
 
+#creating a grouped population pyramid plot with plotly library
+  plot_ly(data = Ke_pop_v1,
+        x = ~Pop,
+        y = ~`Age Group`,
+        color = ~Gender,
+        type = "bar",
+        orientation = "h")%>%
+  layout(barmode = "group")%>%
+    subplot(nrows = 1, shareY = TRUE, titleX = TRUE, titleY = TRUE)%>%
+    group_by(Ke_pop_v1$Year)
