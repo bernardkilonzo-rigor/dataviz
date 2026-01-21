@@ -119,8 +119,8 @@ plot_ly(data = filtered_data,
         x = ~Pop,
         y = ~`Age Group`,
         color = ~Gender,
+        colors = c("steelblue","tomato"),
         type = "bar",
-        orientation = "h")%>%
-  layout(barmode = "group")%>%
-    subplot(nrows = 1, shareY = TRUE, titleX = TRUE, titleY = TRUE)%>%
-    group_by(Ke_pop_v1$Year)
+        customdata = ~Year)%>%
+    layout(barmode = "overlay",
+           bargap = 0.1)
