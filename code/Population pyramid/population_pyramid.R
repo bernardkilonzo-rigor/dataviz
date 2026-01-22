@@ -114,6 +114,9 @@ plot_ly(data = filtered_data,
                       zeroline = FALSE),
          yaxis = list(title = "Age Group"))
 
+#Filtering the required dataset
+Ke_pop_2009<-Ke_pop_v1%>%filter(Year>2008)
+
 #creating a grouped population pyramid plot with plotly library
   plot_ly(data = Ke_pop_v1,
         x = ~Pop,
@@ -124,3 +127,4 @@ plot_ly(data = filtered_data,
         customdata = ~Year)%>%
     layout(barmode = "overlay",
            bargap = 0.1)
+
