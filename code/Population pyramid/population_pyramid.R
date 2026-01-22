@@ -131,8 +131,18 @@ custom_colors<-c(
         x = ~Pop,
         y = ~`Age Group`,
         color = ~Group,
-        colors = c("steelblue","tomato"),
-        type = "bar")%>%
-    layout(barmode = "group")%>%
-    subplot(nrows = 1, shareY = TRUE, titleX = TRUE, titleY = TRUE )
+        colors = ~custom_colors,
+        type = "bar",
+        orientation = "h")%>%
+    layout(barmode = "group")
+  
+#creating a stacked population pyramid plot with plotly library
+  plot_ly(data = Ke_pop_2009,
+          x = ~Pop,
+          y = ~`Age Group`,
+          color = ~Group,
+          colors = ~custom_colors,
+          type = "bar",
+          orientation = "h")%>%
+    layout(barmode = "relative")
 
