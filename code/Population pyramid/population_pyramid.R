@@ -115,16 +115,24 @@ plot_ly(data = filtered_data,
          yaxis = list(title = "Age Group"))
 
 #Filtering the required dataset
-Ke_pop_2009<-Ke_pop_v1%>%filter(Year>2008)
+Ke_pop_2009<-Ke_pop_v1%>%
+  filter(Year>2008)%>%
+  mutate(Group = interaction(Gender,Year, sep = "-"))
+
+#defining plot colors
+custom_colors<-c(
+  "Male-2009" = "#d8d493",
+  "Male-2019" = "#bfb304",
+  "Female-2009" = "#bcd684",
+  "Female-2019" ="#618c03")
 
 #creating a grouped population pyramid plot with plotly library
-  plot_ly(data = Ke_pop_v1,
+  plot_ly(data = Ke_pop_2009,
         x = ~Pop,
         y = ~`Age Group`,
-        color = ~Gender,
+        color = ~Group,
         colors = c("steelblue","tomato"),
-        type = "bar",
-        customdata = ~Year)%>%
-    layout(barmode = "overlay",
-           bargap = 0.1)
+        type = "bar")%>%
+    layout(barmode = "group")%>%
+    subplot(nrows = 1, shareY = TRUE, titleX = TRUE, titleY = TRUE )
 
