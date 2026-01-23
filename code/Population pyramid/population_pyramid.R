@@ -121,10 +121,10 @@ Ke_pop_2009<-Ke_pop_v1%>%
 
 #defining plot colors
 custom_colors<-c(
-  "Male-2009" = "#d8d493",
-  "Male-2019" = "#bfb304",
-  "Female-2009" = "#bcd684",
-  "Female-2019" ="#618c03")
+  "Male-2019" = "#d8d493",
+  "Male-2009" = "#bfb304",
+  "Female-2019" = "#bcd684",
+  "Female-2009" ="#618c03")
 
 #creating a grouped population pyramid plot with plotly library
   plot_ly(data = Ke_pop_2009,
@@ -134,7 +134,13 @@ custom_colors<-c(
         colors = ~custom_colors,
         type = "bar",
         orientation = "h")%>%
-    layout(barmode = "group")
+    layout(barmode = "group",
+           title = "<b> Population Pyramid of Kenya (2009 & 2019)",
+           xaxis = list(title ="Population (millions)",
+                        tickvals = pretty(filtered_data$Pop),
+                        ticktext = abs(pretty(filtered_data$Pop)),
+                        zeroline = FALSE),
+           yaxis = list(title = "Age Group"))
   
 #creating a stacked population pyramid plot with plotly library
   plot_ly(data = Ke_pop_2009,
