@@ -150,5 +150,11 @@ custom_colors<-c(
           colors = ~custom_colors,
           type = "bar",
           orientation = "h")%>%
-    layout(barmode = "relative")
+    layout(barmode = "relative",
+           title = "<b> Population Pyramid of Kenya (2009 & 2019)",
+           xaxis = list(title ="Population (millions)",
+                        tickvals = pretty(filtered_data$Pop),
+                        ticktext = abs(pretty(filtered_data$Pop)),
+                        zeroline = FALSE),
+           yaxis = list(title = "Age Group"))
 
