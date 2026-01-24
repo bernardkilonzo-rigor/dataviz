@@ -105,7 +105,12 @@ plot_ly(data = filtered_data,
         color = ~Gender,
         colors = c("steelblue","tomato"),
         type = "bar",
-        orientation = "h")%>%
+        orientation = "h",
+        customdata = ~abs(Pop),
+        hovertemplate = paste(
+          "Age Group: %{y}<br>",
+          "Population: %{customdata}<extra></extra>")
+        )%>%
   layout(barmode = "overlay",
          title = "<b> Population Pyramid of Kenya (2019)",
          xaxis = list(title ="Population (millions)",
@@ -133,7 +138,12 @@ custom_colors<-c(
         color = ~Group,
         colors = ~custom_colors,
         type = "bar",
-        orientation = "h")%>%
+        orientation = "h",
+        customdata = ~abs(Pop),
+        hovertemplate = paste(
+          "Age Group: %{y}<br>",
+          "Population: %{customdata}<extra></extra>")
+        )%>%
     layout(barmode = "group",
            title = "<b> Population Pyramid of Kenya (2009 & 2019)",
            xaxis = list(title ="Population (millions)",
@@ -149,7 +159,12 @@ custom_colors<-c(
           color = ~Group,
           colors = ~custom_colors,
           type = "bar",
-          orientation = "h")%>%
+          orientation = "h",
+          customdata = ~abs(Pop),
+          hovertemplate = paste(
+            "Age Group: %{y}<br>",
+            "Population: %{customdata}<extra></extra>")
+          )%>%
     layout(barmode = "relative",
            title = "<b> Population Pyramid of Kenya (2009 & 2019)",
            xaxis = list(title ="Population (millions)",
