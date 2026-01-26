@@ -6,12 +6,18 @@ library(tidyverse)
 #loading data set
 superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
-#prepating sample dataset
+#preparing sample data set
 computed_data<-superstore%>%
   group_by(Sub.Category)%>%
-  summarise(mean = mean(Sales), se =sd(Sales))
+  summarise(mean = mean(Sales), se =sd(Sales)/sqrt(n()))
 
 #creating error bars for grouped data
-superstore%>%ggplot(aes(y = Sub.Category, x = Sales))+
-  geom_bar(stat = "summary", fun = mean)+
-  geom_errorbar(aes(xmin = mean-se, xmax = mean+se))
+computed_data%>%ggplot(aes(y = Sub.Category, x = mean))+
+  geom_bar(stat = "identity", fill = "steelblue")+
+  geom_errorbar(aes(xmin = mean-se, xmax = mean+se))+
+  labs(title = "Error Bars Plot", x = "Mean", y = "Sub Category")+
+  theme(
+    panel.background = element_blank(),
+    axis.ticks = element_line(color = "gray50", linewidth =0.1),
+    axis.line = element_line(color = "gray50", linewidth =0.1)
+  )
