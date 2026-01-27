@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Error bars")
-
 #load libraries
 library(tidyverse)
 
@@ -13,7 +11,7 @@ computed_data<-superstore%>%
 
 #creating error bars for grouped data
 computed_data%>%ggplot(aes(y = Sub.Category, x = mean))+
-  geom_bar(stat = "identity", fill = "steelblue")+
+  geom_bar(stat = "identity", fill = "gray70")+
   geom_errorbar(aes(xmin = mean-se, xmax = mean+se))+
   labs(title = "Error Bars Plot", x = "Mean", y = "Sub Category")+
   theme(
