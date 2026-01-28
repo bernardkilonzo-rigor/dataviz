@@ -47,9 +47,12 @@ plot_ly(data = computed_data,
         x = ~mean,
         y = ~Sub.Category,
         type = "bar",
+        marker = list(color = "pink"),
         error_x = list(
           type = "data",
           array = computed_data$se,
-          color = "black"
-        ))
-
+          color = "brown"
+        ))%>%
+  layout(title = list(text = "<b>Error Bars with Plotly</b>"),
+         xaxis = list(title = "<b>Mean</b>"),
+         yaxis = list(title = "<b>Sub-Category</b>"))
