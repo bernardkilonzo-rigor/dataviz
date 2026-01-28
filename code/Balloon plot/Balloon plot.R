@@ -14,4 +14,9 @@ computed_dat<-superstore%>%
 #creating a balloon plot with ggplot2
 computed_dat%>%ggplot(aes(x = Region, y = Sub.Category))+
   geom_point(aes(size = sales, fill = sales), shape = 21, color = "black")+
-  scale_size(range = c(2,8))
+  scale_size(range = c(2,8))+
+  scale_fill_viridis_c() +
+  theme_minimal()+
+  labs(title = "Balloon Plot",
+       x = "Region",
+       y = "Sub-Category")
