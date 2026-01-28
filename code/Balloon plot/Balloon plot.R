@@ -10,3 +10,8 @@ superstore<-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dat
 computed_dat<-superstore%>%
   group_by(Region, Sub.Category)%>%
   summarise(sales = sum(Sales))
+
+#creating a balloon plot with ggplot2
+computed_dat%>%ggplot(aes(x = Region, y = Sub.Category))+
+  geom_point(aes(size = sales, fill = sales), shape = 21, color = "black")+
+  scale_size(range = c(2,8))
