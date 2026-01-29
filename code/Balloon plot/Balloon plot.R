@@ -23,3 +23,18 @@ bp<-computed_dat%>%ggplot(aes(x = Region, y = Sub.Category))+
 ggsave(plot = bp, filename = "Balloon_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
 
+#loading plotly library
+library(plotly)
+
+#creating a balloon plot with plotly library
+computed_dat%>%plot_ly(
+  x = ~Region,
+  y = ~Sub.Category,
+  type = "Scatter",
+  mode = "markers",
+  marker = list(
+  size = ~sales,
+  color = ~sales,
+  colorscale = "blues")
+)
+
