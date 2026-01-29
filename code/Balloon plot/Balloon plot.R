@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Balloon plot")
-
 #loading libraries
 library(tidyverse)
 
