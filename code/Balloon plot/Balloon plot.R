@@ -27,14 +27,21 @@ ggsave(plot = bp, filename = "Balloon_plot.png",
 library(plotly)
 
 #creating a balloon plot with plotly library
-computed_dat%>%plot_ly(
+plot_ly(
+  data = computed_dat,
   x = ~Region,
   y = ~Sub.Category,
-  type = "Scatter",
+  size = ~sales,
+  type = "scatter",
   mode = "markers",
   marker = list(
-  size = ~sales,
+  sizemode = "diameter",
+  sizeref = 4,
   color = ~sales,
-  colorscale = "blues")
-)
+  colorscale = "Viridis",
+  showscale = TRUE)
+)%>%
+  layout(
+    title = "Balloon Plot"
+  )
 
