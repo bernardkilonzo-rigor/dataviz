@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Marginal density plot")
-
 #load libraries
 library(tidyverse)
 library(ggExtra)
@@ -38,4 +36,11 @@ marg_violin<-ggMarginal(sc_plot, type = "violin", groupColour = TRUE, groupFill 
 
 #saving marginal violin
 ggsave(plot = marg_violin, filename = "Marginal_violin.png",
+       width = 8, height = 6, units = "in", dpi = 300)
+
+#create marginal density and histogram
+densigram<-ggMarginal(sc_plot, type = "densigram", groupColour = TRUE, groupFill = TRUE)
+
+#saving marginal density and histogram
+ggsave(plot = densigram, filename = "Density_histogram.png",
        width = 8, height = 6, units = "in", dpi = 300)
