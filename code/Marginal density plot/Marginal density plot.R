@@ -12,5 +12,16 @@ sc_plot<-iris%>%ggplot()+
   theme(legend.position = "bottom")+
   labs(x = "Sepal Length", y = "Sepal Width")
 
-#creating a marginal density plot
-ggMarginal(sc_plot, type = "density", groupColour = TRUE, groupFill = TRUE)
+#creating marginal density plot
+scplot<-ggMarginal(sc_plot, type = "density", groupColour = TRUE, groupFill = TRUE)
+
+#saving the plot
+ggsave(plot = scplot, filename = "marginal_density_plot.png",
+       width = 8, height = 6, units = "in", dpi = 300)
+
+#creating marginal histograms
+marg_hist<-ggMarginal(sc_plot, type = "histogram", groupColour = TRUE, groupFill = TRUE)
+
+#saving marginal histogram
+ggsave(plot = marg_hist, filename = "Marginal_histogram.png",
+       width = 8, height = 6, units = "in", dpi = 300)
