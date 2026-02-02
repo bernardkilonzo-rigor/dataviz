@@ -12,14 +12,14 @@ sc_plot<-iris%>%ggplot()+
   theme(legend.position = "bottom")+
   labs(x = "Sepal Length", y = "Sepal Width")
 
-#creating marginal density plot
+#creating marginal density
 scplot<-ggMarginal(sc_plot, type = "density", groupColour = TRUE, groupFill = TRUE)
 
-#saving the plot
+#saving marginal density
 ggsave(plot = scplot, filename = "marginal_density_plot.png",
        width = 8, height = 6, units = "in", dpi = 300)
 
-#creating marginal histograms
+#creating marginal histogram
 marg_hist<-ggMarginal(sc_plot, type = "histogram", groupColour = TRUE, groupFill = TRUE)
 
 #saving marginal histogram
@@ -31,4 +31,11 @@ marg_box<-ggMarginal(sc_plot, type = "boxplot", groupColour = TRUE, groupFill = 
 
 #saving marginal box plot
 ggsave(plot = marg_box, filename = "Marginal_boxplot.png",
+       width = 8, height = 6, units = "in", dpi = 300)
+
+#creating marginal violin
+marg_violin<-ggMarginal(sc_plot, type = "violin", groupColour = TRUE, groupFill = TRUE)
+
+#saving marginal violin
+ggsave(plot = marg_violin, filename = "Marginal_violin.png",
        width = 8, height = 6, units = "in", dpi = 300)
