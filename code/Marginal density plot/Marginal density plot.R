@@ -25,3 +25,10 @@ marg_hist<-ggMarginal(sc_plot, type = "histogram", groupColour = TRUE, groupFill
 #saving marginal histogram
 ggsave(plot = marg_hist, filename = "Marginal_histogram.png",
        width = 8, height = 6, units = "in", dpi = 300)
+
+#creating marginal box plot
+marg_box<-ggMarginal(sc_plot, type = "boxplot", groupColour = TRUE, groupFill = TRUE)
+
+#saving marginal box plot
+ggsave(plot = marg_box, filename = "Marginal_boxplot.png",
+       width = 8, height = 6, units = "in", dpi = 300)
