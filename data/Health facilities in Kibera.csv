@@ -1,0 +1,217 @@
+ID,NAME,TYPE,OPERATOR,STATUS,LONGITUDE,LATITUDE
+478550544,Mbagathi Hospital (IDH),hospital,,,36.8034476,-1.3084671
+521103442,Armed Forces Hospital,hospital,,,36.804798,-1.310581
+612004553,lakaside chemist,chemist_dispensing,private,operational,36.7827109,-1.3144487
+612004731,community chemist,chemist_dispensing,private,operational,36.7930992,-1.3154341
+612004989,community chemist,chemist_dispensing,private,,36.7923957,-1.3105995
+612006950,Carolina for Kibera,vct_center,ngo_national,operational,36.7787897,-1.3142991
+612006969,St Elizabeth Medical Clinic,medical_clinic,private,operational,36.7900462,-1.3109218
+612006973,Mwangaza Chemist,chemist_over_the_counter,,,36.7927883,-1.3117701
+612007016,St Thomas Medical Clinic,chemist_dispensing,private,operational,36.8041377,-1.3153891
+612007081,Royal Clinic,medical_clinic,,,36.7940118,-1.3158601
+612007083,Shachif Health Unit,medical_clinic,ngo_national,operational,36.7952358,-1.3158759
+612007120,Alshariff chemist,chemist_over_the_counter,private,operational,36.7867727,-1.3097184
+612007202,Senye Clinic,medical_clinic,private,operational,36.7761758,-1.3143855
+612007257,MSF Belgium HIV Clinic,hospital,,,36.783978,-1.3141348
+612007391,Frepals Hospital,hospital,,,36.7930224,-1.3114911
+612007438,Upendo Vision Clinic,hospital,,,36.7860504,-1.3078684
+612007453,New Makina Clinic,hospital,,,36.7863291,-1.3071984
+612007454,Amanda Chemist,chemist_dispensing,,,36.7870738,-1.3069635
+612007456,St Augustus Medical Clinic,hospital,,,36.788823,-1.3072303
+612007535,Catholic Women Fighting HIV,Community based organization,Community,operational,36.7779299,-1.3178739
+612007539,Wema Clinic,medical_clinic,private,operational,36.7782341,-1.3179274
+612007560,CDC,other,ngo_international,operational,36.7795356,-1.3140222
+612007562,Pathocare Laboratory Services,laboratory,private,operational,36.7804112,-1.3136675
+612007578,Silver Women Community,health_programme,ngo_cbo,operational,36.7802417,-1.3135804
+612007632,Foundation Of People Living with Hiv Aids In Kenya(FOPHAK),health_programme,ngo_national,operational,36.7959723,-1.3143031
+612007685,Church of God Clinic,medical_clinic,ngo_faith_based,operational,36.7949929,-1.3105841
+612007693,Christ the King Clinic,medical_clinic,ngo_faith_based,operational,36.7947603,-1.310426
+612007778,Saola Health Clinic,medical_clinic,private,operational,36.7991031,-1.3117185
+612007825,MSF Belgium Clinic,clinic,ngo_international,operational,36.7895018,-1.3135432
+612007913,Tabitha Medical Clinic,medical_clinic,ngo_cbo,operational,36.7801104,-1.3161347
+612007924,community chemist,chemist_over_the_counter,,,36.7860471,-1.3156978
+612008350,Nafuu chemist,chemist_over_the_counter,,,36.7859881,-1.315
+612008410,Raisi chemist,chemist_dispensing,private,operational,36.7859966,-1.3096893
+612008488,St Mac&apos;s Clinic,medical_clinic,ngo_cbo,operational,36.7977924,-1.3119267
+612008553,Duka La Dawa Chemist,chemist_over_the_counter,,,36.7975107,-1.3153574
+612008569,Laini Saba Health Services,medical_clinic,private,operational,36.7974192,-1.3132154
+612008583,community chemist,chemist_over_the_counter,,,36.7998174,-1.3152628
+612008622,,chemist_dispensing,,,36.799371,-1.3170097
+612008640,Silanga Dispensary,chemist_dispensing,ngo_international,operational,36.7960707,-1.3172473
+612008666,Kicoshep Youth Center,health_programme,ngo_national,operational,36.7895837,-1.3080325
+612008667,Marie Stopes Center,medical_clinic,ngo_national,operational,36.7892016,-1.30779
+612008688,Rose Pharmacy,chemist_dispensing,,,36.7924839,-1.3118057
+612008709,Rail Side Clinic,medical_clinic,private,operational,36.8028346,-1.31523
+612008731,Malendo Chemist,chemist_dispensing,private,operational,36.7939954,-1.3116009
+612008760,Senye Medical Clinic and Laboratory,medical_clinic,private,operational,36.7754499,-1.3129537
+612008803,Lake side clinic,medical_clinic,,operational,36.7826673,-1.3144838
+612008813,community chemist,chemist_over_the_counter,,,36.7842575,-1.3146925
+612008863,Huduma Medical Clinic,medical_clinic,private,operational,36.7777457,-1.31433
+612008876,ELMAC Chemist,chemist_dispensing,private,operational,36.7774467,-1.3135619
+612008905,Loving Hearts Dispensary,chemist_dispensing,,,36.7903394,-1.3144691
+612008914,New Hife Home Missionary,medical_clinic,faith_based_organization,operational,36.7820234,-1.307716
+612008941,Chemi Chemi ya Uzima Clinic,medical_clinic,private,operational,36.7879441,-1.3070483
+612008945,Bedan Clinic,medical_clinic,private,operational,36.7949758,-1.3129475
+612008952,St Paul Medical Clinic,medical_clinic,private,operational,36.7972464,-1.3129192
+612008958,St. Edith Clinic,chemist_dispensing,private,operational,36.7938832,-1.3119244
+612008964,Kishep Medical Centre and Dental Clinic,medical_clinic,private,operational,36.7959341,-1.3128435
+612008968,Godled Medical Center,medical_clinic,,,36.7963111,-1.3126089
+612009012,Kwa Mwananchi Medical Clinic,hospital,,,36.7836894,-1.3081417
+612009048,Silanga ACK Emmanuel Clinic and Lab,chemist_dispensing,faith_based_organization,operational,36.7992748,-1.3178475
+612009072,Lee-Med Chemist,chemist_over_the_counter,,,36.7758463,-1.3108588
+612009096,Mizima Chemist,chemist_dispensing,private,operational,36.7841913,-1.314752
+612009104,Jafwack Medical Clinic,medical_clinic,private,operational,36.7996282,-1.3132172
+612009126,Tetani Clinic,medical_clinic,private,operational,36.8020231,-1.3148359
+612009233,Goodwill Chemist,chemist_over_the_counter,private,operational,36.7903898,-1.309082
+612009234,,chemist_over_the_counter,private,,36.7903866,-1.3092389
+612009235,Chemist,chemist_dispensing,private,operational,36.7889224,-1.3075107
+612009247,Kicoshep Centre,vct_center,ngo_national,operational,36.7906148,-1.3094505
+612009265,Mareba Medical Clinic,medical_clinic,private,operational,36.7834906,-1.3065921
+612009390,Kibera Family Drugs and Medication Information Centre,pharmacy,,,36.7824399,-1.3143199
+612009572,Wema Medical Clinic,medical_clinic,ngo_international,operational,36.7789314,-1.3156335
+612009579,Wema Medical Clinic,medical_clinic,private,operational,36.7817087,-1.3144595
+612009706,Herbal Chemist,herbalist,private,operational,36.7861039,-1.3077136
+612010343,Mzima Chemist,chemist_dispensing,private,,36.7842886,-1.3147468
+612010735,Esther Pharmacy,chemist_dispensing,,,36.7926652,-1.3117524
+612011308,Cahm Herbal and Nutrition Clinic,herbalist,private,operational,36.7973847,-1.3131964
+612011361,New Life Herbal Clinic,herbalist,private,operational,36.7945256,-1.3112798
+612011373,Eagle&apos;s Family Clinic,medical_clinic,,,36.7979024,-1.311816
+612011505,Carol Medical Clinic,chemist_dispensing,private,operational,36.7966099,-1.3169664
+671166105,Amref-Kibera,health_center,ngo_international,operational,36.7956417,-1.311196
+696526809,Mary Medical Services,medical_clinic,private,operational,36.7964865,-1.3133844
+696542676,Webuye chemist,chemist_dispensing,private,operational,36.7889429,-1.3124971
+696543032,Mtaani VCT,vct_center,ngo_self_help,operational,36.7985247,-1.3133393
+696543035,Chemist,chemist_over_the_counter,private,operational,36.8043512,-1.3151154
+696543036,Nalis Wananchi Clinic,medical_clinic,private,closed,36.8050213,-1.3147627
+696555670,,pharmacy,,,36.7730892,-1.3086289
+696610501,Hope Chemist,chemist_over_the_counter,private,operational,36.7764226,-1.3146445
+696610502,Mini Prime Chemist,chemist_over_the_counter,private,operational,36.775462,-1.315484
+696655680,NEEMA,chemist_dispensing,private,operational,36.7775527,-1.3130303
+696655689,Ledos,chemist_dispensing,private,,36.7798683,-1.3130412
+696655693,Pollar pharm,chemist_dispensing,private,operational,36.7773192,-1.3117037
+696655695,MSF Training Center,training_institution,ngo_international,operational,36.7787021,-1.3127705
+696655697,Nafuu Chemist,chemist_dispensing,private,operational,36.7781982,-1.3124115
+696655707,Lazarus Herbal Solution,herbalist,private,operational,36.7782091,-1.3116403
+696656807,Mid Rift Chemist,chemist_over_the_counter,,,36.7950543,-1.3163293
+696656808,Silanga Pharmacy,chemist_dispensing,private,operational,36.7955008,-1.3167834
+696656810,Okoa Medical Clinic,chemist_over_the_counter,private,,36.7958725,-1.3168583
+696656815,St Emmaculate James,chemist_dispensing,private,operational,36.7978807,-1.3172686
+696677343,Mwangaza ulio na Tumaini Clinic,medical_clinic,faith_based_organization,operational,36.7846216,-1.3129415
+696677345,Merciline Medical Clinic,medical_clinic,private,operational,36.7842001,-1.313152
+696677353,Kibera South Health Center,health_center,ngo_international,operational,36.7894801,-1.3135192
+696677374,St Beeja Chemist,chemist_over_the_counter,private,operational,36.7883029,-1.3120029
+696677376,Chemist,chemist_dispensing,private,operational,36.7892366,-1.3127699
+696772467,Universe Medical Clinic,medical_clinic,private,operational,36.7946621,-1.3171214
+696772525,Organic Chemist,chemist_dispensing,private,operational,36.7949559,-1.3167646
+696774091,Gemkam Medical Clinic,medical_clinic,private,operational,36.7967088,-1.3170903
+696864635,St Mary&apos;s Albert Memorial,chemist_dispensing,private,operational,36.7952673,-1.3166515
+696864912,St Knight Medical Clinic,medical_clinic,private,operational,36.7975113,-1.317186
+698467045,Beienish Chemist,chemist_over_the_counter,private,,36.7828482,-1.3077532
+698467048,Home Pharmacy,chemist_over_the_counter,private,operational,36.7841332,-1.3085224
+698467052,St Jude Health Clinic,medical_clinic,private,operational,36.7841769,-1.3084625
+698467060,Wananchi Chemist,chemist_over_the_counter,private,operational,36.783799,-1.3082133
+698467063,St Basil Health Clinic,medical_clinic,private,operational,36.7843711,-1.3085136
+698467073,Makina Clinic,medical_clinic,,operational,36.7848328,-1.3086774
+698476596,Herberlist,herbalist,private,operational,36.7826819,-1.3075323
+698476700,St Knight medical clinic,medical_clinic,private,operational,36.783035,-1.3077926
+698476716,Quick Pharmacy,chemist_over_the_counter,private,operational,36.7826336,-1.3076781
+698476726,Pona Chemist,chemist_over_the_counter,private,operational,36.7831506,-1.3078314
+698478562,Jamii Chemist,chemist_over_the_counter,private,,36.7856507,-1.3085474
+698525850,Wenga Herbal Medicine,herbalist,private,operational,36.7844035,-1.3126795
+698525854,Jaribu Herbs,herbalist,private,operational,36.7874552,-1.3113121
+698525855,Dawa Chemist,chemist_dispensing,private,operational,36.7878445,-1.3114286
+698525856,Herbalist,herbalist,private,operational,36.7881186,-1.3114775
+698525857,Midwife,other,private,operational,36.788517,-1.311428
+698541774,Kisembo Medical Clinic,medical_clinic,private,operational,36.7900075,-1.313286
+698541816,slum medical clinic,medical_clinic,private,operational,36.7916138,-1.3139825
+698541819,Japak Chemist,chemist_dispensing,private,operational,36.7908429,-1.3135288
+698541825,Slum Medical Clinic,medical_clinic,private,operational,36.791348,-1.3122072
+698541828,COMMUNITY CHEMIST,chemist_over_the_counter,private,operational,36.7923376,-1.3121943
+698541830,ST EDITH,chemist_over_the_counter,private,operational,36.7924258,-1.3124734
+698541835,Frepals Maternity,nursing_home_with_maternity,private,operational,36.7923801,-1.3120224
+698541837,Meru Chemist,chemist_dispensing,private,operational,36.7923911,-1.312037
+698541840,Jahoma Bay Chemist,chemist_over_the_counter,private,operational,36.7926738,-1.3119095
+698541842,Friends chemist,chemist_over_the_counter,private,operational,36.7935141,-1.3156003
+698592301,Chemist,chemist_dispensing,private,operational,36.7901495,-1.3087718
+698592302,Chemist,chemist_dispensing,private,operational,36.790384,-1.3090739
+698592304,Chemist,chemist_over_the_counter,private,operational,36.7894352,-1.3080445
+698592305,community pharmacy,chemist_dispensing,private,operational,36.7960183,-1.314296
+698592306,Community Royal clinic,medical_clinic,private,operational,36.7964847,-1.3138445
+698592308,Medical Centre,medical_clinic,private,operational,36.7973483,-1.312543
+698592314,Chemist,chemist_over_the_counter,private,operational,36.7977084,-1.3122271
+698592319,St Francis dental Clinic,dental_clinic,private,operational,36.7978995,-1.3118487
+698592324,St angles community health organisation,medical_clinic,private,operational,36.7887379,-1.3072058
+698602284,Leatoto,health_programme,ngo_cbo,operational,36.7801435,-1.314293
+698602287,Balozi,chemist_dispensing,private,operational,36.7783046,-1.3121023
+698602288,AMALASIA,chemist_dispensing,private,operational,36.7783566,-1.3119434
+698602290,REMS,chemist_dispensing,private,operational,36.7822737,-1.3124345
+698602291,St Perys,medical_clinic,private,operational,36.7825137,-1.3072052
+698602292,Kibera Herbalist,herbalist,private,,36.7875633,-1.3059372
+698602293,KIBERA D.O. HEALTH CENTER,medical_clinic,government,operational,36.7882747,-1.3061474
+698629331,Hiltop Chemist,chemist_dispensing,private,,36.7790203,-1.3154417
+698629339,Blue Cross Community Chemist,chemist_over_the_counter,private,,36.7793682,-1.3153123
+698629343,Nango Chemist,chemist_dispensing,private,,36.7847122,-1.314895
+701794585,Jamii Chemist,chemist_over_the_counter,private,operational,36.7753191,-1.3121273
+701794594,Orthodox Youth Friendly Centre,other,faith_based_organization,operational,36.7749108,-1.3116404
+701794601,Sisi Chemist,chemist_over_the_counter,private,operational,36.7753077,-1.3111339
+701794605,Ayany Chemist,chemist_over_the_counter,private,operational,36.7756493,-1.3111319
+701794608,Rosade Medical Clinic,medical_clinic,private,operational,36.7753685,-1.3111356
+701794614,Terminus Chemist,chemist_over_the_counter,private,operational,36.776085,-1.311128
+701794617,Community Chemist,chemist_over_the_counter,private,operational,36.7757205,-1.3104607
+701794619,Omweri Chemist,chemist_over_the_counter,private,operational,36.7757249,-1.3105992
+701794627,Rahisi Pharmacy,chemist_over_the_counter,private,operational,36.7732727,-1.3096087
+701794632,YU 42Chemist,chemist_over_the_counter,private,operational,36.7734887,-1.3101169
+701794640,Tumaini Medical Clinic,medical_clinic,private,operational,36.7731098,-1.3087786
+701794655,Jamhuri Medical Clinic,medical_clinic,private,operational,36.7730791,-1.3085762
+701794660,Ushirika medical centre,health_center,ngo_cbo,operational,36.7727571,-1.3077798
+701794672,Ayany Clinic AND Laboratory,medical_clinic,private,operational,36.7753013,-1.3099284
+701794682,The Door Youth Friendly Services,rehabilitation_center,faith_based_organization,operational,36.7740812,-1.3086031
+701794686,Mchanganyiko Women Group,other,ngo_cbo,operational,36.7817648,-1.3102797
+701794691,Olive Chemist,chemist_over_the_counter,private,operational,36.7816908,-1.3108623
+701794697,Karanja Chemist,chemist_over_the_counter,private,operational,36.780605,-1.3100685
+701794698,St Mary&apos;s Clinic,health_center,private,operational,36.7835349,-1.3120178
+701794706,Paolo&apos;s Home,other,ngo_international,operational,36.7847629,-1.3108297
+701794717,Jadunga Chemist,chemist_dispensing,private,operational,36.7828755,-1.3113045
+701794720,Prestige Medical Services,health_center,private,operational,36.7831923,-1.3109035
+701794734,Brimart Chemist,chemist_dispensing,private,operational,36.7831096,-1.3109184
+701794750,Vipawa Health Services,medical_clinic,private,operational,36.785474,-1.3111364
+701797825,Community chemist,chemist_over_the_counter,private,operational,36.7902544,-1.3114452
+701797835,Royal medical &amp; maternity,nursing_home_with_maternity,private,operational,36.7940458,-1.3158079
+701797853,Jomingo Chemist,chemist_dispensing,private,operational,36.7948611,-1.3164699
+701797857,community chemist,chemist_over_the_counter,private,operational,36.7951081,-1.3163416
+708659008,Ado pharm Chemist,chemist_dispensing,private,operational,36.7820031,-1.3078404
+708682219,Mission Clinic,medical_clinic,private,operational,36.7861023,-1.307928
+708685448,Community Herbalist,herbalist,private,operational,36.7873282,-1.3114328
+708685449,Mt. Kenya Chemist,chemist_dispensing,private,operational,36.7883787,-1.3108793
+708685749,Revival Medical Centre,health_center,faith_based_organization,operational,36.7753791,-1.315669
+708731820,Pharnma Chemist,chemist_over_the_counter,private,operational,36.7756217,-1.3111333
+708750143,Kisum Community Pharmacy,chemist_over_the_counter,,closed,36.7990293,-1.3179486
+708750146,Undugu Medical Clinic,hospital,,,36.7990986,-1.3179328
+708750148,Soweto Medical Clinic,medical_clinic,private,operational,36.7990532,-1.3158281
+708750154,Annex Medical Clinic and Clinic,medical_clinic,private,operational,36.7997537,-1.3152444
+708750160,Nyasira Chemist,chemist_over_the_counter,private,operational,36.8002154,-1.3147918
+708765476,Natural Health Centre,health_center,private,operational,36.7851718,-1.3077733
+712913318,Neema Medical Clinic,medical_clinic,private,operational,36.7905041,-1.3135098
+766242209,Mercy Chemist,chemist_dispensing,,,36.7974695,-1.3153957
+855145933,Kibera human development project clinic,dental_clinic,ngo_cbo,operational,36.7832696,-1.3068862
+856776627,Uzima Chemist,medical_clinic,private,operational,36.782461,-1.3150604
+874841892,Community Chemist,chemist_over_the_counter,private,,36.7922037,-1.3147947
+1232136087,Bolton,pharmacy,,,36.8042166,-1.3153448
+1249726626,Lazawil Medical Clinic,medical_clinic,private,operational,36.7808468,-1.3098881
+1249726647,Rahisi Chemist,pharmacy,,,36.7861628,-1.3097149
+1249779969,Brimat Chemist,pharmacy,,,36.7826426,-1.3076061
+1367647606,Nakhayo Medical Clinic,dental_clinic,private,operational,36.7880612,-1.3115087
+1691733175,Capital Chemist,Dispensing drugs,private,operational,36.7785696,-1.3121477
+1722620244,Lindex Dispensing Chemist,chemist_dispensing,private,operational,36.7761818,-1.3166329
+1722668365,Stage chemist,pharmacy,,,36.7783202,-1.3115149
+1727588861,family drug center,pharmacy,,,36.7823812,-1.314325
+1727588883,toresh  chemist,pharmacy,,,36.7794846,-1.3151478
+1746645844,Ngumo Pharmacy,pharmacy,,,36.802264,-1.3068359
+1771323211,Chemist,pharmacy,,,36.7927989,-1.3155271
+1804804138,Clinix Healthcare Kibera Branch,Health clinic,private,operational,36.7739346,-1.3104547
+1804804146,Familly Dental Care,dental_clinic,private,operational,36.7739575,-1.310475
+1804804159,Triwam Pharmacy,chemist_dispensing,private,operational,36.7739834,-1.3105009
+1864056805,Vostrum Clinic Kibera Branch,hospital,,,36.781119,-1.3077519
+2016217939,Kibera Medical Clinic,dental_clinic,private,operational,36.7976205,-1.3133013
+2051080150,cheupe  chemist,medical_clinic,private,operational,36.7998844,-1.3152035
+2052594494,ST EDITH,chemist_over_the_counter,private,operational,36.7950002,-1.3111604
