@@ -9,5 +9,13 @@ superstore <-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/da
 #extracting the numerical variables (sales & profit)
 data_num <-superstore[,c("Sales","Profit")]
 
-#Run K-means clustering
+#running K-means clustering
 km <- kmeans(data_num, centers = 4, nstart = 50)
+
+#adding cluster labels to the table
+superstore$cluster <-factor(km$cluster)
+
+#visualizing the clusters
+superstore%>%ggplot(aes(x = Sales, y = Profit, color = cluster))+
+  geom_point(size =4)
+  
