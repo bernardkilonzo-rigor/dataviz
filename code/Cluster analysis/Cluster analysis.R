@@ -16,10 +16,11 @@ superstore$cluster <-factor(km$cluster)
 #visualizing the clusters
 superstore%>%ggplot(aes(x = Sales, y = Profit, color = cluster))+
   geom_point(size =4, alpha =0.5)+
-  labs(title = "Cluster Analysis")+
+  labs(title = "Cluster Analysis", color = "Clusters")+
   theme(panel.background = element_blank(),
         axis.title = element_text(family = "serif", face ="bold", color = "gray40"),
         axis.text = element_text(family = "serif", color = "gray40"),
         axis.line = element_line(linewidth = 0.1, color = "gray45"),
-        axis.ticks = element_line(linewidth = 0.1,color = "gray45"))
+        axis.ticks = element_line(linewidth = 0.1,color = "gray45"),
+        plot.title = element_text(family = "serif",face = "bold", color = "gray25"))
   
