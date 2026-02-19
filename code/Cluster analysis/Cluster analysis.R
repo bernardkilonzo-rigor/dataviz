@@ -14,7 +14,7 @@ km <- kmeans(data_num, centers = 4, nstart = 25)
 superstore$cluster <-factor(km$cluster)
 
 #visualizing the clusters
-superstore%>%ggplot(aes(x = Sales, y = Profit, color = cluster))+
+ca<-superstore%>%ggplot(aes(x = Sales, y = Profit, color = cluster))+
   geom_point(size =4, alpha =0.5)+
   labs(title = "Cluster Analysis", color = "Clusters")+
   theme(panel.background = element_blank(),
@@ -23,4 +23,7 @@ superstore%>%ggplot(aes(x = Sales, y = Profit, color = cluster))+
         axis.line = element_line(linewidth = 0.1, color = "gray45"),
         axis.ticks = element_line(linewidth = 0.1,color = "gray45"),
         plot.title = element_text(family = "serif",face = "bold", color = "gray25"))
-  
+
+#saving the plot
+ggsave(plot = ca, filename = "cluster_analysis.png",
+       width = 8, height = 6, units = "in", dpi = 300)
