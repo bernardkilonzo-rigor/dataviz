@@ -14,10 +14,12 @@ bp<-computed_dat%>%ggplot(aes(x = Region, y = Sub.Category))+
   geom_point(aes(size = sales, fill = sales), shape = 21, color = "black")+
   scale_size(range = c(2,8))+
   scale_fill_viridis_c() +
-  theme_minimal()+
   labs(title = "Balloon Plot",
        x = "Region",
-       y = "Sub-Category")
+       y = "Sub-Category", size = "Sales", fill = "Sales")+
+  theme_minimal()+
+  theme(
+    panel.grid = element_line(color = "gray95", linewidth = 0.1))
 
 #saving the plot
 ggsave(plot = bp, filename = "Balloon_plot.png",
