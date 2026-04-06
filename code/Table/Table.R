@@ -8,8 +8,12 @@ library(knitr)
 superstore <- read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #simple, clean, and flexible tables - knitr::kable()
+x <- superstore%>%
+  group_by(Region, Sub.Category)%>%
+  summarise(sales = sum(Sales))%>%
+  pivot_wider(names_from = Sub.Category, values_from = sales)
 
-
+kable(x)
 
 #beautiful, publication-quality tables - gt
 
