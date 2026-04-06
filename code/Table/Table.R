@@ -4,6 +4,7 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Table")
 library(tidyverse)
 library(knitr)
 library(gt)
+library(DT)
 
 #load data set
 superstore <- read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -28,7 +29,7 @@ x%>%gt()%>%
   )
 
 #interactive tables (search, sort, filter) - DT::datatable()
-
+datatable(x, filter = "top") #expand it in length
 
 #best for word/powerpoint reports - flextable
 
