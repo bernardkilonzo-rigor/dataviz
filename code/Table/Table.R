@@ -1,15 +1,13 @@
 setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Table")
 
 #load libraries
-
-
+library(tidyverse)
+library(knitr)
 
 #load data set
-
-
+superstore <- read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
 
 #simple, clean, and flexible tables - knitr::kable()
-
 
 
 
