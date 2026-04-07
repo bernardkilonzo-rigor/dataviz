@@ -6,6 +6,7 @@ library(knitr)
 library(gt)
 library(DT)
 library(flextable)
+library(reactable)
 
 #load data set
 superstore <- read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -48,3 +49,10 @@ flextable(x)%>%
 
 #modern highly interactive tables - reactable
 
+reactable(x%>% tibble::rownames_to_column("model"),
+searchable = TRUE,
+filterable = TRUE,
+pagination = TRUE,
+highlight = TRUE,
+striped = TRUE,
+bordered = FALSE)
