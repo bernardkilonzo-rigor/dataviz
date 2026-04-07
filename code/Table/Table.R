@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Table")
-
 #load libraries
 library(tidyverse)
 library(knitr)
@@ -48,7 +46,6 @@ flextable(x)%>%
   set_caption(caption = "Product Performance Summary")
 
 #modern highly interactive tables - reactable
-
 reactable(x%>% tibble::rownames_to_column("model"),
 searchable = TRUE,
 filterable = TRUE,
