@@ -5,6 +5,7 @@ library(tidyverse)
 library(knitr)
 library(gt)
 library(DT)
+library(flextable)
 
 #load data set
 superstore <- read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -32,8 +33,18 @@ x%>%gt()%>%
 datatable(x, filter = "top") #expand it in length
 
 #best for word/powerpoint reports - flextable
+tb<- flextable(x)
+autofit(tb) #gives Word/PPT a natural width baseline
+theme_vanilla(tb) #adding professional theme
 
-
+flextable(x)%>%
+  autofit()%>% #gives Word/PPT a natural width baseline
+  theme_vanilla()%>%
+  fontsize(size = 10, part = "all") %>% #customize fonts
+  align(align = "center", part = "all") %>% #alignment
+  padding(padding = 4, part = "all") %>% #padding
+  add_footer_lines(values = "Source: Sample-Superstore Data Set")%>%
+  set_caption(caption = "Product Performance Summary")
 
 #modern highly interactive tables - reactable
 
