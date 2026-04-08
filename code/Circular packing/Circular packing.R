@@ -21,3 +21,10 @@ state_sales <- cbind(state_sales,packing)
 #converting circle packing layout into a data frame of polygon vertices that can be plottong with ggplot2
 dat.gg <- circleLayoutVertices(packing, npoints = 50)
 
+#creating the plot (circle packing plot)
+ggplot()+
+  geom_polygon(data = dat.gg, aes(x, y, group = id, fill = as.factor(id)), color = "black", alpha =0.6)+
+  scale_size_continuous(range = c(1,4))+
+  theme_void()+
+  theme(legend.position = "none")+
+  coord_equal()
