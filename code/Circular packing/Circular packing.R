@@ -22,9 +22,14 @@ state_sales <- cbind(state_sales,packing)
 dat.gg <- circleLayoutVertices(packing, npoints = 50)
 
 #creating the plot (circle packing plot)
-ggplot()+
+cpp<- ggplot()+
   geom_polygon(data = dat.gg, aes(x, y, group = id, fill = as.factor(id)), color = "black", alpha =0.6)+
   scale_size_continuous(range = c(1,4))+
+  geom_text(data = state_sales, aes(x,y, size =sales, label = State))+
   theme_void()+
   theme(legend.position = "none")+
   coord_equal()
+
+#saving the plot
+ggsave(plot = cpp, filename = "circular_packing.png", width = 8,
+       height = 6, units = "in", dpi = 300)
