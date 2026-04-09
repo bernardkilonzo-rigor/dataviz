@@ -41,7 +41,8 @@ cpp_1<- ggplot()+
   scale_fill_viridis()+
   geom_text(data = state_sales, aes(x,y, size =sales, label = State))+
   theme_void()+
-  theme(legend.position = "none")+
+  theme(legend.position = "none",
+        plot.background = element_rect(fill = "gray"))+
   coord_equal()
 
 #saving the plot
