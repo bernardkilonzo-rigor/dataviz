@@ -3,6 +3,7 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Circular 
 #load libraries
 library(tidyverse)
 library(packcircles)
+library(viridis)
 
 #load data set
 superstore <-read.csv("https://raw.githubusercontent.com/bernardkilonzo-rigor/dataviz/main/data/Sample%20-%20Superstore.csv")
@@ -32,4 +33,17 @@ cpp<- ggplot()+
 
 #saving the plot
 ggsave(plot = cpp, filename = "circular_packing.png", width = 8,
+       height = 6, units = "in", dpi = 300)
+
+#creating the plot_2
+cpp_1<- ggplot()+
+  geom_polygon(data = dat.gg, aes(x, y, group = id, fill = id), color = "black", alpha =0.6)+
+  scale_fill_viridis()+
+  geom_text(data = state_sales, aes(x,y, size =sales, label = State))+
+  theme_void()+
+  theme(legend.position = "none")+
+  coord_equal()
+
+#saving the plot
+ggsave(plot = cpp_1, filename = "circular_packing_2.png", width = 8,
        height = 6, units = "in", dpi = 300)
