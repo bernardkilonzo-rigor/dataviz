@@ -1,5 +1,3 @@
-setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Circular packing")
-
 #load libraries
 library(tidyverse)
 library(packcircles)
