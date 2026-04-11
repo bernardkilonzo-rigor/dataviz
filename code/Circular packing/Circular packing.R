@@ -25,9 +25,13 @@ cpp<- ggplot()+
   geom_polygon(data = dat.gg, aes(x, y, group = id, fill = as.factor(id)), color = "black", alpha =0.6)+
   scale_size_continuous(range = c(1,4))+
   geom_text(data = state_sales, aes(x,y, size =sales, label = State))+
+  labs(caption = "Viz By: Bernard Kilonzo")+
   theme_void()+
   theme(legend.position = "none")+
-  coord_equal()
+  coord_equal()+
+  theme(
+    plot.caption = element_text(family = "serif", face = "italic", color = "gray50")
+  )
 
 #saving the plot
 ggsave(plot = cpp, filename = "circular_packing.png", width = 8,
@@ -38,10 +42,14 @@ cpp_1<- ggplot()+
   geom_polygon(data = dat.gg, aes(x, y, group = id, fill = id), color = "black", alpha =0.6)+
   scale_fill_viridis()+
   geom_text(data = state_sales, aes(x,y, size =sales, label = State))+
+  labs(caption = "Viz By: Bernard Kilonzo")+
   theme_void()+
   theme(legend.position = "none",
         plot.background = element_rect(fill = "gray"))+
-  coord_equal()
+  coord_equal()+
+  theme(
+    plot.caption = element_text(family = "serif", face = "italic", color = "black")
+  )
 
 #saving the plot
 ggsave(plot = cpp_1, filename = "circular_packing_2.png", width = 8,
