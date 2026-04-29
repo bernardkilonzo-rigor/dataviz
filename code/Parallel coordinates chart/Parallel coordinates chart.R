@@ -1,25 +1,29 @@
 setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Parallel coordinates chart")
-
 #load  libraries
 library(GGally)
 library(dplyr)
 
-# Example dataset
+#sample data set
 df <- iris %>%
   mutate(Species = as.factor(Species))
 
-# Parallel coordinates plot
-ggparcoord(
+#creating parallel coordinates plot
+pc<- ggparcoord(
   data = df,
-  columns = 1:4,          # numeric columns
-  groupColumn = 5,        # grouping variable
-  scale = "uniminmax",    # scales each variable 0–1
-  alphaLines = 0.6
+  columns = 1:4, #numeric columns
+  groupColumn = 5, #grouping variable
+  scale = "uniminmax", #scales each variable to the 0–1 range
+  alphaLines = 0.6 #controls line transparency
 ) +
   scale_color_brewer(palette = "Dark2") +
-  theme_minimal() +
   labs(
     title = "Parallel Coordinates Plot (Iris Dataset)",
     x = "Features",
-    y = "Scaled Values"
+    y = "Scaled Values",
+    caption = "Viz By: Bernard Kilonzo"
+  )+
+  theme(
+    panel.background = element_blank(),
+    plot.title = element_text(family = "serif", face = "bold", size = 15),
+    plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray50")
   )
