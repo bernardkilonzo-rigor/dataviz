@@ -2,6 +2,7 @@ setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Parallel 
 #load  libraries
 library(GGally)
 library(dplyr)
+library(plotly)
 
 #sample data set
 df <- iris %>%
@@ -25,5 +26,27 @@ pc<- ggparcoord(
   theme(
     panel.background = element_blank(),
     plot.title = element_text(family = "serif", face = "bold", size = 15),
-    plot.caption = element_text(family = "serif", face = "italic", size = 9, color = "gray50")
+    plot.caption = element_text(family = "serif", face = "italic", size = 11, color = "gray40")
   )
+
+#saving the plot
+ggsave(plot = pc, filename = "Parallel_coordinates_plot.png", width = 8,
+       height = 6, units = "in", dpi = 300)
+
+#creating parallel coordinates plot with Plotly library
+group_vals <- as.numeric(as.factor(df[[5]]))
+
+plot_ly(
+  type = 'parcoords',
+  line = list(
+    color = group_vals,
+    colorscale = 'Viridis',   # or 'Jet', 'Portland', etc.
+    showscale = TRUE
+  ),
+  dimensions = list(
+    list(label = names(df)[1], values = df[[1]]),
+    list(label = names(df)[2], values = df[[2]]),
+    list(label = names(df)[3], values = df[[3]]),
+    list(label = names(df)[4], values = df[[4]])
+  )
+)
