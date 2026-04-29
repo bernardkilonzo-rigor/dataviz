@@ -1,3 +1,4 @@
+setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Error bars")
 #load libraries
 library(tidyverse)
 
@@ -13,11 +14,14 @@ computed_data<-superstore%>%
 errbar<-computed_data%>%ggplot(aes(y = Sub.Category, x = mean))+
   geom_bar(stat = "identity", fill = "gray70")+
   geom_errorbar(aes(xmin = mean-se, xmax = mean+se))+
-  labs(title = "Error Bars Plot", x = "Mean", y = "Sub Category")+
+  labs(title = "Error Bars Plot", x = "Mean", y = "Sub Category",
+       caption = "Viz By: Bernard Kilonzo")+
   theme(
     panel.background = element_blank(),
     axis.ticks = element_line(color = "gray50", linewidth =0.1),
-    axis.line = element_line(color = "gray50", linewidth =0.1)
+    axis.line = element_line(color = "gray50", linewidth =0.1),
+    plot.title = element_text(family = "serif", face = "bold"),
+    plot.caption = element_text(family = "serif", face = "italic", color = "gray40")
   )
 
 #saving the plot
@@ -29,11 +33,14 @@ err_lne<-computed_data%>%ggplot(aes(x = Sub.Category, y = mean, group =1))+
   geom_line(color = "gray45", linewidth =0.9)+
   geom_point(size =3, color = "gray45")+
   geom_errorbar(aes(ymin = mean-se, ymax = mean+se), color = "tomato")+
-  labs(title = "Error Bars in a Line Plot",x ="Sub Category", y = "Mean")+
+  labs(title = "Error Bars in a Line Plot",x ="Sub Category", y = "Mean",
+       caption = "Viz By: Bernard Kilonzo")+
   theme(panel.background = element_blank(),
         axis.line = element_line(color = "gray45", linewidth = 0.1),
         axis.ticks = element_line(color = "gray45", linewidth = 0.1),
-        axis.text.x = element_text(angle = 45, hjust = 1))
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(family = "serif", face = "bold"),
+        plot.caption = element_text(family = "serif", face = "italic", color = "gray40"))
 
 #saving the plot
 ggsave(plot = err_lne, filename = "Error_Bars_Line_plot.png",
