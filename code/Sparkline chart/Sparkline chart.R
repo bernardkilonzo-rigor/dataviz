@@ -27,8 +27,9 @@ sp<- sparkline(sales_sum$sales,
 saveWidget(sp, "sparkline.html", selfcontained = TRUE)
 
 #2. create a sparkline chart using ggplot2
-
-
-
+sales_sum%>%ggplot(aes(x = my, y = sales))+
+  geom_line(color = "#2C7BE5", linewidth =0.7)+
+  geom_point(size = 1.5, color = "darkblue")+
+  theme_void()
 
 #3. create a sparkline inside a table (DT + Sparkline)
