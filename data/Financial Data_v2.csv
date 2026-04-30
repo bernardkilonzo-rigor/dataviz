@@ -1,4 +1,4 @@
-Indicator Name,Income,Cost of Goods Sold,Gross Profit ,Total Operating Expenses  ,Operating Profit (EBIT),Taxes    ,Net Profit   ,Net Profit Margin %,Expenses
+Date,Income,Cost of Goods Sold,Gross Profit ,Total Operating Expenses  ,Operating Profit (EBIT),Taxes    ,Net Profit   ,Net Profit Margin %,Expenses
 01/01/2024,450100,125000,325100,175100,150000,80000,70000,16.00%,300100
 01/02/2024,480000,125900,354100,180000,174100,100000,74100,15.00%,305900
 01/03/2024,430000,125500,304500,178500,126000,96200,29800,7.00%,304000
