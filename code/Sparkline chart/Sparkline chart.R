@@ -14,7 +14,7 @@ sales_sum <- superstore%>%mutate(Order.Date = dmy(Order.Date))%>%
   group_by(my)%>%
   summarise(sales = sum(Sales))
   
-#1. producing an inline sparkline that works inside Shiny, DT Tables, & HTML Reports
+#1. producing an inline Sparkline that works inside Shiny, DT Tables, & HTML Reports
 sp<- sparkline(sales_sum$sales,
           type = "line",
           lineColor = "#2C7BE5",
@@ -23,13 +23,17 @@ sp<- sparkline(sales_sum$sales,
           minSpotColor = "#5cb85c",
           maxSpotColor = "#f0ad4e")                
 
-#saving the chart
-saveWidget(sp, "sparkline.html", selfcontained = TRUE)
-
-#2. create a sparkline chart using ggplot2
+#2. create a Sparkline chart using ggplot2
+#line plot
 sales_sum%>%ggplot(aes(x = my, y = sales))+
-  geom_line(color = "#2C7BE5", linewidth =0.7)+
-  geom_point(size = 1.5, color = "darkblue")+
+  geom_line(color = "gray35", linewidth =0.7)+
+  geom_point(size = 1.0, color = "gray20")+
+  theme_void()
+
+#area plot
+sales_sum %>% ggplot(aes(x = my, y = sales))+
+  geom_line(color = "gray45", linewidth = 1.0)+
+  geom_area(fill = "gray90")+
   theme_void()
 
 #3. create a sparkline inside a table (DT + Sparkline)
