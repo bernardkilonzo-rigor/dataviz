@@ -1,7 +1,7 @@
 setwd("C:\\Users\\berna\\OneDrive\\Desktop\\Production\\dataviz\\code\\Sparkline chart")
 #load libraries
 library(tidyverse)
-library(sparkline) #an html widget for creating sparklines
+library(sparkline) #an html widget for creating spark lines
 library(zoo)
 library(htmlwidgets)
 
@@ -35,5 +35,3 @@ sales_sum %>% ggplot(aes(x = my, y = sales))+
   geom_line(color = "gray45", linewidth = 1.0)+
   geom_area(fill = "gray90")+
   theme_void()
-
-#3. create a sparkline inside a table (DT + Sparkline)
